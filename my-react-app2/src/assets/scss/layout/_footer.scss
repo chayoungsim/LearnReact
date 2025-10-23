@@ -1,0 +1,300 @@
+@use '../abstracts' as *;
+footer{
+    background:$background-gray;      
+}
+.foorer-top{
+    .static {
+        @include flex-sp;
+        padding-top:2.5rem;
+        padding-bottom:2.5rem;
+    }
+    .links {
+        display: flex;
+        align-items: center;  
+        font-weight: 500;
+        font-size: 1.6rem;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        li {
+            &:first-child {
+                color:$accent-color;
+            }
+            &:not(:last-child) {
+                position: relative;
+                padding-right: 1.5rem;
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    right: 0;
+                    width: 1px;
+                    height: 1.2rem;
+                    background: $border-color;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+    }
+    .sns {
+        @include flex-c;
+        gap:1.5rem;
+        .ico-youtube {
+            background-image: svg(youtube,"000000");
+            &:hover{
+                background-image: svg(youtube,"0072C6");
+            }
+        }
+        .ico-instagram {
+            background-image: svg(instagram, '000000');
+            &:hover{
+                background-image: svg(instagram,"0072C6");
+            }
+        }
+        .ico-linkedin {
+            background-image: svg(linkedin, '000000');
+            &:hover{
+                background-image: svg(linkedin,"0072C6");
+            }
+        }
+        .ico-facebook {
+            background-image: svg(facebook, '000000');
+            &:hover{
+                background-image: svg(facebook,"0072C6");
+            }
+        }
+        .newsroom {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-right: 1.5rem;
+        }
+    }
+
+    @include respond(mobile) {
+        .static {
+            flex-direction: column;
+            align-items: flex-start;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            padding-top: 3rem;
+            padding-bottom: 2.7rem;
+            gap: 1.6rem;
+        }
+        .links {
+            font-size: 1.5rem;
+            li {
+                &:first-child {
+                    width: 100%;
+                    &::after {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.footer-btm {
+    position: relative;
+    border-top: 1px solid $border-color;
+    .static {        
+        @include flex-sp;
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem;
+    }
+    &-info {
+        .info {
+                display: flex;
+                flex-wrap: wrap;
+                gap: clamp(1rem, 0.83vw, 1.5rem);
+                font-size: clamp(1.4rem, 0.78vw, 1.6rem);
+            span {
+                padding-right: clamp(1rem, 0.83vw, 1.5rem);
+                position: relative;
+                &:not(:last-child) {
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        top: 50%;
+                        right: 0;
+                        width: 1px;
+                        height: 1.2rem;
+                        background: $border-color;
+                        transform: translateY(-50%);
+                    }
+                }                
+            }
+        }
+        .copyright {
+            text-align: left;
+            font-size: clamp(1.3rem, 1.05vw, 1.6rem);
+            margin-top: 1rem;
+            line-height: 1.42;
+        }
+    }
+    &-link {
+        display: flex;        
+        gap: clamp(5rem, 4.34vw, 6.6rem);
+        align-items: center;
+        position: relative;
+        right: -12rem;
+        .ski-link {
+            display: block;
+            .logo-skinno {
+                .tx {
+                    display: block;
+                    text-align: right;
+                    font-size:1.2rem;
+                    color:#444;
+                    line-height: 3;
+                }
+            }
+        }
+        .family-site {
+            position: relative;
+            width: 19rem;
+            height: 6rem;
+            border-bottom: 2px solid $black;
+            .btnFamily {
+                width: 100%;
+                height: 100%;
+                background: none;
+                border: none;
+                padding: 0;
+                @include flex-sp;
+                font-size: clamp(1.6rem, 1.18vw, 1.8rem);
+                .ico-plus {
+                    position: relative;
+                    width: 1.4rem;
+                    height: 1.4rem;
+                    transform-origin: center;                    
+                    &::before,
+                    &::after {
+                        content: '';
+                        display: block;
+                        width: 1.4rem;
+                        height: 0.2rem;
+                        transition: all 0.3s ease;
+                        background: $black;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);                       
+                    }
+                   &::after {
+                        transform: translate(-50%, -50%) rotate(90deg);
+                   } 
+                }
+            }
+            &-list {
+                display: none;
+                position: absolute;
+                bottom: 6rem;
+                left: 0;
+                background: $white;
+                border: 1px solid $border-color;
+                border-radius: $border-radius-md;
+                padding:1.5rem 1.5rem;
+                > li {
+                    padding: 0.35rem 0;
+                    a {
+                        font-size: 1.6rem;
+                    }
+                }
+            }
+            &.open {
+                .family-site-list {
+                    display: block;
+                }
+                .btnFamily {
+                    .ico-plus {
+                        background-image: none;
+                        &::after {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .to-top {    
+        .btn-top {
+            &.active {
+                display: block;
+                position: fixed;
+                right: 7rem;
+                bottom: 2rem;
+                z-index: 10;
+            }
+        }
+    }
+    @include respond(pc) {
+        &-link {
+            right: 0;
+        }
+        .family-site {
+            width: 19rem;
+            height: 4rem;
+            &-list {
+                bottom: 4rem;
+            }
+        }
+
+        .to-top {
+            .btn-top {
+                &.active {
+                    right: 2rem;
+                }
+            }
+        }
+    }
+    @include respond(mobile) {
+        .static {
+            flex-direction: column;
+            padding-top: 3rem;
+            padding-bottom: 3.4rem;
+        }        
+        &-info {
+            order: 2;
+            margin-top: 2.5rem;
+            width: 100%;
+            .info {
+                flex-wrap: wrap;
+                line-height: 1.2;
+                address {
+                    width: 100%;
+                }
+            }
+            .copyright {
+                margin-top: 1.5rem;
+            }
+        }
+        &-link {
+            order: 1;            
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+            .family-site {
+                order: 1;
+            }
+            .ski-link {
+                order: 3;
+                .logo-skinno {
+                    .svg-inno {
+                        width: 11rem;
+                        height: 3.8rem;
+                    }
+                    .tx {
+                        font-size: 1rem;
+                    }
+                }                
+            }
+            .to-top {
+                order: 2;
+                position: absolute;
+                top: 2rem;
+                right: 0;
+            }
+        }
+    }
+}
+
