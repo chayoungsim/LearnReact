@@ -1,16 +1,23 @@
-# React + Vite
+# 1단계 실습  Todo 리스트 (기본편) 
+- 할 일 추가
+- 할 일 목록 보기
+- 완료 체크
+- 삭제 기능
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## filter()
+조건을 만족하는 요소만 남겨 새로운 배열을 반환하는 배열 메서드입니다.
 
-Currently, two official plugins are available:
+# 1단계 실습  Todo 리스트 (CRUD) 
+- 할 일 추가
+- 할 일 목록 보기
+- 완료 체크
+- 수정 기능
+- 삭제 기능
+- 저장 기능 ( localStorage )
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## localStorage
+- JSON.stringify(todos)는 JavaScript 객체나 배열을 문자열(JSON 형태)로 변환하는 함수
+- JSON.parse(storedTodos)는 JSON 문자열을 JavaScript 객체(또는 배열)로 다시 변환하는 함수
+- 저장하기 localStorage.setItem("key", "value");
+- 불러오기 localStorage.getItem("key")
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
