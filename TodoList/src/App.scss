@@ -12,7 +12,7 @@
    h1 {
     text-align: center;
     margin:0;
-    padding: 4vw 2vw;
+    padding: 2rem 2vw;
     color:#ffca1a;
     svg{
         width:2.4rem;
@@ -27,7 +27,7 @@
     list-style-type: none;
     li {
         border-top:1px solid #fff099;
-        padding:3vw;
+        padding:1rem 3vw;
     }
     input[type="checkbox"] {
         width:1.2rem;
@@ -79,7 +79,7 @@
     align-items: center;
     border-bottom: 2px solid #ffca1a;
     padding-bottom: 0.5rem;
-    margin:0 3vw 4vw;
+    margin:0 3vw 2rem;
     gap:1rem;
     > div{
         flex: 1;
@@ -120,7 +120,7 @@
    display: flex;
    justify-content: center;
    align-items: center;
-   padding-bottom:3vw;
+   padding-bottom:2rem;
    gap:1rem;
    button {
     font-size: 0.725rem;
