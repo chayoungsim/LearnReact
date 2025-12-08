@@ -58,7 +58,7 @@
 + 실습: 카운터 만들기
 + 실습: 입력 폼 만들기
 
-#### 1단계 실습 - Todo List (기본)
+#### 1단계 실습 - Todo List (기본) - [text](https://github.com/chayoungsim/LearnReact/tree/master/TodoList)
 - 할 일 추가
 - 목록 렌더링
 - 완료 체크
