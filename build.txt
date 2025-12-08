@@ -1,0 +1,35 @@
+build
+
+
+1. 로컬
+npm install --save-dev gh-pages
+
+
+2.
+package.json 수정
+
+{
+  "homepage": "https://chayoungsim.github.io/LearnReact/TodoList",
+  "scripts": {
+    "predeploy": "npm run build",   // build 명령어가 존재하면 이 줄 유지
+    "deploy": "gh-pages -d dist"    // 빌드 결과가 dist일 경우, build라면 -d build
+  }
+}
+
+3.
+npm run deploy
+
+
+
+
+https://chayoungsim.github.io/TodoList/
+
+
+
+로컬에서 필드된 내용 확인
+# 전역 또는 dev 의존성으로 serve 설치
+npm install -g serve
+
+# dist 또는 build 폴더를 정적 서버로 제공
+serve -s dist -l 5000
+# 브라우저에서 http://localhost:5000 열기
