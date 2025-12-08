@@ -188,10 +188,10 @@ npm create vite@latest my-app -- --template react
 npm run dev
 
 #### 필수 패키지 추가
-라우터 설치 : $ npm install react-router-dom  
-SCSS : $ npm install -D sass-embedded
-API : $ npm install axios
-Bootstrap : $ npm install react-bootstrap bootstrap
+- 라우터 설치 : $ npm install react-router-dom  
+- SCSS : $ npm install -D sass-embedded
+- API : $ npm install axios
+- Bootstrap : $ npm install react-bootstrap bootstrap
 
 #### 빌드 명령어
 npm run build

@@ -18,6 +18,7 @@
 ## localStorage
 - JSON.stringify(todos)는 JavaScript 객체나 배열을 문자열(JSON 형태)로 변환하는 함수
 - JSON.parse(storedTodos)는 JSON 문자열을 JavaScript 객체(또는 배열)로 다시 변환하는 함수
-- 저장하기 localStorage.setItem("key", "value");
 - 불러오기 localStorage.getItem("key")
+- 저장하기 localStorage.setItem("key", "value");
+
 

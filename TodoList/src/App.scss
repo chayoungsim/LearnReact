@@ -1,0 +1,132 @@
+#root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4vw;
+}
+.todo-wrap{
+    width: 100%;
+    max-width:25rem;
+    background: #ffffcc;
+   border:1px solid #fff099;
+   h1 {
+    text-align: center;
+    margin:0;
+    padding: 4vw 2vw;
+    color:#ffca1a;
+    svg{
+        width:2.4rem;
+        height: 2.4rem;
+        background-size: contain;
+    }
+   }
+}
+.todo-lists {
+    margin:0;
+    padding:0;
+    list-style-type: none;
+    li {
+        border-top:1px solid #fff099;
+        padding:3vw;
+    }
+    input[type="checkbox"] {
+        width:1.2rem;
+        height: 1.2rem;
+        margin-right: 1rem;
+        accent-color: #ffca1a;
+    }
+    .todo {
+        display: flex;        
+        align-items: center;
+
+        .is {
+            width: calc(100% - 2rem);
+            display:flex;
+            input {
+                width: 80%;
+                height: 2.2rem;
+            }
+        }
+    }
+    .todo-btns {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap:0.5rem;
+        button {
+            border:0;
+            background: transparent;
+        }
+    }
+    .completed {
+        .tit {           
+            text-decoration: line-through;   
+            color:#ffca1a; 
+        }
+        .todo-btns {
+            button {
+                svg {
+                    color:#ffca1a
+                }
+            }
+        }
+    }
+}
+
+.todo-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #ffca1a;
+    padding-bottom: 0.5rem;
+    margin:0 3vw 4vw;
+    gap:1rem;
+    > div{
+        flex: 1;
+        display: flex;
+        align-items: center;
+    }
+    h2{
+        font-size: 0.875rem;
+        margin:0;
+        font-weight: 700;
+        color:#ffca1a;
+        
+    }
+    input {
+        border:0;
+        height:2.2rem;
+        background: transparent;
+        width:calc(100% - 2.2rem);
+        outline: none;
+    
+    }
+    .btn-add{
+        width: 2.2rem;
+        height: 2.2rem;
+        border-radius: 50%;
+        border:0;
+        background: transparent;
+        svg {
+            width:2rem;
+            height:2rem;
+            background-size: contain;
+            color:#ffca1a;
+        }
+    }
+}
+
+.total {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding-bottom:3vw;
+   gap:1rem;
+   button {
+    font-size: 0.725rem;
+    border: 1px solid #ffca1a;
+    background: #ffca1a;
+    padding:0.25rem 0.5rem;
+    border-radius: 0.1rem;
+   }
+}

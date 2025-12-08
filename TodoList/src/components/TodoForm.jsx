@@ -1,4 +1,8 @@
 import React, { useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
+
+
 
 const TodoForm = ({onAddTodo}) => {
   const [input, setInput] = useState('');
@@ -17,11 +21,10 @@ const TodoForm = ({onAddTodo}) => {
     }
 
   return (
-    <div>
-        <h2>Add Todo</h2>
+    <div className='todo-form'>        
         <div>
-            <input type="text" value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={handleKeyDown}/>
-            <button type="button" onClick={clickAdd}>Add</button>
+            <input type="text" value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={handleKeyDown} placeholder='일정을 입력하세요' />
+            <button type="button" onClick={clickAdd} className='btn-add'><FontAwesomeIcon icon={faPenToSquare} /></button>
         </div>
     </div>
   )
