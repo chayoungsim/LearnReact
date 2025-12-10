@@ -1,5 +1,5 @@
 # TodoList
-* demo : [https://chayoungsim.github.io/LearnReact/TodoList/](https://chayoungsim.github.io/LearnReact/TodoList/){:target="_blank"}
+* demo : <a href="https://chayoungsim.github.io/LearnReact/TodoList/" target="_blank">https://chayoungsim.github.io/LearnReact/TodoList/</a>
 
 
 ## 1단계 실습  Todo 리스트 (기본편) 
