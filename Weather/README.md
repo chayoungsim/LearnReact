@@ -1,5 +1,5 @@
 # Weather App
-* Demo : [https://chayoungsim.github.io/LearnReact/Weather/]
+* Demo : [https://chayoungsim.github.io/LearnReact/Weather/](https://chayoungsim.github.io/LearnReact/Weather/){:target="_blank"}
 
 ## 2단계 실습  날씨앱
 - 앱이실행되자마자 현재 위치의 날씨 정보가 보인다
