@@ -37,7 +37,21 @@
 #### axios는 Promise 기반 HTTP 클라이언트입니다.
     즉, fetch()처럼 API 서버와 통신(데이터 요청·전송)을 도와주는 라이브러리입니다. fetch()보다 편리하고 가독성이 좋아서 React 프로젝트에서 거의 표준처럼 사용됩니다.
 
+### async/await방식
+```javascript
+useEffect(() => {
+  async function fetchData() {
+    try {
+      const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
+      setPosts(res.data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
+  fetchData();
+}, []);
+```
 
 
 
