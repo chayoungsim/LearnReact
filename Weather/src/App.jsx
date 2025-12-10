@@ -5,9 +5,11 @@ import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ButtonBox from './components/ButtonBox'
 import WeatherBox from './components/WeatherBox'
+import { BeatLoader } from "react-spinners";
 
 function App() {
-
+  let [loading, setLoading] = useState(true)
+  const [apiError, setAPIError] = useState("");
   const [weather, setWeather] = useState(null)
   const [city, setCity] = useState(null)
 
@@ -27,8 +29,10 @@ function App() {
     try{
       const res = await axios.get(url);
       setWeather(res.data)
+      setLoading(false);
     } catch(error) {
       console.error("데이터 로드 실패",error)
+      setLoading(false)
     }
   }
 
@@ -37,13 +41,15 @@ function App() {
     try {
       const res = await axios.get(url);
       setWeather(res.data);
+      setLoading(false)
     } catch(error) {
       console.error("데이터 로드 실패", error)
+      setLoading(false)
     }
   }
 
   const handleCityChange = (city) => {
-    if(city === "current"){
+    if(city === "current"){      
       setCity(null)
     } else {
       setCity(city)
@@ -52,8 +58,10 @@ function App() {
 
   useEffect(() => {
     if(city == null) {
+      setLoading(true)
       getCurrentPosition()
     } else {
+      setLoading(true)
       getWeatherByCity()
     }
 
@@ -63,8 +71,15 @@ function App() {
   return (
     <>
       <div className='weather-wrap'>
-          <WeatherBox weather={weather} />
-          <ButtonBox citis={citis} handleCityChange={handleCityChange} selectedCity={city} />
+        {loading ? (
+          <BeatLoader color="#5bb8ec" size={100} loading={loading} />
+        ) : !apiError ? (
+          <div>
+            <WeatherBox weather={weather} />
+            <ButtonBox citis={citis} handleCityChange={handleCityChange} selectedCity={city} />   
+          </div>
+        ) :(apiError) }
+          
       </div> 
     </>
   )
