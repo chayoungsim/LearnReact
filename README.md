@@ -91,7 +91,7 @@
 + 에러 처리
 + 빈 상태 처리
 
-#### 2단계 실전 — 날씨 앱
+#### 2단계 실전 — 날씨 앱 - [Weather 실습](https://github.com/chayoungsim/LearnReact/tree/master/Weather)
 - OpenWeather API 연동
 - 검색 기능
 - 로딩/에러 상태
@@ -115,6 +115,13 @@
 + POST(생성)
 + PUT/PATCH(수정)
 + DELETE(삭제)
+
+#### 3단계 실전 — News 사이트 - [News 실습](https://chayoungsim.github.io/LearnReact/News)
++ newsapi에서 제공하는 API를 사용
++ 최신뉴스를 불러온다
++ 카테고리 메뉴가 있다
++ 클릭시 해당 카테고리 뉴스만 보인다
+
 
 #### 3단계 실전 — 블로그 앱
 + 게시글 목록 페이지
