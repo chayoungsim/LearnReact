@@ -5,7 +5,7 @@ import NewsList from './pages/NewsList'
 import NewsDetail from './pages/NewsDetail'
 import axios from 'axios'
 
-const API_KEY = 'fce74ca2dc98f01cf5f0a5ce7f91c3f5';
+const API_KEY = 'QWP9opZXfHIYNzdJbIwbAbFyXMcjVNy9yEydMK4M';
 
 
 
@@ -14,16 +14,12 @@ const categories = [
   { id: 'general', label: '일반', icon: '📰' },
   { id: 'business', label: '비즈니스', icon: '💼' },
   { id: 'entertainment', label: '엔터테인먼트', icon: '🎬' },
-  { id: 'health', label: '건강', icon: '🏥' },
-  { id: 'science', label: '과학', icon: '🔬' },
-  { id: 'sports', label: '스포츠', icon: '⚽' },
-  { id: 'technology', label: '기술', icon: '💻' }
+  { id: 'sports', label: '스포츠', icon: '⚽' }, 
 ];
 
  
 function App() {
-  const [category, setCategory] = useState('general');
-
+  //const [category, setCategory] = useState('general');
   const [news, setNews] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('general');
   const [currentPage, setCurrentPage] = useState('list'); // 'list' or 'detail'
@@ -37,28 +33,24 @@ function App() {
     }, [selectedCategory]);
 
     const fetchNews = async(category) => {
-      const url = `https://gnews.io/api/v4/top-headlines`;
-      const params = {
-        category,
-        lang: 'en',
-        country: 'us',
-        max: 10,
-        apikey: API_KEY,
+      const url = `https://api.thenewsapi.com/v1/news/top`;
+      const params = {      
+        api_token: API_KEY,
+        categories: category,
+        locale: 'us',
+        limit: 20,       
       };
       setLoading(true);
       setError(null);
       try {
         const res =  await axios.get(url, { params });
-        setNews(res.data.articles)
+        setNews(res.data.data)
       } catch(err) {
         console.error("뉴스를 불러오는데 실패했습니다.", err)
       }      
+      setLoading(false);
     }
     
-    // useEffect(() => {
-    //   fetchNews()
-    // },[])
-
     const handleNewsClick = (article) => {
       setSelectedArticle(article);
       setCurrentPage('detail');
@@ -92,6 +84,7 @@ function App() {
           </button>
         ))}
       </nav>
+      {loading && <p>로딩중 ...</p>}
       <NewsList news={news} onNewsClick={handleNewsClick} />
     </>
   )
