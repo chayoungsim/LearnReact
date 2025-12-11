@@ -5,8 +5,8 @@ import NewsList from './pages/NewsList'
 import NewsDetail from './pages/NewsDetail'
 import axios from 'axios'
 
-const API_KEY = 'fce74ca2dc98f01cf5f0a5ce7f91c3f5';
-
+const NEWS_API_KEY = 'aa433b2c32ce4207ae1b4d4c4fd2c1cb';
+const API_BASE = 'https://newsapi.org/v2';
 
 
 
@@ -37,18 +37,11 @@ function App() {
     }, [selectedCategory]);
 
     const fetchNews = async(category) => {
-      const url = `https://gnews.io/api/v4/top-headlines`;
-      const params = {
-        category,
-        lang: 'en',
-        country: 'us',
-        max: 10,
-        apikey: API_KEY,
-      };
+      const url = `${API_BASE}/top-headlines?country=us&category=${category}&apiKey=${NEWS_API_KEY}`
       setLoading(true);
       setError(null);
       try {
-        const res =  await axios.get(url, { params });
+        const res = await axios.get(url)
         setNews(res.data.articles)
       } catch(err) {
         console.error("뉴스를 불러오는데 실패했습니다.", err)

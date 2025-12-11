@@ -1,10 +1,10 @@
 import React from 'react'
 
 const NewsItem = ({article, onClick}) => {
-  const { title, description, image, url, source, publishedAt } = article;
+  const { title, description, urlToImage, url, source, publishedAt } = article;
   return (
-    <article className='new-item'>
-      <div className='photo' onClick={onClick}>{image && <img src={image} alt={title} />}</div>
+    <article className='new-item' onClick={onClick}>
+      <div className='photo'>{urlToImage && <img src={urlToImage} alt={title} />}</div>
       <div className='desc'>
         <h3>{title}</h3>
         <p>{description}</p>
