@@ -59,3 +59,4 @@ const category = searchParams.get('category'); // 'electronics'
 
 ## 배포하기
 * my-json 사이트🏹 : https://my-json-server.typicode.com/
+* https://www.netlify.com/  
