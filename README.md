@@ -29,7 +29,6 @@
 + 병합 패턴
 
 
-
 ## 1단계: React 기초
 ### 1.1 React 기본 개념
 + React가 해결하려는 문제 이해
@@ -91,11 +90,12 @@
 + 에러 처리
 + 빈 상태 처리
 
-#### 2단계 실전 — 날씨 앱 - [Weather 실습](https://github.com/chayoungsim/LearnReact/tree/master/Weather)
+#### 2단계 실전 — 날씨 앱 
 - OpenWeather API 연동
 - 검색 기능
 - 로딩/에러 상태
 - 날씨 아이콘 표시
+* [Weather 실습1](https://github.com/chayoungsim/LearnReact/tree/master/Weather)
 
 ## 3단계: React Router & API
 ### 3.1 React Router v6
@@ -103,12 +103,15 @@
 + Link / useNavigate
 + 동적 라우팅 (useParams)
 + 실습: 기본 라우팅 구성
+* [라우팅 실습1](http://10.10.10.15:34410/myapp)
 
 ### 3.2 API 연동 기초
 + fetch vs axios
 + async/await
 + API 데이터 상태 관리
 + 실습: 데이터 가져오기
+* [쇼핑몰 실습1](https://sim-react-shop-log.netlify.app/)
+* [쇼핑몰 실습2](https://sim-react-shop.netlify.app/)
 
 ### 3.3 CRUD
 + GET(읽기)
@@ -128,6 +131,9 @@
 + 게시글 상세 페이지
 + 작성/수정/삭제
 + 페이지 이동 (React Router)
+
+
+
 
 ## 4단계: 상태관리 & 고급 패턴
 ### 4.1Context API
@@ -155,9 +161,6 @@
 + 검색/필터
 + 로그인 상태 관리
 + 반응형 UI
- - [쇼핑몰 실습1](https://sim-react-shop-log.netlify.app/)
- - [쇼핑몰 실습2](https://sim-react-shop.netlify.app/)
-
 + 장바구니 (Context)
 
 
