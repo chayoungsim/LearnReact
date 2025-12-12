@@ -54,8 +54,7 @@
 + 상태 변화 → UI 업데이트
 + onClick / onChange / onSubmit
 + 이벤트 객체 다루기
-+ 실습: 카운터 만들기
-+ 실습: 입력 폼 만들기
+* [실습 카운더 만들기](https://chayoungsim.github.io/LearnReact/counter/)
 
 #### 1단계 실습 - Todo List (기본)
 - 할 일 추가
