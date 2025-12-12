@@ -57,11 +57,12 @@
 + 실습: 카운터 만들기
 + 실습: 입력 폼 만들기
 
-#### 1단계 실습 - Todo List (기본) - [TodoList 기본, CRUD 실습](https://github.com/chayoungsim/LearnReact/tree/master/TodoList)
+#### 1단계 실습 - Todo List (기본)
 - 할 일 추가
 - 목록 렌더링
 - 완료 체크
 - 삭제 기능
+* [TodoList 기본, CRUD 실습](https://github.com/chayoungsim/LearnReact/tree/master/TodoList)
 
 ## 2단계: React 심화
 ### 2.1 useEffect
@@ -97,6 +98,7 @@
 - 날씨 아이콘 표시
 * [Weather 실습1](https://github.com/chayoungsim/LearnReact/tree/master/Weather)
 
+
 ## 3단계: React Router & API
 ### 3.1 React Router v6
 + Routes / Route
@@ -119,19 +121,19 @@
 + PUT/PATCH(수정)
 + DELETE(삭제)
 
-#### 3단계 실전 — News 사이트 - [News 실습1](https://chayoungsim.github.io/LearnReact/News)
+#### 3단계 실전 — News 사이트 
 + newsapi에서 제공하는 API를 사용
 + 최신뉴스를 불러온다
 + 카테고리 메뉴가 있다
 + 클릭시 해당 카테고리 뉴스만 보인다
+* [News 실습1](https://chayoungsim.github.io/LearnReact/News)
 
-
-#### 3단계 실전 — 블로그 앱 - [블로그 실습1](http://10.10.10.15:34410/myblog/)
+#### 3단계 실전 — 블로그 앱
 + 게시글 목록 페이지
 + 게시글 상세 페이지
 + 작성/수정/삭제
 + 페이지 이동 (React Router)
-
+* [블로그 실습1](http://10.10.10.15:34410/myblog/)
 
 
 
