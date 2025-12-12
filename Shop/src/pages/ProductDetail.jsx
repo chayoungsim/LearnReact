@@ -15,7 +15,7 @@ const ProductDetail = () => {
     setLoading(true);
     setError(null)
     try{
-      const URL = `http://localhost:4000/products/${id}`
+      const URL = `https://my-json-server.typicode.com/chayoungsim/react-shop/products/${id}`
       const res = await axios.get(URL)
       setProduct(res.data)
     } catch(err) {

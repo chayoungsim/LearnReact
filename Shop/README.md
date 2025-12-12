@@ -6,6 +6,9 @@
 - 유저는 상품을 검색할 수 있다.
 - 유저는 로그아웃할 수 있다.
 
+### Demo : [https://sim-react-shop-log.netlify.app/] : https://sim-react-shop-log.netlify.app/
+### Demo : [https://sim-react-shop.netlify.app/] : https://sim-react-shop.netlify.app/
+
 ## 전체 상품 불러오기  json-server 설치  (로컬에서 서버사용)
 - https://www.npmjs.com/package/json-server
 - 0. local root에 db.json 파일을 업데이트
@@ -13,8 +16,8 @@
 - 2. 실행 json-server --watch db.json --port 4000
 
 ### Endpoints:
-http://localhost:4000/products
-http://localhost:4000/categories
+[http://localhost:4000/products] : http://localhost:4000/products
+[http://localhost:4000/categories] : http://localhost:4000/categories
 
 
 ## 설치

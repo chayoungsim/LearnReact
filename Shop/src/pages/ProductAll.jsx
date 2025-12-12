@@ -29,7 +29,7 @@ const ProductAll = () => {
       if (category) params.append("category", category);
    
 
-      let URL = `http://localhost:4000/products?${params.toString()}`
+      let URL = `https://my-json-server.typicode.com/chayoungsim/react-shop/products?${params.toString()}`
       console.log("📡 API 요청:", URL); // 디버깅용
 
       let res = await axios.get(URL)
