@@ -7,9 +7,6 @@ import axios from 'axios'
 
 const API_KEY = 'QWP9opZXfHIYNzdJbIwbAbFyXMcjVNy9yEydMK4M';
 
-
-
-
 const categories = [
   { id: 'general', label: '일반', icon: '📰' },
   { id: 'business', label: '비즈니스', icon: '💼' },

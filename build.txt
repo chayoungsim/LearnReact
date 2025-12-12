@@ -1,33 +1,5 @@
 build
 
-방법1 :
-1. vite.config.js
-export default defineConfig({
-  plugins: [react()],
-  base: '/LearnReact/TodoList/',    // 반드시 레포 경로와 일치
-  build: {
-    outDir: 'docs/TodoList'         // 빌드 결과를 레포의 docs/TodoList로 생성
-  }
-})
-
-2. package.json
-"homepage": "https://chayoungsim.github.io/LearnReact/TodoList"
-
-3. 빌드 커밋 푸시
-# 1) 의존 설치 (필요하면)
-npm install
-
-# 2) 빌드
-npm run build
-
-# 3) 결과( docs/TodoList )를 깃에 추가 & 푸시
-git add docs/TodoList
-git commit -m "chore: add TodoList build to docs/TodoList for GitHub Pages"
-git push origin main
-
-
-
-방법2 :
 
 1. 로컬
 npm install --save-dev gh-pages
@@ -50,7 +22,6 @@ npm run deploy
 
 
 https://chayoungsim.github.io/TodoList/
-
 https://chayoungsim.github.io/LearnReact/TodoList
 
 
@@ -61,3 +32,5 @@ npm install -g serve
 # dist 또는 build 폴더를 정적 서버로 제공
 serve -s dist -l 5000
 # 브라우저에서 http://localhost:5000 열기
+
+

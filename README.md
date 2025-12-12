@@ -116,7 +116,7 @@
 + PUT/PATCH(수정)
 + DELETE(삭제)
 
-#### 3단계 실전 — News 사이트 - [News 실습](https://chayoungsim.github.io/LearnReact/News)
+#### 3단계 실전 — News 사이트 - [News 실습1](https://chayoungsim.github.io/LearnReact/News)
 + newsapi에서 제공하는 API를 사용
 + 최신뉴스를 불러온다
 + 카테고리 메뉴가 있다

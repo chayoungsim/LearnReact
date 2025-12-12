@@ -7,8 +7,16 @@
 + 뉴스 카드를 클릭하면 상세 페이지에서 전체 내용을 확인할 수 있습니다
 
 
+## API 사용
+
 ### axios론 뉴스 api 호출 ( 로컬 학습용으로만 사용 가능 )
 https://newsapi.org/ - 회원 가입 후  API키를 이용하여 데이터에 접근
+
+
+### 웹에서 사용가능체크 (CORS enabled 체크)
+### https://www.thenewsapi.com/ (CORS enabled)
+- https://api.thenewsapi.com/v1/news/top?api_token=api_token
+- https://www.thenewsapi.com/documentation
 
 ### 설치
 - npm install react-router-dom
@@ -17,7 +25,3 @@ https://newsapi.org/ - 회원 가입 후  API키를 이용하여 데이터에 �
 ### more
 - api를 별도 파일로 관리한다
 - router 형식으로 해본다
-
-
-
-

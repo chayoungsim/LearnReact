@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { fetchNewsByCategory } from "../api/newsApi";
+import { getTopNewsByCategory } from "../api/newsApi";
 import NewsItem from './NewsItem'
 
 
@@ -8,7 +8,7 @@ const NewsList = ({category}) => {
   
   useEffect(() => {
     const loadNews = async () => {
-      const data = await fetchNewsByCategory(category);
+      const data = await getTopNewsByCategory(category);
       setArticles(data);
     };
     loadNews();
