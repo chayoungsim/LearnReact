@@ -110,6 +110,7 @@
 + fetch vs axios
 + async/await
 + API 데이터 상태 관리
++ zustand 패턴
 + 실습: 데이터 가져오기
 * [쇼핑몰 실습1](https://sim-react-shop-log.netlify.app/)
 * [쇼핑몰 실습2](https://sim-react-shop.netlify.app/)
@@ -119,6 +120,13 @@
 + POST(생성)
 + PUT/PATCH(수정)
 + DELETE(삭제)
+
+### 3.4 React Query
++ Redux
++ useQuery
++ hooks 이용한 외부파일로 관리
+* [실습] (https://github.com/chayoungsim/LearnReact/tree/master/ReactQuery)
+
 
 #### 3단계 실전 — News 사이트 
 + newsapi에서 제공하는 API를 사용

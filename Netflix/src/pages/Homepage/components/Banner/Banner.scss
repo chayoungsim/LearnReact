@@ -1,0 +1,36 @@
+.banner{
+    height: 70vh;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    position: relative;
+
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom:0;
+        left:0;
+        width: 100%;
+        height: 56vh;
+        background-image: linear-gradient(to top, black, transparent);
+    }
+    .text {
+        color:#fff;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-end;
+        padding: 6vw 4vw;
+        text-align: left;
+        position: relative;
+        width: 100%;
+        max-width: 70%;
+        h1 {
+            font-weight: 700;
+        }
+    }
+
+}

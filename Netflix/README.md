@@ -12,6 +12,8 @@
 - 유저는 영화 날짜별로 필터링 할 수 있다.
 
 ## API
+* https://developer.themoviedb.org/reference/intro/getting-started
+* https://developer.themoviedb.org/reference/getting-started
 * TMDB : https://www.themoviedb.org/?language=ko
 
 ### 설치
@@ -22,8 +24,20 @@
   npm i @tanstack/react-query 
   npm i @tanstack/react-query-devtools
 
+#### Axios 
+- https://axios-http.com/kr/docs/instance
+
+
 ### 리엑트 쿼리
 - react-query : https://tanstack.com/query/latest
 - 서버상태관리
 - 캐시관리
 
+### 영화 슬라이드 컴포넌트 
+- react-multi-carousel : https://www.npmjs.com/package/react-multi-carousel
+
+### react-paginate
+- https://www.npmjs.com/package/react-paginate
+
+
+## Suspense

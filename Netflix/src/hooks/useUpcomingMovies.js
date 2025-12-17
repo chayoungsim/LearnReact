@@ -1,0 +1,16 @@
+import { useQuery } from "@tanstack/react-query";
+import api from "../utils/api";
+
+const fetchUpcommingMovies = () => {
+    return api.get(`/movie/upcoming`)
+}
+
+export const useUpcommingMoviesQuery = () => {
+    return useQuery({
+        queryKey: ["movie-upcoming"],
+        queryFn: fetchUpcommingMovies,
+        select: (data) => {
+            return data.data
+        },
+    })
+}
