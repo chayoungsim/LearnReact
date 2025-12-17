@@ -126,7 +126,7 @@
 + useQuery
 + hooks 이용한 외부파일로 관리
 * [실습] (https://github.com/chayoungsim/LearnReact/tree/master/ReactQuery)
-
+* [Netflix] (https://github.com/chayoungsim/LearnReact/tree/master/Netflix)
 
 #### 3단계 실전 — News 사이트 
 + newsapi에서 제공하는 API를 사용
