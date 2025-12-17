@@ -13,7 +13,7 @@ const MovieSlider = ({title, movies=[], responsive}) => {
         <h3>{title}</h3>        
         <Carousel
             infinite={movies.length > 1}
-            centerMode={movies.length > 1}
+            //centerMode={movies.length > 1}
             showDots={true}
             dotListClass="custom-dot-list-style"
             itemClass="movie-slider"

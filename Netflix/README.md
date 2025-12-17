@@ -40,4 +40,20 @@
 - https://www.npmjs.com/package/react-paginate
 
 
+### API
+- Top Rated : https://developer.themoviedb.org/reference/movie-top-rated-list
+- Popular : https://developer.themoviedb.org/reference/movie-popular-list
+- Upcoming : https://developer.themoviedb.org/reference/movie-upcoming-list
+- Now Playing : https://developer.themoviedb.org/reference/movie-now-playing-list
+- Search : https://developer.themoviedb.org/reference/keyword-movies
+- 영화상세 : https://developer.themoviedb.org/reference/movie-details
+- 리뷰 : https://developers.themoviedb.org/3/movies/get-movie-reviews
+- 장르 : https://developer.themoviedb.org/reference/genre-movie-list
+- 추천영화 : https://developers.themoviedb.org/3/movies/get-movie-recommendations
+- 관련영화 : https://api.themoviedb.org/3/movie/{movie_id}/similar
+
+
+### sort
+- https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+
 ## Suspense

@@ -1,0 +1,61 @@
+.movie-detail {
+    padding-top:6vw;
+    
+    .photo {
+        text-align: center;
+        img {
+            height: 100%;
+        }
+    }
+    .desc {
+        color:#fff;
+        .hstack {
+            margin-top: 1rem;
+        }
+        h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-top: 2rem;
+        }
+        .info {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            p {
+                margin:0 ;
+                padding: 0;
+            }
+            margin-bottom: 2rem;
+        }
+        .adult {
+            img{
+                width:1.6rem;
+            }
+        }
+    }
+
+    .overview {
+        border-top:1px solid #fff;
+        border-bottom: 1px solid #fff;
+        padding: 2rem 0;
+    }
+    .elt {
+        margin-top: 2rem;
+        .badge {
+            width:6rem;
+        }
+        p{
+            display: flex;
+            align-items: center;
+            gap : 1rem;
+        }
+    }
+
+}
+
+.related {
+    h3 {
+        color:#fff;
+        margin:4rem 0 0;
+    }
+}

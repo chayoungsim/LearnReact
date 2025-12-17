@@ -11,6 +11,20 @@ html, body {
   width: 120px;
 }
 
-body {
-  
+.container {
+  padding-bottom: 10vw;
+}
+
+h2{
+  color:#fff;
+}
+
+.contents{
+  padding:2vw;
+}
+
+.paging{
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
 }
