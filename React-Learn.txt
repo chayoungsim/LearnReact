@@ -1,0 +1,208 @@
+1. 설치 
+npm create vite@latest my-react-app
+npm create vite@latest my-app -- --template react
+cd my-app
+
+
+npm create vite@latest react-practice -- --template react
+cd react-practice
+npm install
+npm run dev
+
+Dice Battle
+
+#npm run build 후 빌드된 결과물을 로컬 환경에서 확인하는 방법
+방법1. npx serve dist
+http://localhost:3000
+
+방법2. $ npm run preview
+
+vscode 확장
+ES7+ React/Redux/React-Native snippets
+
+
+npm install swiper
+npm install gsap
+npm install @gsap/react
+
+
+라우터 설치
+$ npm install react-router-dom  
+
+scss
+$ npm install -D sass-embedded
+sass-embedded는 **Sass의 공식 최신 구현체(공식 추천 버전)**입니다.
+즉, sass-embedded는 Dart Sass를 더 빠르고 효율적으로 Node.js에서 실행할 수 있게 만든 차세대 버전입니다.
+-D 또는 --save-dev는
+“이 패키지를 **개발용 의존성(DevDependencies)**으로 설치하겠다” 는 의미입니다.
+개발 시 SCSS를 CSS로 컴파일하는 데만 필요하고
+실제 서비스 배포 시(프로덕션)에는 포함되지 않습니다.
+
+
+Tailwind CSS
+1. 설치
+npm install -D tailwindcss postcss autoprefixer
+
+2. 설정파일 생성
+npx tailwindcss init -p
+
+react-router-dom의 useNavigate 훅을 사용하면 이 기능을 쉽게 구현할 수 있습니다. useNavigate는 페이지를 이동시키는 함수를 제공해 줍니다.
+
+페이지전환 모션
+npm install framer-motion
+추가 라이브러리 framer-motion, react-transition-group
+
+
+2. React Transition Group - React 팀이 공식 제공하는 애니메이션 라이브러리.
+
+
+방법1) npm install gsap
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
+
+기본 GSAP 인스턴스를 가져옵니다.
+순수 자바스크립트 또는 React에서 직접 애니메이션을 제어할 때 사용합니다.
+
+
+방법2)  npm install @gsap/react
+import { useGSAP } from '@gsap/react';
+
+GSAP의 공식 React 플러그인에서 제공하는 커스텀 훅입니다.
+React의 라이프사이클과 GSAP 애니메이션을 더 자연스럽게 연결해줍니다.
+useEffect를 대체하거나, 더 간결하게 애니메이션 코드를 작성할 수 있습니다.
+
+
+
+_variables.scss  - 색상, 폰트, z-index, 간격 등 프로젝트 전역에서 사용하는 값
+_mixins.scss   -  미디어쿼리, clearfix, 버튼 스타일 등 반복적으로 쓰이는 스타일 블록
+_functions.scss - 색상 변환, 계산 등 SCSS 함수
+
+### 스피너  https://www.davidhu.io/react-spinners/
+npm install react-spinners
+react-spinners
+npm install react-spinners
+import { ClipLoader } from "react-spinners";
+
+### react Bootstrap
+https://react-bootstrap.netlify.app/docs/getting-started/introduction
+npm install react-bootstrap bootstrap
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
+RouterProvider
+
+<RouterProvider router={router} /
+
+# react 파일 생성 자동완성 - rafce
+
+# useEffect
+함수 컴포넌트 내에서 렌더링 후에 실행되고, 상태 변화나 props 변경을 감지해 특정 작업을 수행할 수 있게 해주는 Hook입니다.
+useEffect 내 함수는 컴포넌트가 렌더링된 후, DOM이 업데이트 된 직후에 실행됩니다.
+
+1. useEffect(() => { ... }, [])
+ 주로 이벤트 등록이나 초기설정시 사용합니다.
+
+# useRef 
+React에서 DOM 요소나 변하지 않는 값을 저장하거나 참조할 때 사용하는 Hook 함수입니다.
+특정 DOM 요소를 조작할 때
+리렌더링 없이 값을 저장하고 싶을 때
+외부 라이브러리 연동 - GSAP, Swiper 등에서 DOM을 직접 제어할 때
+
+
+# 이 코드는 "함수형 컴포넌트"입니다.
+# 이 함수는 Hook이 아니라 화면에 UI를 출력하는 컴포넌트입니다.
+import React from 'react'
+
+export const useIntersectionObserver = () => {
+  return (
+    <div>useIntersectionObserver</div>
+  )
+}
+++++++++++++++++++++++++++++++++++++
+# Router
+$ npm install react-router-dom  
+
+# SCSS
+$ npm install -D sass-embedded
+
+# API를 처리하는 가장 일반적인 방법
+$ npm install axios
+
+# 스피너  https://www.davidhu.io/react-spinners/
+$ npm install react-spinners
+
+# bootstrap 
+$ npm install react-bootstrap bootstrap
+import { Button } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
+# JSX 내에서 <useIntersectionObserver />로 사용할 수 있지만, 파일 이름과는 상관없이 어떤 이름으로든 import 가능.
+
+import React from 'react'
+
+const useIntersectionObserver = () => {
+  return (
+    <div>useIntersectionObserver</div>
+  )
+}
+
+export default useIntersectionObserver
+
+
+fetch()는 브라우저 내장 API로, 지정한 URL에서 데이터를 요청합니다.
+await를 붙이면 fetch가 완료될 때까지 기다렸다가 결과(Response 객체)를 res 변수에 저장합니다.
+
+axios는 Promise 기반 HTTP 클라이언트입니다.
+즉, fetch()처럼 API 서버와 통신(데이터 요청·전송)을 도와주는 라이브러리입니다.
+
+하지만 fetch()보다 편리하고 가독성이 좋아서 React 프로젝트에서 거의 표준처럼 사용됩니다.
+
+<Outlet />은 React Router에서 매우 중요한 컴포넌트로,
+간단히 말해 “자식 라우트를 표시하는 자리(placeholder)” 입니다.
+
+useParams는 React Router에서 제공하는 훅(Hook) 으로, URL 경로(path)에 포함된 동적 파라미터 값을 가져오는 역할을 합니다.
+
+React 함수형 컴포넌트와 useReducer 훅을 불러옵니다. 
+useReducer는 상태가 객체로 복잡하거나 업데이트 로직이 여러 갈래로 갈 때 useState보다 더 명확한 패턴을 제공합니다.
+
+
+Framer Motion
+GSAP/Framer Motion/Transition
+
+SPA 구조(React/Next.js 등) + GSAP, Framer Motion 같은 애니메이션 라이브러리 
+
+#“익명 함수(화살표 함수)”를 만들어서 전달하는 방식 == 함수에 인자가 필요한 경우
+onClick={() => play(choice)}  // 클릭하면 play(choice) 실행 “지금은 실행하지 말고, 클릭됐을 때 실행하도록 예약한다.”
+
+#“함수 참조(reference)”  ==. 인자가 필요 없는 경우엔 onClick={reset}처럼 직접 전달하는 게 더 효율적입니다.
+<button onClick={reset}>초기화</button>
+
+
+#  ??는 Null 병합 연산자(Nullish Coalescing Operator) 입니다.
+이 연산자는 “왼쪽 값이 null 또는 undefined일 때만” 오른쪽 값을 반환합니다.
+
+
+slice() => 일부분을 복사해 새로운 매열을 만든다
+
+zustand - 상태관리 라이브러리
+* zustand 홈페이지: https://zustand.docs.pmnd.rs/getting-started/introduction
+
+npm install zustand
+
+import { create } from 'zustand'
+
+const useBear = create((set) => ({
+  bears: 0,
+  increasePopulation: () => set((state) => ({ bears: state.bears + 1 })),
+  removeAllBears: () => set({ bears: 0 }),
+  updateBears: (newBears) => set({ bears: newBears }),
+
+}))
+
+
+
+
+

@@ -38,3 +38,23 @@
   margin-bottom: 1rem;
 }
 
+.paging{
+  .pagination{
+    .page-link {
+        background: none;
+        border:0;
+        color:red;
+    }
+    .page-item {
+        &.active {
+            background:red;
+            .page-link {
+              color:#fff;
+              font-weight: 700;
+            }
+            
+        }
+    }  
+  }
+}
+

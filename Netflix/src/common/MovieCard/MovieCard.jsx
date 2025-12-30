@@ -21,13 +21,15 @@ const MovieCard = ({movie}) => {
   return (
     <div style={{backgroundImage:`url(https://www.themoviedb.org/t/p/w220_and_h330_face/${movie?.poster_path})`}} className='movie-card' onClick={() => navigate(`/movies/${movie.id}`)}>
         <div className='overlay'>
-            <h1>{movie?.title}</h1>
-            <p>{showGenre(movie.genre_ids).map((id) => <Badge bg="danger" key={id}>{id}</Badge>)}</p>
-            <div>
-                <div>{movie.vote_average}</div>
-                <div>{movie.popularity}</div>
-                <div>{movie.adult ? "over18" : "under18"}</div>
-                <div>{movie.release_date}</div>
+            <div className='inner'>
+              <h1>{movie?.title}</h1>
+              <p className='genre'>{showGenre(movie.genre_ids).map((id) => <Badge bg="danger" key={id}>{id}</Badge>)}</p>
+              <div className='info'>
+                  <div>평점 : {movie.vote_average}</div>
+                  <div>인기도 : {movie.popularity}</div>
+                  <div>관람가 : {movie.adult ? "over18" : "under18"}</div>
+                  <div>개봉일 : {movie.release_date}</div>
+              </div>
             </div>
         </div>
     </div>

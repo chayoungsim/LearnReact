@@ -15,7 +15,7 @@ import { useMovieGenreQuery } from '../../hooks/useMovieGenre';
 
 const MoviePage = () => {
 
-  const [query, setQuery] = useSearchParams()
+  const [query] = useSearchParams()
   const [page, setPage] = useState(1)
   const [sortOrder, setSortOrder] = useState('');
   const [sortOrderLabel, setSortOrderLabel] = useState('정렬기준');
@@ -105,7 +105,7 @@ const MoviePage = () => {
             nextLabel=">"
             onPageChange={handlePageClick}
             pageRangeDisplayed={3}
-            marginPagesDisplayed={2}
+            marginPagesDisplayed={1}
             pageCount={data?.total_pages} //전체페이지
             previousLabel="< "
             pageClassName="page-item"

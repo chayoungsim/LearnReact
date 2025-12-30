@@ -1,5 +1,4 @@
 # Netflix
-
 - 유저는 배너를 볼 수 있다.
 - 유저는 가장 인기있는 영화 리스트, 가장 평점 좋은 영화 리스트, 상영 예정작 리스트를 볼 수 있다.
 - 각각의 영화 리스트는 슬라이드 형태로 넘길 수 있다.
@@ -9,7 +8,9 @@
 - 유저는 영화를 검색할 수 있다.
 - 유저는 영화를 인기도순으로 정렬할 수 있다.
 - 유저는 장르별로 영화를 필터링 할 수 있다.
-- 유저는 영화 날짜별로 필터링 할 수 있다.
+- Movies 페이지에 페이지네이션을 적용한다.
+* DEMO : [Netflix](https://sim-react-netfl.netlify.app/)
+
 
 ## API
 * https://developer.themoviedb.org/reference/intro/getting-started
@@ -38,6 +39,9 @@
 
 ### react-paginate
 - https://www.npmjs.com/package/react-paginate
+
+### react-youtube
+
 
 
 ### API

@@ -28,6 +28,7 @@
 + 객체 복사
 + 병합 패턴
 
+*[Javascript30](https://github.com/chayoungsim/JavaScript30)
 
 ## 1단계: React 기초
 ### 1.1 React 기본 개념
@@ -145,7 +146,7 @@
 
 
 ## 4단계: 상태관리 & 고급 패턴
-### 4.1Context API
+### 4.1 Context API
 + Props Drilling 문제 이해
 + Context 기본
 + Provider & Consumer
