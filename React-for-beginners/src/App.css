@@ -40,3 +40,39 @@
 .read-the-docs {
   color: #888;
 }
+
+.btn-wrap {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.active{
+  position: relative; 
+}
+
+button{
+  border:0 none;
+}
+
+.active span {
+  display: block;
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  background: #efefef;
+  z-index: -1;
+}
+.tab-item {
+  background: transparent;
+}
+.tab-item:focus {
+  outline: none;
+  border:0;
+}
+.tab-item:hover {
+  border:0;
+  outline: none;
+}
