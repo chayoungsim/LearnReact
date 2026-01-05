@@ -27,6 +27,12 @@ const Todo = () => {
             />
             <button type="submit">Add TO Do</button>
         </form>
+        <hr />
+        <ul>
+            {todos.map((item, index) => (
+                <li key={index}>{item}</li>
+            ))}
+        </ul>
     </div>
   )
 }
