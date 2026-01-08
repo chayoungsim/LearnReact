@@ -76,3 +76,7 @@ button{
   border:0;
   outline: none;
 }
+
+.coins {
+  text-align: left;
+}

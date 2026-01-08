@@ -34,3 +34,7 @@ CSS 애니메이션이나 JS 타이밍 제어 없이 컴포넌트 단위 애니�
 
 * npm install framer-motion
 * import { motion } from "framer-motion";
+
+### Coin Tracker
+
+https://api.coinpaprika.com/v1/tickers

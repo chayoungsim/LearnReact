@@ -6,6 +6,7 @@ import MinutesToHours from './components/MinutesToHours'
 import Button from './components/Button';
 import Todo from './components/Todo';
 import Tab from './components/Tab';
+import Coin from './components/Coin';
 
 function App() {
 
@@ -36,6 +37,9 @@ function App() {
             </div>
             <div>
                 <Tab />
+            </div>
+            <div>
+                <Coin />
             </div>
         </>
     )
