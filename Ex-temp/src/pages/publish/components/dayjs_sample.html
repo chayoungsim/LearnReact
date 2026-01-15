@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day.js 달력 예제</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        
+        .current-time {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+        
+        .current-time .big-time {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .current-time .date {
+            font-size: 20px;
+            opacity: 0.9;
+        }
+        
+        .view-toggle {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .toggle-btn {
+            background: #f0f0f0;
+            color: #333;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .toggle-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .toggle-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .calendar-wrapper {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .calendar-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .calendar-nav {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .nav-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .nav-btn:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+        }
+        
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+        }
+        
+        .calendar-day-header {
+            text-align: center;
+            font-weight: bold;
+            color: #667eea;
+            padding: 12px;
+            font-size: 14px;
+        }
+        
+        .calendar-day {
+            background: white;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px;
+            min-height: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .calendar-day:hover {
+            background: #f0f0f0;
+            transform: scale(1.05);
+        }
+        
+        .calendar-day.other-month {
+            color: #ccc;
+            background: #fafafa;
+        }
+        
+        .calendar-day.today {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: bold;
+            border-color: #667eea;
+        }
+        
+        .calendar-day.today:hover {
+            background: linear-gradient(135deg, #5568d3 0%, #653a8a 100%);
+        }
+        
+        .day-number {
+            font-size: 18px;
+            font-weight: 500;
+        }
+        
+        .day-label {
+            font-size: 11px;
+            margin-top: 4px;
+            opacity: 0.7;
+        }
+        
+        .sunday {
+            color: #e74c3c;
+        }
+        
+        .saturday {
+            color: #3498db;
+        }
+        
+        /* 주간 뷰 스타일 */
+        .week-view {
+            display: none;
+        }
+        
+        .week-view.active {
+            display: block;
+        }
+        
+        .week-calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 12px;
+        }
+        
+        .week-day {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .week-day:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        
+        .week-day.today {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .week-day-name {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            opacity: 0.8;
+        }
+        
+        .week-day-number {
+            font-size: 36px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+        
+        .week-day-date {
+            font-size: 13px;
+            opacity: 0.7;
+        }
+        
+        .week-day-info {
+            font-size: 12px;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .week-day.today .week-day-info {
+            border-top-color: rgba(255,255,255,0.3);
+        }
+        
+        .month-view {
+            display: block;
+        }
+        
+        .month-view.active {
+            display: block;
+        }
+        
+        .info-section {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .info-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .info-label {
+            color: #666;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+        
+        .info-value {
+            color: #333;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📅 Day.js 달력</h1>
+        <p class="subtitle">실시간 시계와 월간/주간 달력 뷰</p>
+        
+        <div class="current-time">
+            <div class="big-time" id="currentTime"></div>
+            <div class="date" id="currentDate"></div>
+        </div>
+        
+        <div class="view-toggle">
+            <button class="toggle-btn active" id="monthViewBtn">📅 월간 보기</button>
+            <button class="toggle-btn" id="weekViewBtn">📊 주간 보기</button>
+        </div>
+        
+        <!-- 월간 뷰 -->
+        <div class="calendar-wrapper month-view active" id="monthView">
+            <div class="calendar-header">
+                <h2 class="calendar-title" id="calendarTitle"></h2>
+                <div class="calendar-nav">
+                    <button class="nav-btn" id="prevMonth">◀ 이전</button>
+                    <button class="nav-btn" id="todayMonth">오늘</button>
+                    <button class="nav-btn" id="nextMonth">다음 ▶</button>
+                </div>
+            </div>
+            <div class="calendar" id="calendar"></div>
+        </div>
+        
+        <!-- 주간 뷰 -->
+        <div class="calendar-wrapper week-view" id="weekView">
+            <div class="calendar-header">
+                <h2 class="calendar-title" id="weekTitle"></h2>
+                <div class="calendar-nav">
+                    <button class="nav-btn" id="prevWeek">◀ 이전 주</button>
+                    <button class="nav-btn" id="todayWeek">이번 주</button>
+                    <button class="nav-btn" id="nextWeek">다음 주 ▶</button>
+                </div>
+            </div>
+            <div class="week-calendar" id="weekCalendar"></div>
+        </div>
+        
+        <div class="info-section">
+            <div class="info-item">
+                <div class="info-label">이번 달 총 일수</div>
+                <div class="info-value" id="daysInMonth"></div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">올해의 몇 번째 날</div>
+                <div class="info-value" id="dayOfYear"></div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">올해 남은 날</div>
+                <div class="info-value" id="daysLeft"></div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">이번 주</div>
+                <div class="info-value" id="weekOfYear"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/dayOfYear.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/weekOfYear.js"></script>
+    
+    <script>
+        dayjs.extend(window.dayjs_plugin_dayOfYear);
+        dayjs.extend(window.dayjs_plugin_weekOfYear);
+        
+        let currentMonth = dayjs();
+        let currentWeek = dayjs();
+        
+        const weekdays = ['일', '월', '화', '수', '목', '금', '토'];
+        const weekdaysFull = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'];
+        
+        function updateClock() {
+            const now = dayjs();
+            document.getElementById('currentTime').textContent = now.format('HH:mm:ss');
+            document.getElementById('currentDate').textContent = now.format('YYYY년 MM월 DD일 ') + weekdaysFull[now.day()];
+        }
+        
+        function renderMonthCalendar() {
+            const calendar = document.getElementById('calendar');
+            calendar.innerHTML = '';
+            
+            document.getElementById('calendarTitle').textContent = currentMonth.format('YYYY년 MM월');
+            
+            weekdays.forEach((day, index) => {
+                const header = document.createElement('div');
+                header.className = 'calendar-day-header';
+                header.textContent = day;
+                if (index === 0) header.classList.add('sunday');
+                if (index === 6) header.classList.add('saturday');
+                calendar.appendChild(header);
+            });
+            
+            const firstDay = currentMonth.startOf('month');
+            const lastDay = currentMonth.endOf('month');
+            const startWeekday = firstDay.day();
+            const daysInMonth = lastDay.date();
+            
+            const prevMonthLastDay = firstDay.subtract(1, 'day');
+            const prevMonthDays = prevMonthLastDay.date();
+            
+            for (let i = startWeekday - 1; i >= 0; i--) {
+                const day = document.createElement('div');
+                day.className = 'calendar-day other-month';
+                day.innerHTML = `<div class="day-number">${prevMonthDays - i}</div>`;
+                calendar.appendChild(day);
+            }
+            
+            const today = dayjs();
+            for (let i = 1; i <= daysInMonth; i++) {
+                const currentDate = currentMonth.date(i);
+                const day = document.createElement('div');
+                day.className = 'calendar-day';
+                
+                const weekday = currentDate.day();
+                if (weekday === 0) day.classList.add('sunday');
+                if (weekday === 6) day.classList.add('saturday');
+                
+                if (currentDate.format('YYYY-MM-DD') === today.format('YYYY-MM-DD')) {
+                    day.classList.add('today');
+                }
+                
+                day.innerHTML = `
+                    <div class="day-number">${i}</div>
+                    <div class="day-label">${weekdays[weekday]}</div>
+                `;
+                
+                calendar.appendChild(day);
+            }
+            
+            const remainingDays = 42 - (startWeekday + daysInMonth);
+            for (let i = 1; i <= remainingDays; i++) {
+                const day = document.createElement('div');
+                day.className = 'calendar-day other-month';
+                day.innerHTML = `<div class="day-number">${i}</div>`;
+                calendar.appendChild(day);
+            }
+            
+            updateInfo();
+        }
+        
+        function renderWeekCalendar() {
+            const weekCalendar = document.getElementById('weekCalendar');
+            weekCalendar.innerHTML = '';
+            
+            const startOfWeek = currentWeek.startOf('week');
+            const endOfWeek = currentWeek.endOf('week');
+            
+            document.getElementById('weekTitle').textContent = 
+                `${startOfWeek.format('YYYY년 MM월 DD일')} - ${endOfWeek.format('MM월 DD일')} (${currentWeek.week()}주차)`;
+            
+            const today = dayjs();
+            
+            for (let i = 0; i < 7; i++) {
+                const currentDate = startOfWeek.add(i, 'day');
+                const weekDay = document.createElement('div');
+                weekDay.className = 'week-day';
+                
+                if (currentDate.day() === 0) weekDay.classList.add('sunday');
+                if (currentDate.day() === 6) weekDay.classList.add('saturday');
+                
+                if (currentDate.format('YYYY-MM-DD') === today.format('YYYY-MM-DD')) {
+                    weekDay.classList.add('today');
+                }
+                
+                const daysFromToday = currentDate.diff(today, 'day');
+                let relativeText = '';
+                if (daysFromToday === 0) relativeText = '오늘';
+                else if (daysFromToday === -1) relativeText = '어제';
+                else if (daysFromToday === 1) relativeText = '내일';
+                else if (daysFromToday > 0) relativeText = `D+${daysFromToday}`;
+                else relativeText = `D${daysFromToday}`;
+                
+                weekDay.innerHTML = `
+                    <div class="week-day-name">${weekdaysFull[currentDate.day()]}</div>
+                    <div class="week-day-number">${currentDate.date()}</div>
+                    <div class="week-day-date">${currentDate.format('YYYY년 MM월')}</div>
+                    <div class="week-day-info">${relativeText}</div>
+                `;
+                
+                weekCalendar.appendChild(weekDay);
+            }
+        }
+        
+        function updateInfo() {
+            const now = dayjs();
+            const daysInCurrentMonth = currentMonth.daysInMonth();
+            const dayOfYear = now.dayOfYear();
+            const totalDaysInYear = now.endOf('year').dayOfYear();
+            const daysLeft = totalDaysInYear - dayOfYear;
+            const weekOfYear = now.week();
+            
+            document.getElementById('daysInMonth').textContent = daysInCurrentMonth + '일';
+            document.getElementById('dayOfYear').textContent = dayOfYear + '일째';
+            document.getElementById('daysLeft').textContent = daysLeft + '일';
+            document.getElementById('weekOfYear').textContent = weekOfYear + '주차';
+        }
+        
+        // 뷰 전환
+        document.getElementById('monthViewBtn').addEventListener('click', () => {
+            document.getElementById('monthView').classList.add('active');
+            document.getElementById('weekView').classList.remove('active');
+            document.getElementById('monthViewBtn').classList.add('active');
+            document.getElementById('weekViewBtn').classList.remove('active');
+        });
+        
+        document.getElementById('weekViewBtn').addEventListener('click', () => {
+            document.getElementById('monthView').classList.remove('active');
+            document.getElementById('weekView').classList.add('active');
+            document.getElementById('monthViewBtn').classList.remove('active');
+            document.getElementById('weekViewBtn').classList.add('active');
+            renderWeekCalendar();
+        });
+        
+        // 월간 네비게이션
+        document.getElementById('prevMonth').addEventListener('click', () => {
+            currentMonth = currentMonth.subtract(1, 'month');
+            renderMonthCalendar();
+        });
+        
+        document.getElementById('nextMonth').addEventListener('click', () => {
+            currentMonth = currentMonth.add(1, 'month');
+            renderMonthCalendar();
+        });
+        
+        document.getElementById('todayMonth').addEventListener('click', () => {
+            currentMonth = dayjs();
+            renderMonthCalendar();
+        });
+        
+        // 주간 네비게이션
+        document.getElementById('prevWeek').addEventListener('click', () => {
+            currentWeek = currentWeek.subtract(1, 'week');
+            renderWeekCalendar();
+        });
+        
+        document.getElementById('nextWeek').addEventListener('click', () => {
+            currentWeek = currentWeek.add(1, 'week');
+            renderWeekCalendar();
+        });
+        
+        document.getElementById('todayWeek').addEventListener('click', () => {
+            currentWeek = dayjs();
+            renderWeekCalendar();
+        });
+        
+        updateClock();
+        renderMonthCalendar();
+        setInterval(updateClock, 1000);
+    </script>
+</body>
+</html>

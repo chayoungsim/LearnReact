@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main</title>
+    <link rel="stylesheet" href="../../../assets/styles/font.css">
+    <link rel="stylesheet" href="../../../assets/styles/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script type="module" src="../../../utils/ui_common.js"></script>
+    <script type="module" src="../../../utils/ui_main.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+</head>
+<body>
+    <div class="common-wrap">
+        <!-- 헤더영역같이 공통영역을 다음과 같이 입력 -->
+        <div data-include-path="_inc/top-nav.html"></div>
+        <!-- //헤더영역같이 공통영역을 다음과 같이 입력 -->
+
+        <div class="main-wrap">
+           <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">슬라이드 1</div>
+                    <div class="swiper-slide">슬라이드 2</div>
+                    <div class="swiper-slide">슬라이드 3</div>
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">슬라이드 1</div>
+                    <div class="swiper-slide">슬라이드 2</div>
+                    <div class="swiper-slide">슬라이드 3</div>
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+
+
+            <label>
+            시작일
+            <input type="date" id="startDate">
+          </label>
+
+          <label>
+            종료일
+            <input type="date" id="endDate">
+          </label>
+
+          <p id="result"></p>
+
+
+        </div>
+
+        <!-- 헤더영역같이 공통영역을 다음과 같이 입력 -->
+        <div data-include-path="_inc/bottom-nav.html"></div>
+        <!-- //헤더영역같이 공통영역을 다음과 같이 입력 -->
+    </div>
+
+<!-- <script>
+  const startInput = document.getElementById('startDate');
+const endInput = document.getElementById('endDate');
+const result = document.getElementById('result');
+
+function updateRange() {
+  if (!startInput.value || !endInput.value) return;
+
+  const start = dayjs(startInput.value);
+  const end = dayjs(endInput.value);
+
+  if (end.isBefore(start)) {
+    result.textContent = '종료일은 시작일 이후여야 합니다.';
+    return;
+  }
+
+  const diffDays = end.diff(start, 'day') + 1;
+
+  result.textContent =
+    `${start.format('YYYY.MM.DD')} ~ ${end.format('YYYY.MM.DD')} (${diffDays}일)`;
+}
+
+startInput.addEventListener('change', updateRange);
+endInput.addEventListener('change', updateRange);
+
+</script> -->
+
+
+<script>
+  window.addEventListener("load", function () {
+    var allElements = document.getElementsByTagName("*");
+    Array.prototype.forEach.call(allElements, function (el) {
+      var includePath = el.dataset.includePath;
+      if (includePath) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            el.outerHTML = this.responseText;
+          }
+        };
+        xhttp.open("GET", includePath, true);
+        xhttp.send();
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

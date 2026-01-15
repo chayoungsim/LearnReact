@@ -21,3 +21,22 @@ body{
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
 }
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap:0.5rem;
+  background: #fff;
+  border:1px solid #ddd;
+  border-radius: 0.5rem;
+  padding:1rem 1.6rem;
+  vertical-align: middle;
+}
+.btn span,
+.btn i,
+.btn strong {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+}

@@ -4,8 +4,8 @@
 
 .ico-arrow {
     display: inline-block;
-    width: 4rem;
-    height: 4rem;
+    width: 1.6rem;
+    height: 1.6rem;
     background-color:#000; /* 원하는 색상 */
     mask: url(../images/ico-Arrow.svg) no-repeat 50% 50%;
     mask-size: contain;
