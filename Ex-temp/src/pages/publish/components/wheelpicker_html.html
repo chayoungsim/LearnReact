@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WheelPicker HTML 샘플</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2em;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .picker-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .wheel-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .wheel-label {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .wheel-picker {
+            width: 80px;
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            background: #f8f9fa;
+        }
+
+        .wheel-highlight {
+            position: absolute;
+            top: 80px;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: rgba(102, 126, 234, 0.1);
+            border-top: 2px solid #667eea;
+            border-bottom: 2px solid #667eea;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .wheel-list {
+            position: absolute;
+            width: 100%;
+            cursor: grab;
+            user-select: none;
+            transition: transform 0.3s ease;
+        }
+
+        .wheel-list.dragging {
+            transition: none;
+        }
+
+        .wheel-list:active {
+            cursor: grabbing;
+        }
+
+        .wheel-item {
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 600;
+            color: #999;
+            transition: all 0.2s;
+        }
+
+        .wheel-item.active {
+            color: #667eea;
+            font-size: 22px;
+        }
+
+        .result {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .result-label {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+
+        .result-value {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .info {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .info h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .info ul {
+            list-style: none;
+        }
+
+        .info li {
+            color: #666;
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .info li:before {
+            content: "•";
+            color: #667eea;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .section-title {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>🎡 WheelPicker</h1>
+            <p class="subtitle">휠을 드래그하여 값을 선택하세요</p>
+
+            <div class="section-title">
+                <span>📅</span>
+                <span>날짜 선택</span>
+            </div>
+
+            <div class="picker-container">
+                <div class="wheel-wrapper">
+                    <div class="wheel-label">년</div>
+                    <div class="wheel-picker" id="year-picker">
+                        <div class="wheel-highlight"></div>
+                        <div class="wheel-list" id="year-list"></div>
+                    </div>
+                </div>
+
+                <div class="wheel-wrapper">
+                    <div class="wheel-label">월</div>
+                    <div class="wheel-picker" id="month-picker">
+                        <div class="wheel-highlight"></div>
+                        <div class="wheel-list" id="month-list"></div>
+                    </div>
+                </div>
+
+                <div class="wheel-wrapper">
+                    <div class="wheel-label">일</div>
+                    <div class="wheel-picker" id="day-picker">
+                        <div class="wheel-highlight"></div>
+                        <div class="wheel-list" id="day-list"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="result">
+                <div class="result-label">선택된 날짜</div>
+                <div class="result-value" id="date-result">2025년 1월 13일</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="section-title">
+                <span>⏰</span>
+                <span>시간 선택</span>
+            </div>
+
+            <div class="picker-container">
+                <div class="wheel-wrapper">
+                    <div class="wheel-label">시</div>
+                    <div class="wheel-picker" id="hour-picker">
+                        <div class="wheel-highlight"></div>
+                        <div class="wheel-list" id="hour-list"></div>
+                    </div>
+                </div>
+
+                <div class="wheel-wrapper">
+                    <div class="wheel-label">분</div>
+                    <div class="wheel-picker" id="minute-picker">
+                        <div class="wheel-highlight"></div>
+                        <div class="wheel-list" id="minute-list"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="result">
+                <div class="result-label">선택된 시간</div>
+                <div class="result-value" id="time-result">12:00</div>
+            </div>
+        </div>
+
+        <div class="card info">
+            <h3>💡 사용 방법</h3>
+            <ul>
+                <li>휠을 위아래로 드래그하여 값을 변경할 수 있습니다</li>
+                <li>마우스와 터치 모두 지원합니다</li>
+                <li>중앙의 하이라이트 영역이 현재 선택된 값입니다</li>
+                <li>드래그를 멈추면 가장 가까운 값으로 자동 정렬됩니다</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        class WheelPicker {
+            constructor(pickerId, listId, items, initialValue, onChange) {
+                this.picker = document.getElementById(pickerId);
+                this.list = document.getElementById(listId);
+                this.items = items;
+                this.currentIndex = items.indexOf(initialValue);
+                this.onChange = onChange;
+                
+                this.itemHeight = 40;
+                this.visibleItems = 5;
+                this.centerOffset = Math.floor(this.visibleItems / 2) * this.itemHeight;
+                
+                this.isDragging = false;
+                this.startY = 0;
+                this.startTranslate = 0;
+                this.currentTranslate = 0;
+
+                this.init();
+            }
+
+            init() {
+                this.renderItems();
+                this.updatePosition(false);
+                this.attachEvents();
+            }
+
+            renderItems() {
+                this.list.innerHTML = this.items.map((item, index) => 
+                    `<div class="wheel-item" data-index="${index}">${item}</div>`
+                ).join('');
+            }
+
+            updatePosition(animate = true) {
+                const translate = this.centerOffset - (this.currentIndex * this.itemHeight);
+                this.currentTranslate = translate;
+                
+                if (animate) {
+                    this.list.classList.remove('dragging');
+                } else {
+                    this.list.classList.add('dragging');
+                }
+                
+                this.list.style.transform = `translateY(${translate}px)`;
+                this.updateItemStyles();
+            }
+
+            updateItemStyles() {
+                const items = this.list.querySelectorAll('.wheel-item');
+                items.forEach((item, index) => {
+                    const distance = Math.abs(this.currentIndex - index);
+                    const opacity = Math.max(0.3, 1 - distance * 0.3);
+                    const scale = Math.max(0.8, 1 - distance * 0.1);
+                    
+                    item.style.opacity = opacity;
+                    item.style.transform = `scale(${scale})`;
+                    
+                    if (index === this.currentIndex) {
+                        item.classList.add('active');
+                    } else {
+                        item.classList.remove('active');
+                    }
+                });
+            }
+
+            handleStart(e) {
+                this.isDragging = true;
+                this.startY = e.type.includes('mouse') ? e.clientY : e.touches[0].clientY;
+                this.startTranslate = this.currentTranslate;
+                this.list.classList.add('dragging');
+            }
+
+            handleMove(e) {
+                if (!this.isDragging) return;
+                
+                e.preventDefault();
+                const currentY = e.type.includes('mouse') ? e.clientY : e.touches[0].clientY;
+                const diff = currentY - this.startY;
+                this.currentTranslate = this.startTranslate + diff;
+                
+                this.list.style.transform = `translateY(${this.currentTranslate}px)`;
+            }
+
+            handleEnd() {
+                if (!this.isDragging) return;
+                
+                this.isDragging = false;
+                
+                const movedItems = Math.round((this.startTranslate - this.currentTranslate) / this.itemHeight);
+                this.currentIndex = Math.max(0, Math.min(this.items.length - 1, this.currentIndex + movedItems));
+                
+                this.updatePosition(true);
+                this.onChange(this.items[this.currentIndex]);
+            }
+
+            attachEvents() {
+                this.list.addEventListener('mousedown', (e) => this.handleStart(e));
+                this.list.addEventListener('mousemove', (e) => this.handleMove(e));
+                this.list.addEventListener('mouseup', () => this.handleEnd());
+                this.list.addEventListener('mouseleave', () => this.handleEnd());
+                
+                this.list.addEventListener('touchstart', (e) => this.handleStart(e));
+                this.list.addEventListener('touchmove', (e) => this.handleMove(e));
+                this.list.addEventListener('touchend', () => this.handleEnd());
+            }
+        }
+
+        // 데이터 생성
+        const years = Array.from({ length: 50 }, (_, i) => 2000 + i);
+        const months = Array.from({ length: 12 }, (_, i) => i + 1);
+        const days = Array.from({ length: 31 }, (_, i) => i + 1);
+        const hours = Array.from({ length: 24 }, (_, i) => i);
+        const minutes = Array.from({ length: 60 }, (_, i) => i);
+
+        // 선택된 값 저장
+        const selected = {
+            year: 2025,
+            month: 1,
+            day: 13,
+            hour: 12,
+            minute: 0
+        };
+
+        // 결과 업데이트 함수
+        function updateDateResult() {
+            document.getElementById('date-result').textContent = 
+                `${selected.year}년 ${selected.month}월 ${selected.day}일`;
+        }
+
+        function updateTimeResult() {
+            document.getElementById('time-result').textContent = 
+                `${String(selected.hour).padStart(2, '0')}:${String(selected.minute).padStart(2, '0')}`;
+        }
+
+        // WheelPicker 인스턴스 생성
+        new WheelPicker('year-picker', 'year-list', years, selected.year, (value) => {
+            selected.year = value;
+            updateDateResult();
+        });
+
+        new WheelPicker('month-picker', 'month-list', months, selected.month, (value) => {
+            selected.month = value;
+            updateDateResult();
+        });
+
+        new WheelPicker('day-picker', 'day-list', days, selected.day, (value) => {
+            selected.day = value;
+            updateDateResult();
+        });
+
+        new WheelPicker('hour-picker', 'hour-list', hours, selected.hour, (value) => {
+            selected.hour = value;
+            updateTimeResult();
+        });
+
+        new WheelPicker('minute-picker', 'minute-list', minutes, selected.minute, (value) => {
+            selected.minute = value;
+            updateTimeResult();
+        });
+    </script>
+</body>
+</html>
