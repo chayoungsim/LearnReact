@@ -1,33 +1,64 @@
 @import url(reset.css);
 @import url(common.css);
-
+@import url(icon.css);
+@import url(button.css);
 
 .ico-arrow {
-    display: inline-block;
-    width: 1.6rem;
-    height: 1.6rem;
-    background-color:#000; /* 원하는 색상 */
-    mask: url(../images/ico-Arrow.svg) no-repeat 50% 50%;
-    mask-size: contain;
-    -webkit-mask: url(../images/ico-Arrow.svg) no-repeat 50% 50%;
-    -webkit-mask-size: contain;
-    font-size: 0;
-    vertical-align: middle;
+  display: inline-block;
+  width: 1.6rem;
+  height: 1.6rem;
+  background-color: #000; /* 원하는 색상 */
+  mask: url(../images/ico-Arrow.svg) no-repeat 50% 50%;
+  mask-size: contain;
+  -webkit-mask: url(../images/ico-Arrow.svg) no-repeat 50% 50%;
+  -webkit-mask-size: contain;
+  font-size: 0;
+  vertical-align: middle;
 }
 
 .ico-arrow.gray {
-    background-color: #ccc;
+  background-color: #ccc;
 }
 
-.ico-cart {
-    display: inline-block;
-    width: 8rem;
-    height: 8rem;
-    background-color:#ddd; /* 원하는 색상 */
-    mask: url(../images/icon-bottom-navigation.svg) no-repeat 50% 50%;
-    mask-size: contain;
-    -webkit-mask: url(../images/icon-bottom-navigation.svg) no-repeat 50% 50%;
-    -webkit-mask-size: contain;
-    font-size: 0;
-    vertical-align: middle;
+.bottom-nav {
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #f2f3f5;
+}
+.bottom-nav button {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  align-items: center;
+  padding: 1.2rem 0;
+}
+.bottom-nav button span {
+  display: block;
+  font-size: 1.2rem;
+  line-height: 1.2;
+  color: #a2a9b4;
+}
+
+.bottom-nav .active i {
+  background-color: #39b695;
+}
+.bottom-nav .active span {
+  color: #39b695;
+  font-weight: 600;
+}
+
+.top-header-search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:1.9rem 1.6rem;
+}
+.top-header-search .ipt {
+    font-size: 1.5rem;
+    letter-spacing: -0.2px;
+    width: calc(100% - 5.6rem);
+    height: 2.8rem;
+    padding:0.65rem 0.8rem;
+    border:0;
 }

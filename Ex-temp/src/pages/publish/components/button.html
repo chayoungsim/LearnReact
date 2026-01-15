@@ -1,32 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="../../../assets/styles/font.css">
-    <link rel="stylesheet" href="../../../assets/styles/style.css">
+    <link rel="stylesheet" href="../../../assets/styles/font.css" />
+    <link rel="stylesheet" href="../../../assets/styles/style.css" />
     <script type="module" src="../../../utils/ui_common.js"></script>
-</head>
-<body>
- 
-   
-    <button><i class="ico-arrow" aria-hidden="true"></i><span class="sr-only">화살표</span></button>
+  </head>
+  <body>
+    <div>
+      <i class="ico-back"></i>
+      <i class="ico-plus"></i>
+      <i class="ico-next"></i>
+      <i class="ico-trash"></i>
 
+      <div class="bottom-nav">
+        <button type="button"><i class="ico-cart"></i><span>쇼핑</span></button>
+        <button type="button">
+          <i class="ico-hbot"></i><span>건강봇</span>
+        </button>
+        <button type="button">
+          <i class="ico-myh"></i><span>내 건강</span>
+        </button>
+        <button type="button">
+          <i class="ico-more"></i><span>더보기</span>
+        </button>
+      </div>
 
+      <div class="top-header-nav">
+        <button type="button" class="btn-back">
+          <i class="ico-back"></i><span class="sr-only">이전</span>
+        </button>
+        <h2>복약</h2>
+      </div>
+      <div class="top-header-nav">
+        <button type="button" class="btn-back">
+          <i class="ico-back"></i><span class="sr-only">이전</span>
+        </button>
+        <h2>복약</h2>
+        <button type="button" class="btn-resist">
+          <i class="ico-plus"></i><span>가족등록</span>
+        </button>
+      </div>
+
+      <div class="top-header-nav">
+        <h2>약 추가</h2>
+        <button type="button" class="btn-trash">
+            <i class="ico-trash"></i><span>삭제</span>
+        </button>
+      </div>
+
+      <div class="top-header-nav">
+        <h2>약 추가</h2>
+        <button type="button" class="btn-close">
+            <i class="ico-x"></i><span class="sr-only">닫기</span>
+        </button>
+      </div>
+
+      <div class="top-header-search">
+        <button type="button" class="btn-back"><i class="ico-back"></i><span class="sr-only">이전</span></button>
+        <input type="text" placeholder="약이나 영양제 이름을 검색할 수 있습니다." class="ipt">
+        <button type="button" class="btn-camera"><i class="ico-camera"></i></button>
+      </div>
+
+      <div class="type-title">
+        <h3>구매 영양제</h3>
+        <div class="more"><button type="button" class="btn-more"><span>더보기</span><i class="ico-arr"></i></button></div>
+      </div>
+
+      <div class="type-title">
+        <h3>내 건강</h3>
+        <div class="more"><button type="button" class="btn-more"><span>더보기</span><i class="ico-arr"></i></button></div>
+      </div>
+
+      <button type="button" class="btn-close-circle"><i class="ico-x"></i><span class="sr-only">닫기</span></button>
+
+      <button type="button" class="n-prev">
+        <i class="ico-next"></i><span class="sr-only">이전</span>
+      </button>
+      <button type="button" class="n-next">
+        <i class="ico-next"></i><span class="sr-only">다음</span>
+      </button>
+
+      <button>
+        <i class="ico-arrow" aria-hidden="true"></i
+        ><span class="sr-only">화살표</span>
+      </button>
+    </div>
     <span class="badge"></span>
 
-
-    <button type="button" class="btn"><i class="ico-arrow"></i><span>버튼</span></button>
-    <button type="button" class="btn"><span>버튼</span><i class="ico-arrow"></i></button>
-    <button type="button" class="btn"><strong>버튼</strong></button>
-    <button type="button" class="btn"><i class="ico-arrow"></i><span>버튼</span></button>
-
-    <span class="today-date" onclick="openModal(event)" modal-id="pop05">오늘</span>
-    <div id="pop05" style="display: none;" class="type-bottom">
-        <div class="modal-header">header</div>
-        <div class="modal-cont">cont</div>
-        <div class="modal-footer">footer</div>
+    <div class="btn-full">
+      <button type="button" class="btn-bor">
+        <i class="ico-refresh"></i><span>button</span>
+      </button>
+      <button type="button" class="btn-bor">button</button>
+      <button type="button" class="btn-bor">
+        <i class="ico-plus"></i><strong>button</strong>
+      </button>
+      <button type="button" class="btn-fill hc1">
+        <i class="ico-plus"></i><strong>button</strong>
+      </button>
+      <button type="button" class="btn-fill hc1">
+        <i class="ico-refresh"></i><strong>button</strong>
+      </button>
+      <button type="button" class="btn-bor">
+        <span>button</span><i class="ico-arr-down"></i>
+      </button>
+      <button type="button" class="btn-fill"><strong>button</strong></button>
+      <button type="button" class="btn-fill">
+        <span>더보기</span><i class="ico-arr-down"></i>
+      </button>
     </div>
-</body>
+
+    <span class="today-date" onclick="openModal(event)" modal-id="pop05"
+      >오늘</span
+    >
+    <div id="pop05" style="display: none" class="type-bottom">
+      <div class="modal-header">header</div>
+      <div class="modal-cont">cont</div>
+      <div class="modal-footer">footer</div>
+    </div>
+  </body>
 </html>

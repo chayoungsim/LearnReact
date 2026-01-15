@@ -1,12 +1,18 @@
-
 html {
-    font-size: 10px;
+  font-size: 10px;
 }
-body{
-    font-family: 'Pretendard';
-    font-size: 1.6rem;
+body {
+  font-family: "Pretendard";
+  font-size: 1.5rem;
 }
 
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
 
 .full-height {
   height: calc(var(--vh, 1vh) * 100);
@@ -26,11 +32,11 @@ body{
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  gap:0.5rem;
+  gap: 0.5rem;
   background: #fff;
-  border:1px solid #ddd;
+  border: 1px solid #ddd;
   border-radius: 0.5rem;
-  padding:1rem 1.6rem;
+  padding: 1rem 1.6rem;
   vertical-align: middle;
 }
 .btn span,
@@ -39,4 +45,33 @@ body{
   display: inline-block;
   vertical-align: middle;
   line-height: 1;
+}
+
+.top-header-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.9rem 1.6rem;
+  position: relative;
+  height: 6.6rem;
+}
+.top-header-nav h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -0.5px;
+}
+.top-header-nav .btn-back {
+  position: absolute;
+  left: 1.6rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.top-header-nav .btn-resist,
+.top-header-nav .btn-trash,
+.top-header-nav .btn-close {
+  position: absolute;
+  right: 1.6rem;
+  top: 50%;
+  transform: translateY(-50%);
 }
