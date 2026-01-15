@@ -1,0 +1,23 @@
+
+html {
+    font-size: 10px;
+}
+body{
+    font-family: 'Pretendard';
+    font-size: 1.6rem;
+}
+
+
+.full-height {
+  height: calc(var(--vh, 1vh) * 100);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}

@@ -1,0 +1,33 @@
+@import url(reset.css);
+@import url(common.css);
+
+
+.ico-arrow {
+    display: inline-block;
+    width: 4rem;
+    height: 4rem;
+    background-color:#000; /* 원하는 색상 */
+    mask: url(../images/ico-Arrow.svg) no-repeat 50% 50%;
+    mask-size: contain;
+    -webkit-mask: url(../images/ico-Arrow.svg) no-repeat 50% 50%;
+    -webkit-mask-size: contain;
+    font-size: 0;
+    vertical-align: middle;
+}
+
+.ico-arrow.gray {
+    background-color: #ccc;
+}
+
+.ico-cart {
+    display: inline-block;
+    width: 8rem;
+    height: 8rem;
+    background-color:#ddd; /* 원하는 색상 */
+    mask: url(../images/icon-bottom-navigation.svg) no-repeat 50% 50%;
+    mask-size: contain;
+    -webkit-mask: url(../images/icon-bottom-navigation.svg) no-repeat 50% 50%;
+    -webkit-mask-size: contain;
+    font-size: 0;
+    vertical-align: middle;
+}
