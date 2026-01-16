@@ -20,6 +20,7 @@
     --gray76:#767676;
     --gray99:#999;
     --graycc:#ccc;
+    --grayca:#cacaca;
     --graydf:#dfdfdf;
     --grayea:#eaeaea;
     --grayf3:#f3f3f3;
@@ -39,4 +40,5 @@
     --Link:#0091EA;
     --Warning:#F9A825;
     --Negative:#D32F2F;    
+    --primary-color:#39b695;
 } 
