@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@ncdai/react-wheel-picker": "^1.1.0",
+    "dayjs": "^1.11.19",
+    "iso-week": "^0.1.2",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },

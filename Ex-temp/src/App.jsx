@@ -1,22 +1,25 @@
 
-import { useState } from 'react'
-import WheelPicker from './components/WheelPicker'
+import DayJs from './components/DayJs.jsx'
+import Calendar from './components/Calendar.jsx'
+import Calendar2 from './components/Calendar2.jsx'
+import Calendar3 from './components/Calendar3.jsx'
+
+
 
 function App() {
 
-  const [hour, setHour] = useState('00')
-  const [minute, setMinute] = useState('00')
+
 
   return (
     <>
-      <div style={{ display: 'flex', gap: '10px' }}>
-      <Picker value={hour} onChange={setHour}>
-        {hoursArray.map(h => <Picker.Item key={h} value={h}>{h}시</Picker.Item>)}
-      </Picker>
-      <Picker value={minute} onChange={setMinute}>
-        {minutesArray.map(m => <Picker.Item key={m} value={m}>{m}분</Picker.Item>)}
-      </Picker>
-    </div>
+      
+
+    <DayJs />
+    <Calendar />
+    <Calendar2 />
+    <Calendar3 />
+  
+
     </>
   )
 }

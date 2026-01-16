@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../../../assets/styles/font.css">
     <link rel="stylesheet" href="../../../assets/styles/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="../../../assets/styles/main.css">
     <script type="module" src="../../../utils/ui_common.js"></script>
     <script type="module" src="../../../utils/ui_main.js"></script>
 
@@ -24,9 +25,9 @@
                     <div class="swiper-slide">슬라이드 1</div>
                     <div class="swiper-slide">슬라이드 2</div>
                     <div class="swiper-slide">슬라이드 3</div>
-                </div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
+                    <div class="swiper-slide">슬라이드 4</div>
+                    <div class="swiper-slide">슬라이드 5</div>
+                </div>                
                 <div class="swiper-pagination"></div>
             </div>
 
@@ -43,52 +44,17 @@
 
 
 
-            <label>
-            시작일
-            <input type="date" id="startDate">
-          </label>
-
-          <label>
-            종료일
-            <input type="date" id="endDate">
-          </label>
-
-          <p id="result"></p>
+            
 
 
         </div>
 
         <!-- 헤더영역같이 공통영역을 다음과 같이 입력 -->
-        <div data-include-path="_inc/bottom-nav.html"></div>
+        <!-- <div data-include-path="_inc/bottom-nav.html"></div> -->
         <!-- //헤더영역같이 공통영역을 다음과 같이 입력 -->
     </div>
 
-<!-- <script>
-  const startInput = document.getElementById('startDate');
-const endInput = document.getElementById('endDate');
-const result = document.getElementById('result');
 
-function updateRange() {
-  if (!startInput.value || !endInput.value) return;
-
-  const start = dayjs(startInput.value);
-  const end = dayjs(endInput.value);
-
-  if (end.isBefore(start)) {
-    result.textContent = '종료일은 시작일 이후여야 합니다.';
-    return;
-  }
-
-  const diffDays = end.diff(start, 'day') + 1;
-
-  result.textContent =
-    `${start.format('YYYY.MM.DD')} ~ ${end.format('YYYY.MM.DD')} (${diffDays}일)`;
-}
-
-startInput.addEventListener('change', updateRange);
-endInput.addEventListener('change', updateRange);
-
-</script> -->
 
 
 <script>

@@ -1,9 +1,10 @@
 import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs';
 
 export const initSwiper = () => {
-  return new Swiper('.swiper', {
-    loop: true,
-    slidesPerView: 1,
+  return new Swiper('.swiper', {    
+    slidesPerView: 'auto',
+    spaceBetween: 16,
+    freeMode: true,
     pagination: {
       el: '.swiper-pagination',
       clickable: true,

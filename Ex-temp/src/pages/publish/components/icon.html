@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../../assets/styles/font.css" />
+    <link rel="stylesheet" href="../../../assets/styles/style.css" />
+    <script type="module" src="../../../utils/ui_common.js"></script>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+        
+        .switch input {
+            display: none;
+        }
+        .switch label {
+            display: block;
+            position: relative;
+            background: #cacaca;
+            border-radius: 40px;
+            width: 78px;           
+            height:38px;
+            cursor: pointer;
+        }
+        .switch label::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #fff;
+            transition: 0.35s;
+        }
+        .switch input:checked + label {
+            background: #34c759;
+        }
+        .switch input:checked + label::after {           
+            transform: translateX(38px);
+            transition: 0.35s;
+        }
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+        }
+        .week-calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 12px;
+        }
+    </style>
+</head>
+<body>
+    
+        
+    
+    <div class="switch">
+        <input type="checkbox" id="switchTg">
+        <label for="switchTg">
+            <span class="sr-only">설정</span>
+        </label>
+    </div>
+
+   
+
+
+</body>
+</html>

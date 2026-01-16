@@ -1,0 +1,8 @@
+.swiper {
+    padding:0 1.6rem;
+}
+.swiper .swiper-slide {
+    border:1px solid lime;
+    width: 20rem;
+    height: 20rem;
+}

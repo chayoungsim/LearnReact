@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import dayjs from 'dayjs';
 import 'dayjs/locale/ko'; // 한국어 로케일
 import isoWeek from 'dayjs/plugin/isoWeek'; // 월요일 시작 플러그인
-import '../calendar/calendar.css';
+import './calendar.css';
 
 // dayjs 설정
 dayjs.extend(isoWeek);

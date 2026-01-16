@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import dayjs from 'dayjs';
 import 'dayjs/locale/ko';
-import '../calendar/calendar.css';
+import './calendar.css';
 
 dayjs.locale('ko');
 
