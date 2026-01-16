@@ -128,3 +128,36 @@
     -webkit-mask: url(../images/ico-camera.svg) no-repeat 50% 50%;
     -webkit-mask-size: contain;
 }
+
+.pill-prohibited {
+    display: inline-flex;
+    width: 4.2rem;
+    height: 4.2rem;  
+    background: url(../images/pill-prohibited.svg) no-repeat 50% 50%;
+    /* filter: grayscale(100%); */
+    filter: grayscale(100%) brightness(1) contrast(1);
+}
+.pill-forgot {
+    display: inline-flex;
+    width: 4.2rem;
+    height: 4.2rem;  
+    background: url(../images/pill-forgot.svg) no-repeat 50% 50%;
+}
+.pill-taken {
+    display: inline-flex;
+    width: 4.2rem;
+    height: 4.2rem; 
+    background: url(../images/pill-taken.svg) no-repeat 50% 50%; 
+}
+.pill-ignored {
+    display: inline-flex;
+    width: 4.2rem;
+    height: 4.2rem;  
+    background: url(../images/pill-ignored.svg) no-repeat 50% 50%;
+}
+.pill-empty {
+    display: inline-flex;
+    width: 4.2rem;
+    height: 4.2rem;  
+    background: url(../images/pill-empty.svg) no-repeat 50% 50%;
+}

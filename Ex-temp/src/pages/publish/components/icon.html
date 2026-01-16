@@ -44,7 +44,7 @@
             transform: translateX(38px);
             transition: 0.35s;
         }
-        .calendar {
+        /* .calendar {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
             gap: 8px;
@@ -53,22 +53,104 @@
             display: grid;
             grid-template-columns: repeat(7, 1fr);
             gap: 12px;
-        }
+        } */
+
+     
+    .checkForm label {
+        display: flex;
+        align-items: center;
+        gap:0.8rem;
+        
+    }
+    .checkForm .checkForm-custom {
+        position: relative;
+        width: 2.4rem;
+        height:2.4rem;
+        background: #cacaca;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease;
+    }
+   
+    .checkForm input[type="checkbox"] + label .checkForm-custom::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 8px;
+        height: 14px;
+        border: solid white;
+        border-width: 0 2px 2px 0;
+        transform: translate(-50%,-65%) rotate(45deg);
+        opacity: 0;
+        transition: opacity 0.2s ease;
+    }
+
+    .checkForm input[type="checkbox"]:checked + label .checkForm-custom::after {
+        opacity: 1;
+    }
+
+
+    .checkForm input[type="radio"] + label .checkForm-custom {
+        border-radius: 50%;       
+    }
+   
+    .checkForm input[type="radio"] + label .checkForm-custom::after {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 50%;
+        top: 50%; 
+        transform: translate(-50%,-50%) scale(0);
+        width:1.2rem;
+        height:1.2rem;
+        background: #222;
+        border-radius: 50%;
+        transition: transform 0.2s ease;
+    }
+
+    .checkForm input[type="radio"]:checked + label .checkForm-custom::after {
+        transform: translate(-50%,-50%) scale(1);
+    }
+
+
     </style>
 </head>
 <body>
     
         
     
-    <div class="switch">
+    <!-- <div class="switch">
         <input type="checkbox" id="switchTg">
         <label for="switchTg">
             <span class="sr-only">설정</span>
         </label>
-    </div>
+    </div> -->
 
+  
+     <span class="checkForm">
+        <input type="checkbox" id="chk1">
+        <label for="chk1">
+            <span class="checkForm-custom"></span>
+            <span class="checkForm-label">체크박스</span>
+        </label>
+     </span>
+     <span class="checkForm">
+        <input type="radio" id="rdo1" name="rdo">
+        <label for="rdo1">
+            <span class="checkForm-custom"></span>
+            <span class="checkForm-label">라디오</span>
+        </label>
+     </span>
+     <span class="checkForm">
+        <input type="radio" id="rdo2" name="rdo">
+        <label for="rdo2">
+            <span class="checkForm-custom"></span>
+            <span class="checkForm-label">라디오</span>
+        </label>
+     </span>
    
-
 
 </body>
 </html>
