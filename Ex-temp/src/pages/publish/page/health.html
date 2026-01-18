@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>내건강 - 오늘</title>
+    <link rel="stylesheet" href="../../../assets/styles/font.css" />
+    <link rel="stylesheet" href="../../../assets/styles/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <script type="module" src="../../../utils/ui_common.js"></script>
+  </head>
+  <body>
+
+    <div class="common-wrap">
+      <div class="sub-wrap">
+        <div>
+            <div class="title-type">
+                <h3 class="hty1">내 건강</h3>
+                <div class="more"><i class="ico-sliver"></i><span>Sliver</span></div>
+            </div>
+            <div class="health-week">
+                <div class="weekdays">
+                    <div class="weekday">수</div>
+                    <div class="weekday">목</div>
+                    <div class="weekday">금</div>
+                    <div class="weekday">토</div>
+                    <div class="weekday sunday">일</div>
+                    <div class="weekday">월</div>
+                    <div class="weekday">화</div>
+                </div>
+                <div class="days">
+                    <div class="day">
+                        <span class="day-num">12</span>
+                        <span class="day-tx"></span>
+                    </div>
+                    <div class="day">
+                        <span class="day-num">13</span>
+                        <span class="day-tx"></span>
+                    </div>
+                    <div class="day">
+                        <span class="day-num">14</span>
+                        <span class="day-tx"></span>
+                    </div>
+                    <div class="day">
+                        <span class="day-num">15</span>
+                        <span class="day-tx"></span>
+                    </div>
+                    <div class="day">
+                        <span class="day-num">16</span>
+                        <span class="day-tx">어제</span>
+                    </div>
+                    <div class="day today">
+                        <span class="day-num">17</span>
+                        <span class="day-tx">오늘</span>
+                    </div>
+                    <div class="day">
+                        <span class="day-num">18</span>
+                        <span class="day-tx">내일</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div data-include-path="_inc/bottom-nav.html"></div>
+    </div>
+
+
+    <script>
+        window.addEventListener("load", function () {
+            var allElements = document.getElementsByTagName("*");
+            Array.prototype.forEach.call(allElements, function (el) {
+            var includePath = el.dataset.includePath;
+            if (includePath) {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    el.outerHTML = this.responseText;
+                }
+                };
+                xhttp.open("GET", includePath, true);
+                xhttp.send();
+            }
+            });
+        });
+    </script>
+  </body>
+</html>

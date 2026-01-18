@@ -1,7 +1,42 @@
+.ico-h-search {
+    display: inline-block;
+    width:2.8rem;
+    height:2.8rem;
+    vertical-align: middle; 
+    background: #1A1A1A;
+    mask: url(../images/ico-h-search.svg) no-repeat 50% 50%;
+    mask-size:contain;
+    -webkit-mask: url(../images/ico-h-search.svg) no-repeat 50% 50%;
+    -webkit-mask-size: contain;       
+}
+.ico-h-cart {
+    display: inline-block;
+    width:2.8rem;
+    height:2.8rem;
+    vertical-align: middle; 
+    background: #1A1A1A;
+    mask: url(../images/ico-h-cart.svg) no-repeat 50% 50%;
+    mask-size:cover;
+    -webkit-mask: url(../images/ico-h-cart.svg) no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+}
+.ico-h-alarm {
+    display: inline-block;
+    width:2.8rem;
+    height:2.8rem;
+    background: #1A1A1A;
+    vertical-align: middle; 
+    mask: url(../images/ico-h-alarm.svg) no-repeat 50% 50%;
+    mask-size:contain;
+    -webkit-mask: url(../images/ico-h-alarm.svg) no-repeat 50% 50%;
+    -webkit-mask-size: contain;
+}
+
 .ico-back {
     display: inline-block;
     width: 2rem;
     height: 2rem;
+    vertical-align: middle; 
      background-color:#000;
     mask: url(../images/ico-back.svg) no-repeat 50% 50%;
     mask-size: contain;
@@ -13,6 +48,7 @@
     display: inline-block;
     width: 1rem;
     height: 1rem;
+    vertical-align: middle; 
     background-color:#000;
     mask: url(../images/ico-plus.svg) no-repeat 50% 50%;
     mask-size: contain;
@@ -23,6 +59,7 @@
     display: inline-block;
     width: 0.9rem;
     height: 0.7rem;
+    vertical-align: middle; 
     background-color:#000;
     mask: url(../images/ico-next.svg) no-repeat 50% 50%;
     mask-size: contain;
@@ -34,6 +71,7 @@
     display: inline-block;
     width: 2.4rem;
     height: 2.4rem;
+    vertical-align: middle; 
     background-color:#cacaca; 
     mask: url(../images/ico-bottom-cart.svg) no-repeat 50% 50%;
     mask-size: contain;
@@ -45,6 +83,7 @@
     display: inline-block;
     width: 2.4rem;
     height: 2.4rem;
+    vertical-align: middle; 
     background-color:#cacaca; 
     mask: url(../images/ico-bottom-hbot.svg) no-repeat 50% 50%;
     mask-size: contain;
@@ -56,6 +95,7 @@
     display: inline-block;
     width: 2.4rem;
     height: 2.4rem;
+    vertical-align: middle; 
     background-color:#cacaca; 
     mask: url(../images/ico-bottom-myh.svg) no-repeat 50% 50%;
     mask-size: contain;
@@ -67,6 +107,7 @@
     display: inline-block;
     width: 2.4rem;
     height: 2.4rem;
+    vertical-align: middle; 
     background-color:#cacaca; 
     mask: url(../images/ico-bottom-more.svg) no-repeat 50% 50%;
     mask-size: auto 1.8rem;
@@ -76,9 +117,10 @@
 }
 
 .ico-refresh {
-    display: inline-flex;
+    display: inline-block;
     width: 2.4rem;
     height: 2.4rem;
+    vertical-align: middle; 
     background-color:#39B695;
     mask: url(../images/ico-refresh.svg) no-repeat 50% 50%;
     mask-size: contain;
@@ -86,21 +128,22 @@
     -webkit-mask-size: contain;
 }
 .ico-arr-down {
-    display: inline-flex;
+    display: inline-block;
     width: 1.4rem;
     height: 1.4rem;
+    vertical-align: middle; 
     background-color:#000;
-    mask: url(../images/ico-arr-down.svg) no-repeat 50% 90%;
+    mask: url(../images/ico-arr-down.svg) no-repeat 50% 70%;
     mask-size: contain;
-    -webkit-mask: url(../images/ico-arr-down.svg) no-repeat 50% 90%;
-    -webkit-mask-size: contain;
-    
+    -webkit-mask: url(../images/ico-arr-down.svg) no-repeat 50% 70%;
+    -webkit-mask-size: contain;    
 }
 
 .ico-trash {
-    display: inline-flex;
+    display: inline-block;
     width: 1.7rem;
     height: 1.7rem;
+    vertical-align: middle; 
     background-color:#A2A9B4;
     mask: url(../images/ico-trash.svg) no-repeat 50% 50%;
     mask-size: contain;
@@ -109,9 +152,10 @@
 }
 
 .ico-x {
-    display: inline-flex;
-    width: 100%;
-    height: 100%;
+    display: inline-block;
+    width: 2.4rem;
+    height: 2.4rem;
+    vertical-align: middle; 
     background-color:#000;
     mask: url(../images/ico-close.svg) no-repeat 50% 50%;
     mask-size: contain;
@@ -119,9 +163,10 @@
     -webkit-mask-size: contain;
 }
 .ico-camera {
-    display: inline-flex;
+    display: inline-block;
     width: 2.8rem;
     height: 2.8rem;
+    vertical-align: middle; 
     background-color:#39B695;
     mask: url(../images/ico-camera.svg) no-repeat 50% 50%;
     mask-size:contain;
@@ -129,35 +174,294 @@
     -webkit-mask-size: contain;
 }
 
+.ico-sett {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    vertical-align: middle; 
+    background-color:#111827;
+    mask: url(../images/ico-sett.svg) no-repeat 50% 50%;
+    mask-size:contain;
+    -webkit-mask: url(../images/ico-sett.svg) no-repeat 50% 50%;
+    -webkit-mask-size: contain;
+}
+
+.ico-date {
+    display: inline-block;
+    width: 2.2rem;
+    height: 2.2rem;
+    vertical-align: middle; 
+    background: url(../images/ico-date.svg) no-repeat 50% 50%;
+}
+.ico-clock {
+    display: inline-block;
+    width: 2.2rem;
+    height: 2.2rem;
+    vertical-align: middle; 
+    background-color:#A2A9B4;
+    mask: url(../images/ico-clock.svg) no-repeat 50% 50%;
+    mask-size:contain;
+    -webkit-mask: url(../images/ico-clock.svg) no-repeat 50% 50%;
+    -webkit-mask-size: contain;
+}
+.ico-wht {
+    display: inline-block;
+    width: 2.2rem;
+    height: 2.2rem;
+    vertical-align: middle; 
+    background-color:#A2A9B4;
+    mask: url(../images/ico-wht.svg) no-repeat 50% 50%;
+    mask-size:contain;
+    -webkit-mask: url(../images/ico-wht.svg) no-repeat 50% 50%;
+    -webkit-mask-size: contain;
+}
+
+.ico-pen {
+    display: inline-block;
+    width: 2.4rem;
+    height: 2.4rem;
+    vertical-align: middle; 
+    background-color:#49454F;
+    mask: url(../images/ico-pen.svg) no-repeat 50% 50%;
+    mask-size:contain;
+    -webkit-mask: url(../images/ico-pen.svg) no-repeat 50% 50%;
+    -webkit-mask-size: contain;
+}
+.ico-arr {
+    display: inline-block;
+    width:1rem;
+    height:1rem;
+    vertical-align: middle; 
+    background: #49454f;
+    mask: url(../images/ico-arr.svg) no-repeat 50% 50%;
+    mask-size:contain;
+    -webkit-mask: url(../images/ico-arr.svg) no-repeat 50% 50%;
+    -webkit-mask-size: contain;
+}
+.ico-arr2{
+    display: inline-block;
+    width:2.4rem;
+    height:2.4rem;
+    vertical-align: middle; 
+    background: #282828;
+    mask: url(../images/ico-arr2.svg) no-repeat 50% 50%;
+    mask-size:contain;
+    -webkit-mask: url(../images/ico-arr2.svg) no-repeat 50% 50%;
+    -webkit-mask-size: contain;
+}
+.ico-trg-down {
+    display: inline-block;
+    width:0.8rem;
+    height:0.8rem;
+    vertical-align: middle; 
+    background: #49454f;
+    mask: url(../images/ico-trg-dwon.svg) no-repeat 50% 50%;
+    mask-size:contain;
+    -webkit-mask: url(../images/ico-trg-down.svg) no-repeat 50% 50%;
+    -webkit-mask-size: contain;
+}
+
+.ico-keyboard {
+    display: inline-block;
+    width:2rem;
+    height:2rem;
+    vertical-align: middle; 
+    background: #49454f;
+    mask: url(../images/ico-keyboard.svg) no-repeat 50% 50%;
+    mask-size:contain;
+    -webkit-mask: url(../images/ico-keyboard.svg) no-repeat 50% 50%;
+    -webkit-mask-size: contain;
+}
+.ico-recomm {
+    display: inline-block;
+    width:1.8rem;
+    height:1.8rem;  
+    vertical-align: middle;   
+    background: url(../images/ico-recomm.svg) no-repeat 50% 50%;
+    background-size: contain;
+}
+.ico-sh-clock {
+    display: inline-block;
+    width:2rem;
+    height:2rem;
+    vertical-align: middle; 
+    background: #A2A9B4;
+    mask: url(../images/ico-sh-clock.svg) no-repeat 50% 50%;
+    mask-size:contain;
+    -webkit-mask: url(../images/ico-sh-clock.svg) no-repeat 50% 50%;
+    -webkit-mask-size: contain;
+}
+.ico-sh-search {
+    display: inline-block;
+    width:2rem;
+    height:2rem;
+    background: #A2A9B4;
+    vertical-align: middle; 
+    mask: url(../images/ico-sh-search.svg) no-repeat 50% 50%;
+    mask-size:contain;
+    -webkit-mask: url(../images/ico-sh-search.svg) no-repeat 50% 50%;
+    -webkit-mask-size: contain;
+}
+.ico-sliver {
+    display: inline-block;
+    width: 2.4rem;
+    height: 2.4rem;  
+    vertical-align: middle; 
+    background: url(../images/ico-sliver.svg) no-repeat 50% 50%;
+    background-size: cover;
+}
+.ico-scale {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem; 
+    vertical-align: middle;  
+    background: url(../images/ico-scale.svg) no-repeat 50% 50%;
+    background-size: cover;
+}
+
+.ico-ht-down {
+    display: inline-block;
+    width:2.8rem;
+    height: 2.8rem;
+    vertical-align: middle; 
+    background: url(../images/ico-ht-down.svg) no-repeat 50% 50%;
+    background-size: contain;
+}
+.ico-ht-up {
+    display: inline-block;
+    width:2.8rem;
+    height: 2.8rem;
+    vertical-align: middle; 
+    background: url(../images/ico-ht-up.svg) no-repeat 50% 50%;
+    background-size: contain;
+}
+
 .pill-prohibited {
-    display: inline-flex;
+    display: inline-block;
     width: 4.2rem;
     height: 4.2rem;  
+    vertical-align: middle; 
     background: url(../images/pill-prohibited.svg) no-repeat 50% 50%;
     /* filter: grayscale(100%); */
     filter: grayscale(100%) brightness(1) contrast(1);
 }
 .pill-forgot {
-    display: inline-flex;
+    display: inline-block;
     width: 4.2rem;
     height: 4.2rem;  
+    vertical-align: middle; 
     background: url(../images/pill-forgot.svg) no-repeat 50% 50%;
 }
 .pill-taken {
-    display: inline-flex;
+    display: inline-block;
     width: 4.2rem;
     height: 4.2rem; 
+    vertical-align: middle; 
     background: url(../images/pill-taken.svg) no-repeat 50% 50%; 
 }
 .pill-ignored {
-    display: inline-flex;
+    display: inline-block;
     width: 4.2rem;
     height: 4.2rem;  
+    vertical-align: middle; 
     background: url(../images/pill-ignored.svg) no-repeat 50% 50%;
 }
 .pill-empty {
-    display: inline-flex;
+    display: inline-block;
     width: 4.2rem;
     height: 4.2rem;  
+    vertical-align: middle; 
     background: url(../images/pill-empty.svg) no-repeat 50% 50%;
+}
+
+.ht-running {
+    display: inline-block;
+    width: 5.4rem;
+    height: 5.4rem;  
+    vertical-align: middle; 
+    background: url(../images/ht-running.svg) no-repeat 50% 50%;
+    background-size: cover;
+}
+.ht-work {
+    display: inline-block;
+    width: 5.4rem;
+    height: 5.4rem;  
+    vertical-align: middle; 
+    background: url(../images/ht-work.svg) no-repeat 50% 50%;
+    background-size: cover;
+}
+.ht-fire {
+    display: inline-block;
+    width: 5.4rem;
+    height: 5.4rem;  
+    vertical-align: middle; 
+    background: url(../images/ht-fire.svg) no-repeat 50% 50%;
+    background-size: cover;
+}
+.ht-weigth {
+    display: inline-block;
+    width: 5.4rem;
+    height: 5.4rem;  
+    vertical-align: middle; 
+    background: url(../images/ht-weigth.svg) no-repeat 50% 50%;
+    background-size: cover;
+}
+
+.ico-chk {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    height: 2rem;
+    background: #82A2E7;
+    border-radius: 50%;
+}
+.ico-chk::after {
+    content: '';
+    display: block;
+    width: 1.2rem;
+    height: 1.2rem;
+    background: url(../images/ico-chk-b.svg) no-repeat 50% 50%;
+}
+.star {
+    display: inline-block;
+    width:2.1rem;
+    height:2.1rem;
+    vertical-align: middle; 
+    background: #D9D9D9;
+    mask: url(../images/ico-star.svg) no-repeat 50% 50%;
+    mask-size:contain;
+    -webkit-mask: url(../images/ico-star.svg) no-repeat 50% 50%;
+    -webkit-mask-size: contain;
+    font-size:0
+}
+.star.on {
+    background: #F9CE73;
+}
+.ico-go {
+    display: inline-block;
+    width:1.5rem;
+    height:1.5rem;
+    vertical-align: middle; 
+    background: #6157DC;
+    mask: url(../images/ico-go.svg) no-repeat 50% 50%;
+    mask-size:contain;
+    -webkit-mask: url(../images/ico-go.svg) no-repeat 50% 50%;
+    -webkit-mask-size: contain;
+}
+.ico-arrow {
+    display: inline-block;
+    width: 1.6rem;
+    height: 1.6rem;
+    background-color: #000; /* 원하는 색상 */
+    mask: url(../images/ico-Arrow.svg) no-repeat 50% 50%;
+    mask-size: contain;
+    -webkit-mask: url(../images/ico-Arrow.svg) no-repeat 50% 50%;
+    -webkit-mask-size: contain;
+    font-size: 0;
+    vertical-align: middle;
+}
+
+.ico-arrow.gray {
+    background-color: #ccc;
 }

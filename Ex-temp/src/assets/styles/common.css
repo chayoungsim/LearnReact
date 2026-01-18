@@ -4,20 +4,11 @@ html {
 body {
   font-family: "Pretendard";
   font-size: 1.5rem;
+  letter-spacing: -0.5px;
 }
-
-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-}
-
 .full-height {
   height: calc(var(--vh, 1vh) * 100);
 }
-
 .sr-only {
   position: absolute;
   width: 1px;
@@ -27,7 +18,6 @@ footer {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
 }
-
 .btn {
   display: inline-flex;
   justify-content: center;
@@ -47,6 +37,53 @@ footer {
     line-height: 1;
 }
 
+/*header*/
+.logo {
+    display: block;
+    width: 14rem;
+    height: 1rem;
+    background: url(../images/logo.svg) no-repeat 50% 50%;
+    background-size: contain;
+    font-size:0;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.header-top {
+    padding:1.9rem 1.6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header-top .aside {
+    display: flex;
+    align-items: center;
+    gap:1.6rem
+}
+.header-top .ht-cart {
+    position: relative;
+}
+.header-top .ht-cart em {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 100%;
+    background-color: var(--primary-color);
+    color:#fff;
+    font-style: normal;
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.4;
+    position: absolute;
+    top:-0.5rem;
+    left:-0.5rem;    
+}
 .top-header-nav {
     display: flex;
     justify-content: center;
@@ -54,6 +91,7 @@ footer {
     padding: 1.9rem 1.6rem;
     position: relative;
     height: 6.6rem;
+    background-color: #fff;
 }
 .top-header-nav h2 {
     font-size: 1.8rem;
@@ -75,6 +113,97 @@ footer {
     top: 50%;
     transform: translateY(-50%);
 }
+.top-main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.1rem 2.4rem;
+    background-color: #fff;
+    height: 5.6rem;
+}
+.top-main-nav h2 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: -0.48px;
+    line-height: 1.4;
+}
+
+footer {    
+    padding:4rem 1.6rem 11.2rem;
+}
+.footer-top {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: -0.36px;
+}
+.footer-links {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: -0.26px;
+    color: #767C88;
+    display: flex;
+    gap: 2rem;
+    margin-top: 2.9rem;;
+}
+.footer-infos {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: -0.26px;
+    color: #767C88;
+    margin-top: 2rem;
+}
+.footer-infos a {
+    text-decoration: underline;
+}
+.copyright {
+    margin-top: 2.8rem;
+    font-size: 13px;
+    font-weight: 700;
+    color:#767C88;
+    line-height: 1.5;
+    letter-spacing: -0.26px;
+}
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #f2f3f5;
+    background: #fff;
+}
+.bottom-nav button {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  align-items: center;
+  padding: 1.2rem 0;
+}
+.bottom-nav button span {
+  display: block;
+  font-size: 1.2rem;
+  line-height: 1.2;
+  color: #a2a9b4;
+}
+.bottom-nav .active i {
+  background-color: #39b695;
+}
+.bottom-nav .active span {
+  color: #39b695;
+  font-weight: 600;
+}
+
+
 
 .switch input {
     display: none;
@@ -84,26 +213,26 @@ footer {
     position: relative;
     background: #cacaca;
     border-radius: 40px;
-    width: 78px;           
-    height:38px;
+    width: 3.8rem;           
+    height:2.3rem;
     cursor: pointer;
 }
 .switch label::after {
     content: '';
     position: absolute;
-    top: 4px;
-    left: 4px;
-    width: 30px;
-    height: 30px;
+    top: 0.4rem;
+    left: 0.4rem;
+    width: 1.5rem;
+    height: 1.5rem;
     border-radius: 50%;
     background: #fff;
     transition: 0.35s;
 }
 .switch input:checked + label {
-    background: #34c759;
+    background: var(--primary-color);
 }
 .switch input:checked + label::after {           
-    transform: translateX(38px);
+    transform: translateX(1.5rem);
     transition: 0.35s;
 }
 
@@ -156,4 +285,202 @@ footer {
 }
 .checkForm input[type="radio"]:checked + label .checkForm-custom::after {
     transform: translate(-50%,-50%) scale(1);
+}
+
+.title-type {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.hty1 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1.4;    
+}
+.hty2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1.4;    
+}
+.hty3 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.4;    
+}
+
+.tag {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color:var(--primary-color);
+    border-radius: 3rem;
+    border: 1px solid var(--primary-color);
+    background: #fff;
+    padding: 0 1rem;
+    line-height: 1.2;
+    vertical-align: middle;
+}
+.tags {
+    display: flex;
+    gap: 0.4rem;
+}
+
+.ment {
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.4;
+}
+.thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.top-header-search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:1.9rem 1.6rem;
+    background-color: #fff;
+}
+.top-header-search .ipt {
+    font-size: 1.5rem;
+    letter-spacing: -0.2px;
+    width: calc(100% - 5.6rem);
+    height: 2.8rem;
+    padding:0.65rem 0.8rem;
+    border:0;
+}
+.top-header-search-list {
+    background: #fff;
+    padding-bottom: 1rem;
+}
+.top-header-search-list li {
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.top-header-search-list li i {
+    width: 2rem;
+}
+.top-header-search-list button {
+    margin-left: auto;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color:#A2A9B4;
+}
+.search-box {
+    display: flex;
+    height: 5rem;
+    padding: 0 1.6rem;
+    align-items: center;    
+    border-radius: 1.2rem;
+    background: #F6F7F9;
+}
+.search-box input{
+    width: calc(100% - 2rem);
+    border:0;
+    background: transparent;
+    padding:0.8rem;
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+.tab {
+    display: flex;
+    justify-content: center;
+}
+.tab > li {
+    flex: 1;
+}
+.tab > li > button {
+    position: relative;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: #CACACA;
+    padding:0 1rem;
+    font-size: 15px;
+    font-weight: 600;   
+    height: 5rem;   
+}
+.tab > li > button::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #F2F3F5;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.tab >li.active > button {
+    font-weight: 700;
+    color:var(--Text-Base);  
+    
+}
+.tab >li.active > button::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 0.3rem;
+    background: var(--Text-Base);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.common-wrap {
+    min-height: 100%;
+}
+.sub-wrap {
+    padding-bottom: 15rem;
+}
+.health-week{
+    padding: 0 1.6rem;
+}
+.health-week .weekdays {
+    display: flex;
+    gap: 1rem;
+}
+.health-week .weekday {
+    flex: 1;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: #767C88;
+}
+.health-week .days {
+    display: flex;
+    gap: 1rem;
+}
+.health-week .day {
+    flex: 1;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    color:var(--Text-Base);
+    padding-top: 1.4rem;
+}
+.health-week .day-num {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.8rem;
+    height:2.8rem;
+
+}
+.health-week .day-tx {
+    display: block;
+    font-size: 1.1rem;
+    color: #767C88;
+    margin-top: 1rem;
+}
+.health-week .today .day-num {
+    background: #222;
+    border-radius: 50%;
+    color:#fff;
 }
