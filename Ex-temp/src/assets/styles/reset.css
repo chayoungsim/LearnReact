@@ -12,7 +12,8 @@ body {
     word-wrap: break-word;
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;   
+    text-rendering: optimizeLegibility; 
+    overflow-x: hidden;  
 }
 
 *,

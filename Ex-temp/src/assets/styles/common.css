@@ -5,10 +5,14 @@ body {
   font-family: "Pretendard";
   font-size: 1.5rem;
   letter-spacing: -0.5px;
+  
 }
 .full-height {
   /* height: calc(var(--vh, 1vh) * 100); */
   height: calc(var(--vh) * 100 - var(--safe-bottom));
+}
+.modal-open {
+    overflow: hidden;
 }
 .sr-only {
   position: absolute;
@@ -19,24 +23,8 @@ body {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
 }
-.btn {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 0.5rem;
-  padding: 1rem 1.6rem;
-  vertical-align: middle;
-}
-.btn span,
-.btn i,
-.btn strong {
-    display: inline-block;
-    vertical-align: middle;
-    line-height: 1;
-}
+
+
 
 /*header*/
 .logo {
@@ -200,10 +188,10 @@ footer {
   color: #a2a9b4;
 }
 .bottom-nav .active i {
-  background-color: #39b695;
+  background-color: var(--primary-color);
 }
 .bottom-nav .active span {
-  color: #39b695;
+  color: var(--primary-color);
   font-weight: 600;
 }
 

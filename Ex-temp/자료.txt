@@ -1,3 +1,11 @@
 https://www.figma.com/design/GhUotQ1o9pUhXda7SanTYJ/GLOBON-E-Commerce?node-id=1852-1421&m=dev&t=FRvoACOlu5OzMA28-1
 
 https://globonai77.shopby.co.kr/
+
+
+src/assets/images
+src/assets/styles
+src/utils/pubjs   <---- es module Javascript file
+src/pages/publish   <---- markup Guide index
+src/pages/publish/page  <---- pages.html
+src/pages/publish/components <---- 공통화 html 코드 (주달력, 달력, 기타...)
