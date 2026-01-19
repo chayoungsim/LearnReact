@@ -97,11 +97,9 @@ export const headerFix = () => {
     }
 
     // 스크롤 업 → 해제
-    if (currentY <= offset || currentY < lastScrollY) {
-      if (isFixed) {
-        header.classList.remove('is-fixed');
-        isFixed = false;
-      }
+    if (currentY <= offset && isFixed) {
+      header.classList.remove('is-fixed');
+      isFixed = false;
     }
 
     lastScrollY = currentY;

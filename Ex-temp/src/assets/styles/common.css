@@ -41,6 +41,7 @@ header {
     top: 0;
     left: 0;
     width: 100%;
+    z-index: 10;
 }
 header.is-fixed {
     background: #fff;
@@ -172,6 +173,7 @@ footer {
     justify-content: center;
     border-top: 1px solid #f2f3f5;
     background: #fff;
+    z-index: 10;
 }
 .bottom-nav button {
   flex: 1;
@@ -428,11 +430,11 @@ footer {
 .common-wrap {
     min-height: 100%;
 }
-.sub-wrap {
+.sub-wrap {    
     padding-bottom: 15rem;
 }
 .health-week{
-    padding: 0 1.6rem;
+    padding: 0 1.4rem;
 }
 .health-week .weekdays {
     display: flex;

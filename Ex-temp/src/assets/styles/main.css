@@ -3,12 +3,13 @@
     padding-bottom: 2rem;
 }
 .main-section1 {
-  background-color: var(--primary-color);
-  padding-bottom: 3rem;
+  background: var(--primary-color) url(../images/visual.jpg) no-repeat 50% 0;  
   padding-top: 6.6rem;
+  background-size: cover;
+  
 }
 .main-section1 .visual {
-  height: 30rem;
+  height: 35rem;
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -31,7 +32,7 @@
 }
 .cs-char {
   width: 8.5rem;
-  height: 8.2rem;
+  height: 8.8rem;
   background: url(../images/char.svg) no-repeat 50% 0;
   position: absolute;
   top: 0;
@@ -58,7 +59,7 @@
   color: var(--primary-color);
 }
 .cs-box {
-  padding-top: 5rem;
+  padding-top: 5.6rem;
 }
 .cs-box-in {
   border-radius: 20px;
@@ -73,7 +74,7 @@
 }
 .cs-box-toggle button {
   width: 2.8rem;
-  height: 2.4rem;
+  height: 2.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -105,12 +106,12 @@
 .open .cs-box-desc {
   height: auto;
   opacity: 1;
-  padding: 1.8rem;
+  padding: 1rem 1.8rem 1.8rem;
 }
 
 .main-seaction2 {
   position: relative;
-   
+  padding-top: 3rem;
   padding-bottom: 7rem;
 }
 .main-seaction2::before {
@@ -276,37 +277,69 @@
 }
 
 .ty2 .title .cate {
-    background: #FFC31C;
+    background: var(--Yellow700);
 }
 .ty2 .check-board .chk {
-    background: #FFC31C;
+    background: var(--Yellow700);
 }
 .ty2 .check-board .cur {
-   border: 2px solid #FFC31C;
-   color:#FFC31C
+   border: 2px solid var(--Yellow700);
+   color:var(--Yellow700)
 }
 .ty2 .ico-chk {
-    background: #FFC31C;
+    background: var(--Yellow700);
 }
 .ty2 .board .result {
     width: auto;
 }
 
+.ty2 .ico-pie {
+  background:var(--Yellow700);
+}
+.ty2 .ico-pie-25 {
+  background:var(--Yellow700);
+}
+.ty2 .ico-pie-50 {
+  background:var(--Yellow700);
+}
+.ty2 .ico-pie-75 {
+  background:var(--Yellow700);
+}
+.ty2 .ico-pie-100 {
+  background:var(--Yellow700);
+}
+
 .ty3 .title .cate {
-    background: #F99075;
+    background: var(--Orange400);
 }
 .ty3 .check-board .chk {
-    background: #F99075;
+    background: var(--Orange400);
 }
 .ty3 .check-board .cur {
-   border: 2px solid #F99075;
-   color:#F99075
+   border: 2px solid  var(--Orange400);
+   color: var(--Orange400)
 }
 .ty3 .ico-chk {
-    background: #F99075;
+    background: var(--Orange400);
 }
 .ty3 .board .result {
     width: auto;
+}
+
+.ty3 .ico-pie {
+  background: var(--Orange400);
+}
+.ty3 .ico-pie-25 {
+  background: var(--Orange400);
+}
+.ty3 .ico-pie-50 {
+  background: var(--Orange400);
+}
+.ty3 .ico-pie-75 {
+  background: var(--Orange400);
+}
+.ty3 .ico-pie-100 {
+  background: var(--Orange400);
 }
 
 .routine-lists .routine {
@@ -315,7 +348,7 @@
 .routine-lists + .btn-more-wrap {
     margin-top: 2.4rem;
 }
-.board {
+.routine .board {
     width: 100%; 
     display: flex;
     justify-content: space-between;
@@ -361,7 +394,7 @@
     font-size: 1.4rem;
     font-weight: 600;
     line-height: 1.4;
-    color:#282828
+    color: var(--Text-Base);
 }
 .product-hot .desc .info {
     display: flex;
@@ -460,37 +493,24 @@
     width: 10rem;
 }
 .product-zzim {
-    display: block;
-    position: relative;
-    width: 10rem;
-    height: 10rem;
+    display: block;    
+    
 }
 .product-zzim .thumb {
-    width: 100%;
-    height: 100%;
-    border-radius: 4px;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 0.4rem;
     overflow: hidden;
 }
-.product-zzim .info {
-    position: absolute;
-    top:0;
-    left:0;
-    width: 100%;
-    height: 100%;
-    border-radius: 4px;
-    opacity: 0.9;
-    background: var(--primary-color);
-    padding: 2rem 1.6rem 1.8rem;
-    font-size: 1.2rem;
+.product-zzim .info {   
+    padding:0.8rem 0.8rem 0 0;
+    font-size: 1.1rem;
     font-weight: 600;
     line-height: 1.4;
-    color:#fff;
-    display: none;
+    color:var(--Text-Base);
     transition: all 0.5s;    
 }
-.product-zzim.active .info {
-    display: block;
-}
+
 .main-seaction7 {
     padding-bottom: 8rem;
     
@@ -522,8 +542,7 @@
     font-size: 1.4rem;
     font-weight: 700;
     line-height: 1.4;
-    color: #fff;
-    background: linear-gradient(180deg, rgba(57, 182, 149, 0.00) 0%, #39B695 100%);
+    color: #fff;    
     border-radius: 0.4rem;
 }
 .main-seaction8 {
@@ -536,8 +555,8 @@
     text-align: center;
 }
 .main-seaction8 .sment {
-    padding: 2.4rem;
-    background: #39B695;
+    padding: 2.4rem 2.4rem 3rem;
+    background: var(--primary-color);
     font-size: 1.3rem;
     font-weight: 700;
     line-height: 1.4;
@@ -570,4 +589,8 @@
     font-weight: 700;
     letter-spacing: -0.32px;
     line-height: 1.4;
+}
+.habit-board {
+  background:#fff url(../images/img-habit.jpg) no-repeat 50% 0;
+  padding-top: 15.8rem;
 }

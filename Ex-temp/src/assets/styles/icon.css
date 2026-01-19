@@ -57,8 +57,8 @@
 }
 .ico-next {
     display: inline-block;
-    width: 0.9rem;
-    height: 0.7rem;
+    width: 0.8rem;
+    height: 0.8rem;
     vertical-align: middle; 
     background-color:#000;
     mask: url(../images/ico-next.svg) no-repeat 50% 50%;
@@ -66,6 +66,20 @@
     -webkit-mask: url(../images/ico-next.svg) no-repeat 50% 50%;
     -webkit-mask-size: contain;
 }
+
+.ico-prev {
+     display: inline-block;
+    width: 0.8rem;
+    height: 0.8rem;
+    vertical-align: middle; 
+    background-color:#000;
+    mask: url(../images/ico-next.svg) no-repeat 50% 50%;
+    mask-size: contain;
+    -webkit-mask: url(../images/ico-next.svg) no-repeat 50% 50%;
+    -webkit-mask-size: contain;
+    transform: rotate(180deg);
+} 
+
 
 .ico-cart {
     display: inline-block;
@@ -464,4 +478,65 @@
 
 .ico-arrow.gray {
     background-color: #ccc;
+}
+
+.ico-pie {
+    display: inline-block;
+    width: 2.4rem;
+    height: 2.4rem;
+    background-color: #82A2E7;
+    mask: url(../images/ico-pic-0.svg) no-repeat 50% 50%;
+    mask-size: contain;
+    -webkit-mask: url(../images/ico-pie-0.svg) no-repeat 50% 50%;
+    -webkit-mask-size: contain;
+    font-size: 0;
+    vertical-align: middle;
+}
+.ico-pie.pie-25 {
+    display: inline-block;
+    width: 2.4rem;
+    height: 2.4rem;
+    background-color: #82A2E7;
+    mask: url(../images/ico-pic-25.svg) no-repeat 50% 50%;
+    mask-size: contain;
+    -webkit-mask: url(../images/ico-pie-25.svg) no-repeat 50% 50%;
+    -webkit-mask-size: contain;
+    font-size: 0;
+    vertical-align: middle;
+}
+.ico-pie.pie-50 {
+    display: inline-block;
+    width: 2.4rem;
+    height: 2.4rem;
+    background-color: #82A2E7;
+    mask: url(../images/ico-pic-50.svg) no-repeat 50% 50%;
+    mask-size: contain;
+    -webkit-mask: url(../images/ico-pie-50.svg) no-repeat 50% 50%;
+    -webkit-mask-size: contain;
+    font-size: 0;
+    vertical-align: middle;
+}
+.ico-pie.pie-75 {
+    display: inline-block;
+    width: 2.4rem;
+    height: 2.4rem;
+    background-color: #82A2E7;
+    mask: url(../images/ico-pic-75.svg) no-repeat 50% 50%;
+    mask-size: contain;
+    -webkit-mask: url(../images/ico-pie-75.svg) no-repeat 50% 50%;
+    -webkit-mask-size: contain;
+    font-size: 0;
+    vertical-align: middle;
+}
+.ico-pie.pie-100 {
+    display: inline-block;
+    width: 2.4rem;
+    height: 2.4rem;
+    background-color: #82A2E7;
+    mask: url(../images/ico-pic-100.svg) no-repeat 50% 50%;
+    mask-size: contain;
+    -webkit-mask: url(../images/ico-pie-100.svg) no-repeat 50% 50%;
+    -webkit-mask-size: contain;
+    font-size: 0;
+    vertical-align: middle;
 }
