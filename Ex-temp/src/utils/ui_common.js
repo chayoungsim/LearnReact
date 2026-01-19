@@ -1,6 +1,3 @@
-// html 샘플
-// <span class="today-date" onclick="openModal(event)" modal-id="pop05">오늘</span>
-
 //모달 열기
 export const openModal = (event, type) => {
   const btn = event.currentTarget;
@@ -11,12 +8,36 @@ export const openModal = (event, type) => {
     setModal(modalId); // ID =`${modal-id}` 에 해당되는 모달 열기
   }
 };
+
+export const closeModal = (param) => {
+  let target = null;
+  
+  // 1. 문자열 ID로 호출한 경우
+  if (typeof param === 'string') {
+    target = document.getElementById(param);
+  }
+
+  //2. 이벤트 객체로 호출한 경우
+  if (!target && param?.currentTarget) {
+    const modalId = param.currentTarget.getAttribute('modal-id');
+    if (modalId) {
+      target = document.getElementById(modalId);
+    }
+  }
+
+  if (!target) return;
+  target.style.display = "none";
+  target.classList.remove('is-active');
+  document.body.classList.remove('modal-open');
+}
+
 window.openModal = openModal;
+window.closeModal = closeModal;
 
 export const setModal = (target) => {
   // target : 모달 아이디
   target = document.getElementById(target);
-  target.style.display = "block";
+  target.style.display = "flex";
   if (target.classList.contains("type-bottom")) {
     const modalHeadHeight = target.querySelector(".modal-header")
       ? target.querySelector(".modal-header").offsetHeight
@@ -40,13 +61,57 @@ export const setModal = (target) => {
 
 
 
-import { setViewportHeight } from './viewport.js';
-const handleViewportResize = () => {
-  requestAnimationFrame(() => {
-    setViewportHeight();
-  });
+let ticking = false;
+export const setViewportHeight = () => {
+  const vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
 };
 
-handleViewportResize();
-window.addEventListener('resize', handleViewportResize);
-window.addEventListener('orientationchange', handleViewportResize);
+export const initViewportHeight = () => {
+  const update = () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      setViewportHeight();
+      ticking = false;
+    });
+  };
+  update();
+  window.addEventListener('resize', update, { passive: true });
+};
+
+export const headerFix = () => { 
+  let lastScrollY = 0;
+  let isFixed = false; 
+  let offset = 50;
+  const header = document.querySelector('header');
+  if (!header) return;
+
+  lastScrollY = window.scrollY;
+  const onScroll = () => {
+    const currentY = window.scrollY;
+    // 스크롤 다운 → fixed
+    if (currentY > offset && currentY > lastScrollY && !isFixed) {
+      header.classList.add('is-fixed');
+      isFixed = true;
+    }
+
+    // 스크롤 업 → 해제
+    if (currentY <= offset || currentY < lastScrollY) {
+      if (isFixed) {
+        header.classList.remove('is-fixed');
+        isFixed = false;
+      }
+    }
+
+    lastScrollY = currentY;
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+}
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  initViewportHeight();
+  headerFix();  
+})
+

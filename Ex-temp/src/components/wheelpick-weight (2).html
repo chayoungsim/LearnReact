@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wheel Pick 예제</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            padding: 40px;
+        }
+
+        #openBtn {
+            padding: 15px 30px;
+            background: #4A7CFF;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        #openBtn:hover {
+            background: #3a6cef;
+        }
+
+        .wheelpick-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            padding: 20px;
+        }
+
+        .wheelpick-modal {
+            background: white;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 360px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        .wheelpick-header {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #e0e0e0;
+            position: relative;
+        }
+
+        .wheelpick-close {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #f0f0f0;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #666;
+        }
+
+        .wheelpick-close:hover {
+            background: #e0e0e0;
+        }
+
+        .wheelpick-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin: 0;
+        }
+
+        .wheelpick-subtitle {
+            padding: 15px;
+            background: #f8f8f8;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .wheelpick-container {
+            padding: 30px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            height: 280px;
+        }
+
+        .wheelpick-column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+            height: 200px;
+            position: relative;
+        }
+
+        .wheelpick-items {
+            transition: transform 0.3s ease;
+        }
+
+        .wheelpick-item {
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #999;
+            cursor: pointer;
+            user-select: none;
+            min-width: 60px;
+        }
+
+        .wheelpick-item.selected {
+            color: #333;
+            font-weight: 600;
+        }
+
+        .wheelpick-selection-indicator {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            height: 50px;
+            background: rgba(255, 192, 203, 0.3);
+            border-radius: 25px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .wheelpick-wrapper {
+            display: flex;
+            gap: 10px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .wheelpick-unit {
+            font-size: 16px;
+            color: #999;
+            margin-left: 8px;
+            align-self: center;
+        }
+
+        .wheelpick-footer {
+            padding: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .wheelpick-btn {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .wheelpick-btn-cancel {
+            background: #f0f0f0;
+            color: #666;
+        }
+
+        .wheelpick-btn-confirm {
+            background: #4A7CFF;
+            color: white;
+        }
+
+        .wheelpick-btn:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <button id="openBtn">몸무게 입력 열기</button>
+    <div id="app"></div>
+
+    <script>
+        // WheelPick 클래스
+        class WheelPick {
+            constructor(config) {
+                this.config = {
+                    container: config.container,
+                    title: config.title || '값 선택',
+                    subtitle: config.subtitle || '',
+                    columns: config.columns || [],
+                    unit: config.unit || '',
+                    onConfirm: config.onConfirm || null,
+                    onCancel: config.onCancel || null
+                };
+                
+                this.selectedValues = {};
+                this.wheelInteractions = [];
+                this.init();
+            }
+
+            init() {
+                this.createModal();
+                this.initializeColumns();
+                this.setupEventListeners();
+            }
+
+            createModal() {
+                const modalHTML = `
+                    <div class="wheelpick-overlay">
+                        <div class="wheelpick-modal">
+                            <div class="wheelpick-header">
+                                <button class="wheelpick-close">✕</button>
+                                <h2 class="wheelpick-title">${this.config.title}</h2>
+                            </div>
+                            
+                            ${this.config.subtitle ? `<div class="wheelpick-subtitle">${this.config.subtitle}</div>` : ''}
+
+                            <div class="wheelpick-container">
+                                <div class="wheelpick-selection-indicator"></div>
+                                <div class="wheelpick-wrapper">
+                                    ${this.config.columns.map((col, index) => `
+                                        <div class="wheelpick-column" data-column="${index}">
+                                            <div class="wheelpick-items"></div>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                                ${this.config.unit ? `<span class="wheelpick-unit">${this.config.unit}</span>` : ''}
+                            </div>
+
+                            <div class="wheelpick-footer">
+                                <button class="wheelpick-btn wheelpick-btn-cancel">취소</button>
+                                <button class="wheelpick-btn wheelpick-btn-confirm">추가</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                const container = document.querySelector(this.config.container);
+                container.innerHTML = modalHTML;
+                this.modal = container.querySelector('.wheelpick-modal');
+                this.overlay = container.querySelector('.wheelpick-overlay');
+            }
+
+            initializeColumns() {
+                this.config.columns.forEach((column, index) => {
+                    const columnElement = this.modal.querySelector(`[data-column="${index}"]`);
+                    const itemsContainer = columnElement.querySelector('.wheelpick-items');
+                    
+                    this.selectedValues[column.id] = column.defaultValue;
+                    this.createWheelItems(itemsContainer, column.min, column.max, column.defaultValue);
+                    this.centerWheel(itemsContainer, column.defaultValue, column.min);
+                    this.addWheelInteraction(columnElement, column.min, column.max, column.defaultValue, column.id);
+                });
+            }
+
+            createWheelItems(container, start, end, selected) {
+                for (let i = start; i <= end; i++) {
+                    const div = document.createElement('div');
+                    div.className = 'wheelpick-item';
+                    div.textContent = i;
+                    if (i === selected) {
+                        div.classList.add('selected');
+                    }
+                    container.appendChild(div);
+                }
+            }
+
+            centerWheel(container, selected, min) {
+                const items = container.querySelectorAll('.wheelpick-item');
+                const offset = (selected - min) * -50 + 75;
+                container.style.transform = `translateY(${offset}px)`;
+                
+                items.forEach((item) => {
+                    if (parseInt(item.textContent) === selected) {
+                        item.classList.add('selected');
+                    } else {
+                        item.classList.remove('selected');
+                    }
+                });
+            }
+
+            addWheelInteraction(wheelColumn, min, max, initialValue, columnId) {
+                const container = wheelColumn.querySelector('.wheelpick-items');
+                let currentValue = initialValue;
+                let startY = 0;
+                let isDragging = false;
+
+                const startDrag = (e) => {
+                    isDragging = true;
+                    startY = e.type === 'mousedown' ? e.clientY : e.touches[0].clientY;
+                };
+
+                const onDrag = (e) => {
+                    if (!isDragging) return;
+                    e.preventDefault();
+                    
+                    const clientY = e.type === 'mousemove' ? e.clientY : e.touches[0].clientY;
+                    const delta = clientY - startY;
+                    const steps = Math.round(delta / 50);
+                    const newValue = Math.max(min, Math.min(max, currentValue - steps));
+                    
+                    if (newValue !== currentValue) {
+                        currentValue = newValue;
+                        this.selectedValues[columnId] = newValue;
+                        this.centerWheel(container, currentValue, min);
+                        startY = clientY;
+                    }
+                };
+
+                const endDrag = () => {
+                    isDragging = false;
+                };
+
+                wheelColumn.addEventListener('mousedown', startDrag);
+                wheelColumn.addEventListener('touchstart', startDrag, { passive: true });
+                
+                const mouseMoveHandler = onDrag;
+                const touchMoveHandler = onDrag;
+                const mouseUpHandler = endDrag;
+                const touchEndHandler = endDrag;
+
+                document.addEventListener('mousemove', mouseMoveHandler);
+                document.addEventListener('touchmove', touchMoveHandler, { passive: false });
+                document.addEventListener('mouseup', mouseUpHandler);
+                document.addEventListener('touchend', touchEndHandler);
+
+                this.wheelInteractions.push({
+                    mouseMoveHandler,
+                    touchMoveHandler,
+                    mouseUpHandler,
+                    touchEndHandler
+                });
+            }
+
+            setupEventListeners() {
+                const closeBtn = this.modal.querySelector('.wheelpick-close');
+                const cancelBtn = this.modal.querySelector('.wheelpick-btn-cancel');
+                const confirmBtn = this.modal.querySelector('.wheelpick-btn-confirm');
+
+                closeBtn.addEventListener('click', () => this.close());
+                cancelBtn.addEventListener('click', () => this.cancel());
+                confirmBtn.addEventListener('click', () => this.confirm());
+                
+                this.overlay.addEventListener('click', (e) => {
+                    if (e.target === this.overlay) {
+                        this.close();
+                    }
+                });
+            }
+
+            confirm() {
+                if (this.config.onConfirm) {
+                    this.config.onConfirm(this.selectedValues);
+                }
+                this.close();
+            }
+
+            cancel() {
+                if (this.config.onCancel) {
+                    this.config.onCancel();
+                }
+                this.close();
+            }
+
+            close() {
+                // 이벤트 리스너 정리
+                this.wheelInteractions.forEach(handlers => {
+                    document.removeEventListener('mousemove', handlers.mouseMoveHandler);
+                    document.removeEventListener('touchmove', handlers.touchMoveHandler);
+                    document.removeEventListener('mouseup', handlers.mouseUpHandler);
+                    document.removeEventListener('touchend', handlers.touchEndHandler);
+                });
+                
+                this.overlay.remove();
+            }
+
+            getValue() {
+                return this.selectedValues;
+            }
+        }
+
+        // 사용 예제
+        document.getElementById('openBtn').addEventListener('click', () => {
+            const weightPicker = new WheelPick({
+                container: '#app',
+                title: '몸무게 입력',
+                subtitle: '오늘   오후 2:32',
+                unit: 'kg',
+                columns: [
+                    {
+                        id: 'integer',
+                        min: 30,
+                        max: 200,
+                        defaultValue: 60
+                    },
+                    {
+                        id: 'decimal',
+                        min: 0,
+                        max: 9,
+                        defaultValue: 1
+                    }
+                ],
+                onConfirm: (values) => {
+                    alert(`선택된 몸무게: ${values.integer}.${values.decimal} kg`);
+                },
+                onCancel: () => {
+                    console.log('취소됨');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -4,20 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>main</title>
-    <link rel="stylesheet" href="../../../assets/styles/font.css">
-    <link rel="stylesheet" href="../../../assets/styles/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/> 
+    <link rel="stylesheet" href="../../../assets/styles/style.css">    
     <link rel="stylesheet" href="../../../assets/styles/main.css">
-    <script type="module" src="../../../utils/ui_common.js"></script>
+    <script type="module" src="../../../utils/ui_common.js"></script>      
     <script type="module" src="../../../utils/ui_main.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
 </head>
 <body>
     <div class="common-wrap">
-        <!-- 헤더영역같이 공통영역을 다음과 같이 입력 -->
-        <div data-include-path="_inc/top-nav.html"></div>
-        <!-- //헤더영역같이 공통영역을 다음과 같이 입력 -->
+        <header>
+            <div class="header-top">
+                <h1><a href=""><span class="logo">GLOBONxONIONE</span></a></h1>
+                <div class="aside">
+                    <button type="button" class="ht-search"><i class="ico-h-search"></i><span class="sr-only">검색</span></button> 
+                    <button type="button" class="ht-cart"><i class="ico-h-cart"></i><span class="sr-only">장바구니</span><em>3</em></button>
+                    <button type="button" class="ht-alarm"><i class="ico-h-alarm"></i><span class="sr-only">알림</span></button>
+                </div>
+            </div>    
+        </header>
         <div class="main-wrap">
             <div class="main-section1">
                 <div class="visual">
@@ -454,24 +458,8 @@
             </div>
         </div>
 
-        <footer>
-            <p class="footer-top">고객센터   1111-3333</p>
-            <div class="footer-links">
-                <a href="">이용약관</a>
-                <a href=""><strong>개인정보처리방침</strong></a>
-                <a href="">이메일 문의</a>
-                <a href="">1:1 문의</a>
-            </div>
-            <div class="footer-infos">
-                <p>대표자명 : 한상호</p>
-                <address>주소: 서울특별시 강남구 도산대로 331(신사동) 5층</address>
-                <p>대표전화번호:  02-6934-0800</p>
-                <p>사업자등록번호 : 116-81-16261 [ <a href="">사업자정보확인</a> ]</p>
-                <p>통신판매업신고번호 : 제2016-서울강남-03857호</p>
-            </div>
-            <div class="copyright">Copyright © 2025 ALL RIGHT RESERVED</div>
-        </footer>
-
+        
+        <div data-include-path="_inc/footer.html"></div>
         <!-- 헤더영역같이 공통영역을 다음과 같이 입력 -->
         <div data-include-path="_inc/bottom-nav.html"></div>
         <!-- //헤더영역같이 공통영역을 다음과 같이 입력 -->

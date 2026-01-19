@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>몸무게 입력</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #4a4a4a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .modal {
+            background: white;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 360px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #e0e0e0;
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #f0f0f0;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #666;
+        }
+
+        .close-btn:hover {
+            background: #e0e0e0;
+        }
+
+        .title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .subtitle {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f8f8;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .wheel-container {
+            padding: 30px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            height: 280px;
+        }
+
+        .wheel-column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+            height: 200px;
+            position: relative;
+        }
+
+        .wheel-items {
+            transition: transform 0.3s ease;
+        }
+
+        .wheel-item {
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #999;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .wheel-item.selected {
+            color: #333;
+            font-weight: 600;
+        }
+
+        .selection-indicator {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            height: 50px;
+            background: rgba(255, 192, 203, 0.3);
+            border-radius: 25px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .wheel-wrapper {
+            display: flex;
+            gap: 10px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .unit {
+            font-size: 16px;
+            color: #999;
+            margin-left: 8px;
+            align-self: center;
+        }
+
+        .footer {
+            padding: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .btn-cancel {
+            background: #f0f0f0;
+            color: #666;
+        }
+
+        .btn-confirm {
+            background: #4A7CFF;
+            color: white;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="modal">
+        <div class="header">
+            <button class="close-btn" onclick="window.close()">✕</button>
+            <h2 class="title">몸무게 입력</h2>
+        </div>
+        
+        <div class="subtitle">
+            오늘   오후 2:32
+        </div>
+
+        <div class="wheel-container">
+            <div class="selection-indicator"></div>
+            <div class="wheel-wrapper">
+                <div class="wheel-column" id="integer">
+                    <div class="wheel-items"></div>
+                </div>
+                <div class="wheel-column" id="decimals">
+                    <div class="wheel-items"></div>
+                </div>
+            </div>
+            <span class="unit">kg</span>
+        </div>
+
+        <div class="footer">
+            <button class="btn btn-cancel">취소</button>
+            <button class="btn btn-confirm" onclick="submitWeight()">추가</button>
+        </div>
+    </div>
+
+    <script>
+        const integerWheel = document.querySelector('#integer .wheel-items');
+        const decimalsWheel = document.querySelector('#decimals .wheel-items');
+
+        let selectedInteger = 60;
+        let selectedDecimals = 1;
+
+        function createWheelItems(container, start, end, selected) {
+            const items = [];
+            for (let i = start; i <= end; i++) {
+                const div = document.createElement('div');
+                div.className = 'wheel-item';
+                div.textContent = i;
+                if (i === selected) {
+                    div.classList.add('selected');
+                }
+                items.push(div);
+                container.appendChild(div);
+            }
+            return items;
+        }
+
+        createWheelItems(integerWheel, 30, 200, selectedInteger);
+        createWheelItems(decimalsWheel, 0, 9, selectedDecimals);
+
+        function centerWheel(container, selected, min) {
+            const items = container.querySelectorAll('.wheel-item');
+            const offset = (selected - min) * -50 + 75;
+            container.style.transform = `translateY(${offset}px)`;
+            
+            items.forEach((item, index) => {
+                if (parseInt(item.textContent) === selected) {
+                    item.classList.add('selected');
+                } else {
+                    item.classList.remove('selected');
+                }
+            });
+        }
+
+        function addWheelInteraction(wheelColumn, min, max, currentValue, updateCallback) {
+            const container = wheelColumn.querySelector('.wheel-items');
+            let startY = 0;
+            let currentY = 0;
+            let isDragging = false;
+
+            wheelColumn.addEventListener('mousedown', startDrag);
+            wheelColumn.addEventListener('touchstart', startDrag);
+
+            function startDrag(e) {
+                isDragging = true;
+                startY = e.type === 'mousedown' ? e.clientY : e.touches[0].clientY;
+                currentY = startY;
+            }
+
+            function onDrag(e) {
+                if (!isDragging) return;
+                e.preventDefault();
+                currentY = e.type === 'mousemove' ? e.clientY : e.touches[0].clientY;
+                const delta = currentY - startY;
+                const steps = Math.round(delta / 50);
+                const newValue = Math.max(min, Math.min(max, currentValue - steps));
+                
+                if (newValue !== currentValue) {
+                    currentValue = newValue;
+                    updateCallback(newValue);
+                    centerWheel(container, currentValue, min);
+                    startY = currentY;
+                }
+            }
+
+            function endDrag() {
+                isDragging = false;
+            }
+
+            document.addEventListener('mousemove', onDrag);
+            document.addEventListener('touchmove', onDrag, { passive: false });
+            document.addEventListener('mouseup', endDrag);
+            document.addEventListener('touchend', endDrag);
+        }
+
+        centerWheel(integerWheel, selectedInteger, 30);
+        centerWheel(decimalsWheel, selectedDecimals, 0);
+
+        addWheelInteraction(document.getElementById('integer'), 30, 200, selectedInteger, 
+            (val) => selectedInteger = val);
+        addWheelInteraction(document.getElementById('decimals'), 0, 9, selectedDecimals, 
+            (val) => selectedDecimals = val);
+
+        function submitWeight() {
+            const weight = `${selectedInteger}.${selectedDecimals}`;
+            alert(`선택된 몸무게: ${weight} kg`);
+        }
+    </script>
+</body>
+</html>

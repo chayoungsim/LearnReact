@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../../assets/styles/font.css">
+    <link rel="stylesheet" href="../../../assets/styles/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="../../../assets/styles/wheelpicker.css"> 
+     <script type="module">
+        import { initWeightWheel, getSelectedWeight } from '../../../utils/picker-weight.js';
+        initWeightWheel();
+    </script>   
+</head>
+<body>
+
+
+    <div class="wheel-container">       
+        <div class="wheel-highlight"></div>
+        <div class="wheel-wrapper">
+            <div class="wheel-column" id="integer">
+                <div class="wheel-items"></div>
+            </div>
+            <div class="wheel-column" id="decimals">
+                <div class="wheel-items"></div>
+            </div>
+        </div>
+        <span class="unit">kg</span>
+    </div>
+    
+</body>
+</html>

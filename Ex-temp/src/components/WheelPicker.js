@@ -1,4 +1,3 @@
-// WheelPicker.js
 export default class WheelPicker {
     constructor(pickerId, listId, items, initialValue, onChange) {
         this.picker = document.getElementById(pickerId);

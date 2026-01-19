@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모바일 모달 샘플</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .open-btn {
+            padding: 16px;
+            background: #5F5AFF;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .open-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* 모달 오버레이 */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.show {
+            display: flex;
+            opacity: 1;
+        }
+
+        /* 중앙 모달 */
+        .modal-center {
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-center .modal-content {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            max-width: 360px;
+            width: 100%;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-center.show .modal-content {
+            transform: scale(1);
+        }
+
+        /* 하단 슬라이드 모달 */
+        .modal-bottom {
+            justify-content: flex-end;
+            align-items: flex-end;
+        }
+
+        .modal-bottom .modal-content {
+            background: white;
+            border-radius: 20px 20px 0 0;
+            padding: 24px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-bottom.show .modal-content {
+            transform: translateY(0);
+        }
+
+        /* 전체 화면 모달 */
+        .modal-fullscreen {
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-fullscreen .modal-content {
+            background: white;
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            overflow-y: auto;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-fullscreen.show .modal-content {
+            transform: translateX(0);
+        }
+
+        /* 모달 헤더 */
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .modal-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .modal-close {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #f0f0f0;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #666;
+        }
+
+        .modal-close:active {
+            background: #e0e0e0;
+        }
+
+        /* 하단 슬라이드 전용 핸들 */
+        .modal-handle {
+            width: 40px;
+            height: 4px;
+            background: #d1d1d6;
+            border-radius: 2px;
+            margin: 0 auto 16px;
+        }
+
+        /* 모달 바디 */
+        .modal-body {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .modal-body p {
+            margin-bottom: 12px;
+        }
+
+        /* 모달 푸터 */
+        .modal-footer {
+            display: flex;
+            gap: 10px;
+        }
+
+        .modal-btn {
+            flex: 1;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .modal-btn-cancel {
+            background: #f0f0f0;
+            color: #666;
+        }
+
+        .modal-btn-confirm {
+            background: #5F5AFF;
+            color: white;
+        }
+
+        .modal-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* 리스트 아이템 */
+        .list-item {
+            padding: 16px;
+            background: #f8f8f8;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .list-item:active {
+            background: #e8e8e8;
+        }
+
+        .list-item-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 4px;
+        }
+
+        .list-item-desc {
+            font-size: 14px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📱 모바일 모달 샘플</h1>
+        
+        <div class="button-group">
+            <button class="open-btn" onclick="openModal('center')">중앙 모달 열기</button>
+            <button class="open-btn" onclick="openModal('bottom')">하단 슬라이드 모달 열기</button>
+            <button class="open-btn" onclick="openModal('fullscreen')">전체 화면 모달 열기</button>
+        </div>
+    </div>
+
+    <!-- 중앙 모달 -->
+    <div class="modal-overlay modal-center" id="modalCenter">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">알림</h2>
+                <button class="modal-close" onclick="closeModal('center')">✕</button>
+            </div>
+            <div class="modal-body">
+                <p>이것은 중앙에 표시되는 모달입니다.</p>
+                <p>중요한 알림이나 확인 메시지를 표시할 때 사용합니다.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn modal-btn-cancel" onclick="closeModal('center')">취소</button>
+                <button class="modal-btn modal-btn-confirm" onclick="handleConfirm('center')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 하단 슬라이드 모달 -->
+    <div class="modal-overlay modal-bottom" id="modalBottom">
+        <div class="modal-content">
+            <div class="modal-handle"></div>
+            <div class="modal-header">
+                <h2 class="modal-title">옵션 선택</h2>
+                <button class="modal-close" onclick="closeModal('bottom')">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="list-item" onclick="selectOption('옵션 1')">
+                    <div class="list-item-title">옵션 1</div>
+                    <div class="list-item-desc">첫 번째 옵션입니다</div>
+                </div>
+                <div class="list-item" onclick="selectOption('옵션 2')">
+                    <div class="list-item-title">옵션 2</div>
+                    <div class="list-item-desc">두 번째 옵션입니다</div>
+                </div>
+                <div class="list-item" onclick="selectOption('옵션 3')">
+                    <div class="list-item-title">옵션 3</div>
+                    <div class="list-item-desc">세 번째 옵션입니다</div>
+                </div>
+                <div class="list-item" onclick="selectOption('옵션 4')">
+                    <div class="list-item-title">옵션 4</div>
+                    <div class="list-item-desc">네 번째 옵션입니다</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 전체 화면 모달 -->
+    <div class="modal-overlay modal-fullscreen" id="modalFullscreen">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">상세 정보</h2>
+                <button class="modal-close" onclick="closeModal('fullscreen')">✕</button>
+            </div>
+            <div class="modal-body">
+                <p><strong>전체 화면 모달</strong></p>
+                <p>많은 콘텐츠를 표시해야 할 때 사용하는 전체 화면 모달입니다.</p>
+                
+                <p style="margin-top: 20px;"><strong>특징:</strong></p>
+                <p>• 화면 전체를 활용하여 콘텐츠를 표시합니다</p>
+                <p>• 복잡한 폼이나 긴 텍스트에 적합합니다</p>
+                <p>• 스크롤이 가능하여 많은 정보를 담을 수 있습니다</p>
+                <p>• 우측에서 슬라이드되어 나타납니다</p>
+                
+                <p style="margin-top: 20px;"><strong>사용 예시:</strong></p>
+                <p>상세 페이지, 설정 화면, 긴 폼, 약관 동의 등</p>
+                
+                <div style="height: 300px; background: #f8f8f8; border-radius: 12px; margin-top: 20px; display: flex; align-items: center; justify-content: center; color: #999;">
+                    추가 콘텐츠 영역
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn modal-btn-cancel" onclick="closeModal('fullscreen')">닫기</button>
+                <button class="modal-btn modal-btn-confirm" onclick="handleConfirm('fullscreen')">저장</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal(type) {
+            const modal = document.getElementById('modal' + type.charAt(0).toUpperCase() + type.slice(1));
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(type) {
+            const modal = document.getElementById('modal' + type.charAt(0).toUpperCase() + type.slice(1));
+            modal.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+
+        function handleConfirm(type) {
+            alert(type + ' 모달 확인!');
+            closeModal(type);
+        }
+
+        function selectOption(option) {
+            alert(option + ' 선택됨!');
+            closeModal('bottom');
+        }
+
+        // 오버레이 클릭 시 모달 닫기
+        document.querySelectorAll('.modal-overlay').forEach(overlay => {
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) {
+                    overlay.classList.remove('show');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+
+        // 하단 모달 스와이프 닫기
+        let startY = 0;
+        let currentY = 0;
+        const bottomModal = document.querySelector('.modal-bottom .modal-content');
+
+        bottomModal.addEventListener('touchstart', (e) => {
+            startY = e.touches[0].clientY;
+        });
+
+        bottomModal.addEventListener('touchmove', (e) => {
+            currentY = e.touches[0].clientY;
+            const diff = currentY - startY;
+            
+            if (diff > 0) {
+                bottomModal.style.transform = `translateY(${diff}px)`;
+            }
+        });
+
+        bottomModal.addEventListener('touchend', () => {
+            const diff = currentY - startY;
+            
+            if (diff > 100) {
+                closeModal('bottom');
+            }
+            
+            bottomModal.style.transform = '';
+        });
+    </script>
+</body>
+</html>

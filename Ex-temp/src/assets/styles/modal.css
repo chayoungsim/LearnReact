@@ -1,0 +1,70 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.modal-overlay.is-active {
+    display: flex;
+    opacity: 1;
+    z-index: 1001;
+}
+/* 중앙 모달 */
+.modal-center {
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.modal-center .modal-content {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px;
+    max-width: 360px;
+    width: 100%;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+.modal-center.is-active .modal-content {
+    transform: scale(1);
+}
+ /* 하단 슬라이드 모달 */
+.modal-bottom {
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.modal-bottom .modal-content {
+    background: white;
+    border-radius: 20px 20px 0 0;
+    padding: 24px;
+    width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+.modal-bottom.is-active .modal-content {
+    transform: translateY(0);
+}
+/* 전체 화면 모달 */
+.modal-fullscreen {
+    justify-content: center;
+    align-items: center;
+}
+.modal-fullscreen .modal-content {
+    background: white;
+    width: 100%;
+    height: 100%;
+    padding: 1.6rem;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+}
+.modal-fullscreen.is-active .modal-content {
+    transform: translateX(0);
+}

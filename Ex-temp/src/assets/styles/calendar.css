@@ -4,7 +4,7 @@
     width: 100%;
     max-width: 400px; /* 모바일 뷰 크기 제한 */
     margin: 0 auto;
-    padding: 20px;
+    padding: 1.6rem;
     background-color: #fff;
     font-family: 'Roboto', 'Noto Sans KR', sans-serif;
     box-sizing: border-box;
@@ -70,7 +70,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    min-height: 80px;
+    /* min-height: 80px; */
+    position: relative;
 }
 
 .day-cell.not-current {
@@ -86,11 +87,15 @@
 
 /* --- 도넛 차트 SVG --- */
 .donut-chart-wrap {
+    position: absolute;
     width: 44px;
     height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .donut-chart {

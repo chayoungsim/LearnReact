@@ -1,0 +1,15 @@
+import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs';
+
+const Swiper = new Swiper('.swiper', {
+  slidesPerView: 'auto',
+  spaceBetween: 16,
+  //freeMode: true,
+  // navigation: {
+  //   nextEl: '.swiper-button-next',
+  //   prevEl: '.swiper-button-prev',
+  // },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+});

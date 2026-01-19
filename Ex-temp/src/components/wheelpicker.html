@@ -7,15 +7,60 @@
     <link rel="stylesheet" href="../../../assets/styles/font.css">
     <link rel="stylesheet" href="../../../assets/styles/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-
     <link rel="stylesheet" href="../../../assets/styles/wheelpicker.css">
-
     <script type="module" src="../../../utils/picker-init.js"></script>
+    <style>
+        .picker-container {
 
+}
+.wheel-wrapper {
+
+}
+.wheel-picker {
+    width: 80px;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #f8f9fa;
+}
+.wheel-highlight {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: rgba(102, 126, 234, 0.1);
+    border-top: 2px solid #667eea;
+    border-bottom: 2px solid #667eea;
+    pointer-events: none;
+    z-index: 1;
+}
+.wheel-list {
+    position: absolute;
+    width: 100%;
+    cursor: grab;
+    user-select: none;
+    transition: transform 0.3s ease;
+}
+.wheel-item {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 600;
+    color: #999;
+    transition: all 0.2s;
+}
+.wheel-item.active {
+    color: #667eea;
+    font-size: 22
+}
+    </style>
 </head>
 <body>
     <div>
-
         <div class="wheel-wrapper">
             <div class="wheel-label">년</div>
             <div class="wheel-picker" id="year-picker">
