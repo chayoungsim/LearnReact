@@ -7,6 +7,7 @@ import Button from './components/Button';
 import Todo from './components/Todo';
 import Tab from './components/Tab';
 import Coin from './components/Coin';
+import Section from './components/gsap';
 
 function App() {
 
@@ -41,6 +42,7 @@ function App() {
             <div>
                 <Coin />
             </div>
+            <Section />
         </>
     )
     }

@@ -22,13 +22,13 @@ const Coin = () => {
             {loading ? 
             ("Loading ...?") : 
             (
-                <ul className='coins'>
+                <select className='coins'>
                     {coins.map((coin) => (
-                        <li key={coin.id}>
+                        <option key={coin.id}>
                             {coin.name} ({coin.symbol}): ${coin.quotes.USD.price} USD
-                        </li>
+                        </option>
                     ))}
-                </ul>
+                </select>
             )}
         </div>
         
