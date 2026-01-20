@@ -60,56 +60,119 @@ export const setModal = (target) => {
 };
 
 
-
-let ticking = false;
-export const setViewportHeight = () => {
-  const vh = window.innerHeight * 0.01;
-  document.documentElement.style.setProperty('--vh', `${vh}px`);
-};
-
 export const initViewportHeight = () => {
-  const update = () => {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(() => {
-      setViewportHeight();
-      ticking = false;
-    });
-  };
-  update();
-  window.addEventListener('resize', update, { passive: true });
+    let ticking = false;
+    const setViewportHeight = () => {
+        const vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    };
+    const update = () => {
+        if (ticking) return;
+        ticking = true;
+
+        requestAnimationFrame(() => {
+            setViewportHeight();
+            ticking = false;
+        });
+    };
+    update();
+    window.addEventListener('resize', update, { passive: true });  
+    return () => {
+        window.removeEventListener('resize', update);
+    };
 };
 
-export const headerFix = () => { 
-  let lastScrollY = 0;
-  let isFixed = false; 
-  let offset = 50;
-  const header = document.querySelector('header');
-  if (!header) return;
+export const headerFix = ({headerSelector ='header', offset = 50 } = {}) => {
+    const headerEl = document.querySelector(headerSelector);
+    if (!headerEl) return;
+    let lastScrollY = window.scrollY;
+    let isFixed = false;
+    const onScroll = () => {
+        const currentY = window.scrollY;
+        if (currentY > offset && currentY > lastScrollY && !isFixed) {
+            headerEl.classList.add('is-fixed');
+            isFixed = true;
+        }
+        if (currentY <= offset && isFixed) {
+            headerEl.classList.remove('is-fixed');
+            isFixed = false;
+        }
+        lastScrollY = currentY;
+    };
+    window.addEventListener('scroll', onScroll, { passive: true }); 
+    return () => {
+        window.removeEventListener('scroll', onScroll);
+        headerEl.classList.remove('is-fixed');
+    };
+};
 
-  lastScrollY = window.scrollY;
-  const onScroll = () => {
-    const currentY = window.scrollY;
-    // 스크롤 다운 → fixed
-    if (currentY > offset && currentY > lastScrollY && !isFixed) {
-      header.classList.add('is-fixed');
-      isFixed = true;
-    }
+export const fixTabOnScroll = ({headerSelector = 'header',tabSelector = '.tab-wrap'} = {}) => {
+    const header = document.querySelector(headerSelector);
+    const tabWrap = document.querySelector(tabSelector);
+    if (!header || !tabWrap) return;
+    const headerHeight = header.offsetHeight;
+    const tabOffsetTop = tabWrap.getBoundingClientRect().top + window.scrollY;
+    // 레이아웃 유지용 placeholder
+    const placeholder = document.createElement('div');
+    placeholder.style.height = `${tabWrap.offsetHeight}px`;
+    placeholder.style.display = 'none';
+    tabWrap.parentNode.insertBefore(placeholder, tabWrap);
+    const onScroll = () => {
+        const scrollY = window.scrollY;
+        if (scrollY + headerHeight >= tabOffsetTop) {
+            if (!tabWrap.classList.contains('is-fixed')) {
+                tabWrap.classList.add('is-fixed');
+                tabWrap.style.top = `${headerHeight}px`;
+                placeholder.style.display = 'block';
+            }
+        } else {
+            if (tabWrap.classList.contains('is-fixed')) {
+                tabWrap.classList.remove('is-fixed');
+                tabWrap.style.top = '';
+                placeholder.style.display = 'none';
+            }
+        }
+    };
+    window.addEventListener('scroll', onScroll);   
+    return () => {
+        window.removeEventListener('scroll', onScroll);
+        placeholder.remove();
+        tabWrap.classList.remove('is-fixed');
+        tabWrap.style.top = '';
+    };
+}
 
-    // 스크롤 업 → 해제
-    if (currentY <= offset && isFixed) {
-      header.classList.remove('is-fixed');
-      isFixed = false;
-    }
 
-    lastScrollY = currentY;
+export const quickToggle = ({buttonSelector = '.btn-quick',overlaySelector = '.quick-overlay', activeClass = 'open'} = {}) => {
+  const quickBtn = document.querySelector(buttonSelector);
+  const quickOverlay = document.querySelector(overlaySelector);
+  if (!quickBtn || !quickOverlay) return;
+  const onToggle = () => {
+    quickBtn.classList.toggle(activeClass);
+    quickOverlay.classList.toggle(activeClass);
   };
-  window.addEventListener('scroll', onScroll, { passive: true });
+  const onClose = () => {
+    quickBtn.classList.remove(activeClass);
+    quickOverlay.classList.remove(activeClass);
+  };
+  quickBtn.addEventListener('click', onToggle);
+  quickOverlay.addEventListener('click', onClose);
+
+  return () => {
+    quickBtn.removeEventListener('click', onToggle);
+    quickOverlay.removeEventListener('click', onClose);
+    onClose();
+  };
+
 }
 
 
 document.addEventListener('DOMContentLoaded', () => {
   initViewportHeight();
   headerFix();  
+  fixTabOnScroll();
+  quickToggle();
+
+  //fixTabOnScroll({headerSelector: 'header',tabSelector: '.tab-wrap'});
 })
 

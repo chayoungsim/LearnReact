@@ -1,0 +1,44 @@
+html {
+    font-size: 10px;
+}
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 56px;
+}
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+}
+
+#container {
+    padding-top: 56px;
+    padding-bottom: 60px;
+    min-height: 100vh;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 1.6rem;
+}
+
+.header-top-sub {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 1.6rem;
+}
+.header-top-sub .prev {
+    position: absolute;
+    top: 50%;
+    left: 1.6rem;
+    transform: translateY(-50%);
+}

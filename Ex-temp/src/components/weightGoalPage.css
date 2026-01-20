@@ -1,0 +1,150 @@
+
+.picker-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.picker-modal-container {
+    width: 100%;
+    max-width: 420px;
+    background: #fff;
+    border-radius: 16px 16px 0 0;
+    padding-bottom: env(safe-area-inset-bottom);
+    box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.picker-header {
+    padding: 16px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+.picker-header h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.picker-date-info {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.label-today {
+    font-weight: 600;
+}
+
+.label-time {
+    color: #999;
+}
+
+.wheel-picker-wrapper {
+    position: relative;
+    padding: 12px 0;
+}
+
+.highlight-bar {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.04);
+    pointer-events: none;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+/* ===== Columns ===== */
+.picker-columns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.wheel-column {
+    width: 80px;
+    height: 200px;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE */
+    cursor: grab;
+}
+
+.wheel-column::-webkit-scrollbar {
+    display: none;
+}
+
+/* 상·하 여백 (중앙 정렬용) */
+.padding-dummy {
+    height: 80px;
+}
+
+.wheel-item {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #999;
+    scroll-snap-align: center;
+    user-select: none;
+}
+
+.wheel-item.decimal {
+    font-size: 16px;
+}
+
+.wheel-item.active {
+    color: #000;
+    font-weight: 600;
+}
+
+.unit-label {
+    font-size: 16px;
+    font-weight: 600;
+    margin-left: 4px;
+    align-self: center;
+}
+
+.picker-footer {
+    display: flex;
+    gap: 12px;
+    padding: 16px;
+    border-top: 1px solid #eee;
+}
+
+.picker-footer button {
+    flex: 1;
+    height: 44px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* 취소 */
+.btn-cancel {
+    background: #f3f3f3;
+    border: none;
+    color: #333;
+}
+
+/* 추가 */
+.btn-add {
+    background: #000;
+    border: none;
+    color: #fff;
+}

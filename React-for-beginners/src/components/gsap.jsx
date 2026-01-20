@@ -25,11 +25,12 @@ const Section = () => {
                 scrollTrigger: {
                     trigger: '.item',
                     start: 'top 70%',
+                    scrub: true,
                 },
             });
 
             gsap.to('.panel', {
-                xPercent: -100,
+                //xPercent: -100,
                 scrollTrigger: {
                     trigger: '.pin-section',
                     pin: true,
@@ -68,11 +69,16 @@ const Section = () => {
 
   return (
     <section ref={containerRef}>
+        <h2>GSAP ScrollTrigger를 React에서 사용</h2>
+
+        <h3>기보패턴</h3>
       <div className="box" />
+      <h3>섹션 진입 애니메이션 (Fade / Move)</h3>
       <div className="item" />
       <div className="item" />
       <div className="item" />
       <div className="item" />
+      <h3>Pin 섹션 + 스크롤 연동 애니메이션</h3>
       <div className="pin-section">
         <div className="panel"></div>
       </div>

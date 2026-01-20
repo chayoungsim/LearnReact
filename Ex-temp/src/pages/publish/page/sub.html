@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>서브레이아웃</title>
+        <link rel="stylesheet" href="../../../assets/styles/font.css" />
+        <link rel="stylesheet" href="../../../assets/styles/style.css" />
+
+        <script type="module" src="../../../utils/ui_common.js"></script>
+    </head>
+    <body>
+        <div class="common-wrap">
+            <header>
+                <div class="top-header-nav">
+                    <button type="button" class="btn-back">
+                        <i class="ico-back"></i><span class="sr-only">이전</span>
+                    </button>
+                    <h2>복약</h2>
+                </div>
+            </header>
+            <div class="sub-wrap has-header">
+                <div class="tab-wrap">
+                    <ul class="tab">
+                        <li class="active"><button type="button">건강 데이터</button></li>
+                        <li><button type="button">AI 건강 분석</button></li>
+                    </ul>
+                </div>
+                <div class="container">
+                    <div class="header">
+                        <h1>Title</h1>
+                        <p>Description that is very long and should be wrapped</p>
+                    </div>
+                    <div class="content">
+                        <ul>
+                            <li>Item 1</li>
+                            <li>Item 2</li>
+                            <li>Item 3</li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="height: 100rem">
+                    <div>dfdfdfds</div>
+
+                    <button type="button" class="btn-quick">펼침</button>
+                    <div class="quick-overlay">
+                        <div class="quick-wrap">
+                            <ul>
+                                <li>1</li>
+                                <li>2</li>
+                                <li>3</li>
+                                <li>4</li>
+                                <li>5</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-include-path="../components/_inc/bottom-nav.html"></div>
+        </div>
+
+        <script>
+            window.addEventListener("load", function () {
+                var allElements = document.getElementsByTagName("*");
+                Array.prototype.forEach.call(allElements, function (el) {
+                    var includePath = el.dataset.includePath;
+                    if (includePath) {
+                        var xhttp = new XMLHttpRequest();
+                        xhttp.onreadystatechange = function () {
+                            if (this.readyState == 4 && this.status == 200) {
+                                el.outerHTML = this.responseText;
+                            }
+                        };
+                        xhttp.open("GET", includePath, true);
+                        xhttp.send();
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

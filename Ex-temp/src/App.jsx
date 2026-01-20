@@ -4,6 +4,9 @@ import Calendar from './components/Calendar.jsx'
 import Calendar2 from './components/Calendar2.jsx'
 import Calendar3 from './components/Calendar3.jsx'
 
+import WeightGoalPage from './components/WeightGoalPage.jsx'
+
+
 
 
 function App() {
@@ -14,10 +17,12 @@ function App() {
     <>
       
 
-    <DayJs />
+    {/* <DayJs />
     <Calendar />
     <Calendar2 />
-    <Calendar3 />
+    <Calendar3 /> */}
+
+    <WeightGoalPage />
   
 
     </>
