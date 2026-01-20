@@ -55,6 +55,19 @@
     -webkit-mask: url(../images/ico-plus.svg) no-repeat 50% 50%;
     -webkit-mask-size: contain;
 }
+
+.ico-plus-b {
+    display: inline-block;
+    width: 3.6rem;
+    height: 3.6rem;
+    vertical-align: middle; 
+    background-color:#fff;
+    mask: url(../images/ico-plus-b.svg) no-repeat 50% 50%;
+    mask-size: contain;
+    -webkit-mask: url(../images/ico-plus-b.svg) no-repeat 50% 50%;
+    -webkit-mask-size: contain;
+}
+
 .ico-next {
     display: inline-block;
     width: 0.8rem;
@@ -79,7 +92,6 @@
     -webkit-mask-size: contain;
     transform: rotate(180deg);
 } 
-
 
 .ico-cart {
     display: inline-block;
@@ -357,7 +369,7 @@
     vertical-align: middle; 
     background: url(../images/pill-prohibited.svg) no-repeat 50% 50%;
     /* filter: grayscale(100%); */
-    filter: grayscale(100%) brightness(1) contrast(1);
+    filter: grayscale(100%) brightness(1.1) contrast(1);
 }
 .pill-forgot {
     display: inline-block;
@@ -420,6 +432,48 @@
     background: url(../images/ht-weigth.svg) no-repeat 50% 50%;
     background-size: cover;
 }
+.ht-blood {
+    display: inline-block;
+    width: 4.8rem;
+    height: 4.8rem;  
+    vertical-align: middle; 
+    background: url(../images/ht-blood.svg) no-repeat 50% 50%;
+    background-size: cover;
+}
+.ht-icn {
+    display: inline-block;
+    width: 4.8rem;
+    height: 4.8rem;  
+    vertical-align: middle; 
+    background: url(../images/ht-icn.svg) no-repeat 50% 50%;
+    background-size: cover;
+}
+.ht-heart {
+    display: inline-block;
+    width: 4.8rem;
+    height: 4.8rem;  
+    vertical-align: middle; 
+    background: url(../images/ht-heart.svg) no-repeat 50% 50%;
+    background-size: cover;
+}
+.ht-hs1 {
+    display: inline-block;
+    width: 6.4rem;
+    height: 6.4rem;  
+    vertical-align: middle; 
+    background: url(../images/ht-hs1.svg) no-repeat 50% 50%;
+    background-size: cover;
+}
+.ht-hs2 {
+    display: inline-block;
+    width: 6.4rem;
+    height: 6.4rem;  
+    vertical-align: middle; 
+    background: url(../images/ht-hs2.svg) no-repeat 50% 50%;
+    background-size: cover;
+}
+
+
 
 .ico-chk {
     display: inline-flex;
@@ -538,5 +592,69 @@
     -webkit-mask: url(../images/ico-pie-100.svg) no-repeat 50% 50%;
     -webkit-mask-size: contain;
     font-size: 0;
+    vertical-align: middle;
+}
+
+.ico-q-repeat {
+    display: inline-block;
+    width: 2.4rem;
+    height: 2.4rem;
+    background-color: var(--Text-Base);
+    mask: url(../images/ico-q-repeat.svg) no-repeat 50% 50%;
+    mask-size: contain;
+    -webkit-mask: url(../images/ico-q-repeat.svg) no-repeat 50% 50%;
+    -webkit-mask-size: contain;
+    vertical-align: middle;
+}
+.ico-q-pill {
+    display: inline-block;
+    width: 2.4rem;
+    height: 2.4rem;
+    background-color: var(--Text-Base);
+    mask: url(../images/ico-q-pill.svg) no-repeat 50% 50%;
+    mask-size: contain;
+    -webkit-mask: url(../images/ico-q-pill.svg) no-repeat 50% 50%;
+    -webkit-mask-size: contain;
+    vertical-align: middle;
+}
+.ico-q-work {
+    display: inline-block;
+    width: 2.4rem;
+    height: 2.4rem;
+    background-color: var(--Text-Base);
+    mask: url(../images/ico-q-work.svg) no-repeat 50% 50%;
+    mask-size: 1.9rem auto;
+    -webkit-mask: url(../images/ico-q-work.svg) no-repeat 50% 50%;
+    -webkit-mask-size: 1.9rem auto;
+    vertical-align: middle;
+}
+.ico-q-blood {
+    display: inline-block;
+    width: 2.4rem;
+    height: 2.4rem;
+    background: url(../images/ico-q-blood.svg) no-repeat 50% 50%;
+   
+    vertical-align: middle;
+}
+.ico-q-icn {
+    display: inline-block;
+    width: 2.4rem;
+    height: 2.4rem;
+    background-color: var(--Text-Base);
+    mask: url(../images/ico-q-icn.svg) no-repeat 50% 50%;
+    mask-size: contain;
+    -webkit-mask: url(../images/ico-q-icn.svg) no-repeat 50% 50%;
+    -webkit-mask-size: contain;
+    vertical-align: middle;
+}
+.ico-q-weight {
+    display: inline-block;
+    width: 2.4rem;
+    height: 2.4rem;
+    background-color: var(--Text-Base);
+    mask: url(../images/ico-q-weight.svg) no-repeat 50% 50%;
+    mask-size: contain;
+    -webkit-mask: url(../images/ico-q-weight.svg) no-repeat 50% 50%;
+    -webkit-mask-size: contain;
     vertical-align: middle;
 }

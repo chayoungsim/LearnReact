@@ -5,6 +5,7 @@ body {
   font-family: "Pretendard";
   font-size: 1.5rem;
   letter-spacing: -0.5px;
+  overflow-x: hidden;
   
 }
 .full-height {
@@ -302,6 +303,32 @@ footer {
     line-height: 1.4;    
 }
 
+.hty4 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1.4;    
+}
+
+.hty5 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1.4;    
+}
+
+.txt {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--Text-Base); 
+}
+
+.txts {
+    font-size: 1.3rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: #A2A9B4
+}
+
 .tag {
     display: inline-flex;
     justify-content: center;
@@ -444,7 +471,7 @@ footer {
     min-height: 100%;
 }
 .sub-wrap { 
-    padding-bottom: 15rem;
+    padding-bottom: 12rem;
 }
 .has-header {
     padding-top:6.6rem;
@@ -494,4 +521,35 @@ footer {
     background: #222;
     border-radius: 50%;
     color:#fff;
+}
+
+.tag-a,
+.tag-b,
+.tag-c,
+.tag-d {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding:0 0.7rem;
+    height: 2rem; 
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.3;
+}
+.tag-a {   
+    background: #FFE5E5;
+    color: #C06666
+}
+.tag-b {
+    background: #D5F9D5;
+    color: #0D9C76;
+}
+.tag-c {
+    background: #EDEDED;
+    color: #656565;
+}
+.tag-d {
+    background: #E5EDFF;
+    color: #447CF5;
 }

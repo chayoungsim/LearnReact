@@ -36,6 +36,7 @@
   background: #f2f3f5;
 }
 
+
 .hc1 {
   color: #39b695;
 }
@@ -46,6 +47,31 @@
 .bghc1 {
   background-color: var(--primary-color);
   color:#fff
+}
+
+.small {
+  display: inline-flex;
+  padding: 0.4rem 0.7rem;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+  height: 2.6rem;
+  border-radius: 0.4rem;
+  width: auto;
+}
+.small i {
+  background: #A2A9B4;
+}
+
+.medium {
+  display: inline-flex;
+  padding: 0.6rem 1rem;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  height: 3.4rem;
+  border-radius: 0.6rem;
+  width: auto;
 }
 
 .btn-bor .ico-refresh {
@@ -155,3 +181,26 @@
   font-weight: 700;
   color: #282828;
 }
+
+.btn-quick {
+    position:fixed;
+    bottom:8.6rem;
+    right: 1rem;
+    width: 6rem;
+    height: 6rem;
+    background: var(--primary-color);
+    border-radius: 50%;
+    font-size: 0;
+    z-index: 101
+}
+.btn-quick i{
+  transition: all 0.5s;
+}
+.btn-quick.open {
+    background:#fff;
+}
+.btn-quick.open  i{
+    background-color: var(--Text-Base);
+    transform: rotate(45deg);
+}
+
