@@ -94,6 +94,8 @@
 }
 .rut-swiper .swiper-slide {
     width: 13.5rem;
+    flex-shrink: 0;
+    border: 1px solid lime;
 }
 .my-health2-wrap {
     position: relative;

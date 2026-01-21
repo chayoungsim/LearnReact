@@ -6,7 +6,9 @@ const HeaderTopSub = ({title}) => {
 
   return (
     <div className="header-top-sub">
-        <button type="button" className="prev" onClick={() => navigate(-1)}>이전</button>
+        <button type="button" className="btn-back" onClick={() => navigate(-1)}>
+            <i className="ico-back"></i><span className="sr-only">이전</span>
+        </button>        
         <h1>{title}</h1>
     </div>
       

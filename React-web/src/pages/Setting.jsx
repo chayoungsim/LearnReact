@@ -3,7 +3,12 @@ import React from 'react'
 const Setting = () => {
   return (
     <div className="sub-wrap">
-      Setting
+      
+        <a href="">
+          <span>PRODUCT</span>
+          <span>PRODUCT</span>
+        </a>
+
     </div>
   )
 }

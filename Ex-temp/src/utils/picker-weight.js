@@ -40,7 +40,7 @@ export function addWheelInteraction({
     initialValue,
     onChange
 }) {
-    const container = wheelColumn.querySelector('.wheel-items');
+    const container = wheelColumn.querySelector('.wheel-column');
 
     let currentValue = initialValue;
     let startY = 0;

@@ -50,3 +50,13 @@ createRoot(document.getElementById("root")).render(
     </StrictMode>,
 );
 ```
+## React에서 Swiper를 쓰는 기본 원칙
+- 반드시 Swiper React 컴포넌트를 사용해야 합니다.
+
+1. 설치 : npm install swiper
+
+2. import
+```javascript
+import { Swiper, SwiperSlide } from "swiper/react";
+import 'swiper/css';
+```

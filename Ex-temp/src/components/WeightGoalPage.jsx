@@ -107,7 +107,10 @@ const WeightInputPicker = ({ onClose, onAdd, initialWeight = 60.0 }) => {
                 </div>
 
                 <div className="wheel-picker-wrapper">
-                    <div className="highlight-bar"></div>
+                    <div className="highlight-bar">
+                      <div></div>
+                      <div></div>
+                    </div>
 
                     <div className="picker-columns">
                         {/* 정수 컬럼 */}
@@ -142,7 +145,7 @@ const WeightInputPicker = ({ onClose, onAdd, initialWeight = 60.0 }) => {
                             <div className="padding-dummy"></div>
                             {decimalRange.map((num) => (
                                 <div key={num} className={`wheel-item decimal ${num === decimalPart ? 'active' : ''}`}>
-                                    .{num}
+                                    {num}
                                 </div>
                             ))}
                             <div className="padding-dummy"></div>
