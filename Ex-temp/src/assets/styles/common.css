@@ -25,7 +25,17 @@ body {
   white-space: nowrap;
 }
 
-
+.common-wrap {
+    min-height: 100%;
+}
+.sub-wrap { 
+    min-height: 100vh;
+    padding-bottom: 12rem;
+}
+.has-header {
+    padding-top:6.6rem;
+    background:var(--Bg-Base);
+}
 
 /*header*/
 .logo {
@@ -467,15 +477,7 @@ footer {
     left: 0;
     bottom: 0;
 }
-.common-wrap {
-    min-height: 100%;
-}
-.sub-wrap { 
-    padding-bottom: 12rem;
-}
-.has-header {
-    padding-top:6.6rem;
-}
+
 
 .health-week{
     padding: 0 1.4rem;
@@ -509,7 +511,9 @@ footer {
     align-items: center;
     width: 2.8rem;
     height:2.8rem;
-
+}
+.health-week .sunday {
+    color:#FD5A4B;
 }
 .health-week .day-tx {
     display: block;
@@ -535,7 +539,6 @@ footer {
     border-radius: 4px;
     font-size: 12px;
     font-weight: 500;
-    line-height: 1.3;
 }
 .tag-a {   
     background: #FFE5E5;

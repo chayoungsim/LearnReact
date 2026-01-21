@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>내건강 > 건강통계 > 건강 데이터</title>
+
+    <link rel="stylesheet" href="../../assets/styles/style.css" />
+
+    <script type="module" src="../../utils/ui_common.js"></script>
+    <script type="module">
+      import { rutSwiper } from "../../utils/ui_swiper.js";
+      window.addEventListener("load", rutSwiper);
+    </script>
+
+    <style>
+      .trans-x-wrap {
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        display: inline-block;
+      }
+      .trans-x-wrap .trans-x-box {
+        position: relative;
+        overflow: hidden;
+        transition: all 0.5s;
+      }
+      .trans-x-wrap .trans-x-box > span {
+        display: block;
+        position: relative;
+        transition: 0.3s ease-in-out;
+        font-size: 3.2rem;
+        font-weight: 600;
+      }
+      .trans-x-wrap .trans-x-box > span::after {
+        content: attr(data-trans);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        color: var(--key-color);
+        color: #000;
+      }
+      .trans-x-wrap .trans-x-box > span span {
+        display: block;
+        color: #ddd;
+      }
+      .trans-x-wrap.active .trans-x-box > span,
+      .trans-x-wrap:hover .trans-x-box > span,
+      .trans-x-wrap:focus .trans-x-box > span {
+        transform: translateY(-100%);
+      }
+
+      .trans-x-wrap:hover .trans-x-box {
+        background: lime;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="common-wrap">
+      <header>
+        <div class="top-header-nav">
+          <button type="button" class="btn-back">
+            <i class="ico-back"></i><span class="sr-only">이전</span>
+          </button>
+          <h2>건강 통계</h2>
+        </div>
+      </header>
+      <div class="sub-wrap has-header">
+        <div class="tab-wrap">
+          <ul class="tab">
+            <li class="active"><button type="button">건강 데이터</button></li>
+            <li><button type="button">AI 건강 분석</button></li>
+          </ul>
+        </div>
+        <div class="headth-data-wrap">
+            <div class="data-bx-wht">
+                <div class="headth-data-tit">
+                    <div class="headth-data-tit-l">
+                        <i class="ht-running"></i>
+                        <div class="ht-info">
+                            <span class="hty5">걸음수</span>
+                            <span class="txts">지난 4주</span>
+                        </div>
+                    </div>
+                    <div class="headth-data-tit-r">
+                        <div class="txts">하루 평균</div>
+                        <div class="num"><strong>99,999</strong><span>걸음</span></div>
+                    </div>
+                </div>
+                <div class="headth-data-date">
+                    <div class="data-days">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span class="chk"></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span class="chk"></span>
+                        <span class="chk"></span>
+                    </div>
+                    <div class="data-record">
+                        <i class="ico-tropy"></i>
+                        <span>최장 연속 기록</span>
+                        <span class="bar"></span>
+                        <span>13일</span>
+                    </div>
+                </div>
+                <div class="headth-data-ment">
+                    <i class="ico-asset "></i>
+                    <span class="txts">축하드려요! 현재 3일 연속 성공!</span>
+                </div>
+            </div>
+            <div class="data-bx-wht">
+                <div class="headth-data-tit">
+                    <div class="headth-data-tit-l">
+                        <i class="ht-weigth"></i>
+                        <div class="ht-info">
+                            <span class="hty5">몸무게</span>
+                            <span class="txts">지난 4주</span>
+                        </div>
+                    </div>
+                    <div class="headth-data-tit-r">
+                        <div class="txts">18시간 전</div>
+                        <div class="num"><strong>65</strong><span>kg</span></div>
+                    </div>
+                </div>
+                <div class="headth-data-graph">
+                    <img src="../../assets/images/graph1.png" alt="그래프영역" />
+                </div>
+            </div>
+            <div class="data-bx-wht">
+                <div class="headth-data-tit">
+                    <div class="headth-data-tit-l">
+                        <i class="ht-work"></i>
+                        <div class="ht-info">
+                            <span class="hty5">운동</span>
+                            <span class="txts">지난 4주</span>
+                        </div>
+                    </div>
+                    <div class="headth-data-tit-r">
+                        <div class="txts">하루 평균</div>
+                        <div class="num"><strong>38</strong><span>분</span></div>
+                    </div>
+                </div>
+                <div class="headth-data-date">
+                    <div class="data-days dty2">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span class="chk"></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span class="chk"></span>
+                        <span class="chk"></span>
+                    </div>
+                    <div class="data-record">
+                        <i class="ico-tropy"></i>
+                        <span>최장 연속 기록</span>
+                        <span class="bar"></span>
+                        <span>13일</span>
+                    </div>
+                </div>
+                <div class="headth-data-ment">
+                    <i class="ico-asset "></i>
+                    <span class="txts">축하드려요! 현재 3일 연속 성공!</span>
+                </div>
+            </div>
+            <div class="data-bx-wht">
+                <div class="headth-data-tit">
+                    <div class="headth-data-tit-l">
+                        <i class="ht-blood"></i>
+                        <div class="ht-info">
+                            <span class="hty5">혈압</span>
+                            <span class="txts">오늘</span>
+                        </div>
+                    </div>
+                    <div class="headth-data-tit-r">
+                        <span class="tag-a">주의</span>
+                    </div>
+                </div>
+                <div class="headth-data-info">
+                    <div class="gbox">         
+                        <div class="txts">수축기</div>
+                        <div class="num"><strong>120</strong><span>mmHg</span></div>
+                    </div>
+                    <div class="gbox">      
+                        <div class="txts">수축기</div>
+                        <div class="num"><strong>80</strong><span>mmHg</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="data-bx-wht">
+                <div class="headth-data-tit">
+                    <div class="headth-data-tit-l">
+                        <i class="ht-icn"></i>
+                        <div class="ht-info">
+                            <span class="hty5">혈당</span>
+                            <span class="txts">지난 4주</span>
+                        </div>
+                    </div>
+                    <div class="headth-data-tit-r">
+                        <span class="tag-b">정상</span>
+                    </div>
+                </div>
+                <div class="headth-data-info">
+                    <div class="gbox">         
+                        <div class="txts">공복 혈당 평균</div>
+                        <div class="num"><strong>70</strong><span>mg/dL</span></div>
+                    </div>
+                    <div class="gbox">      
+                        <div class="txts">식후(2시간이후) 평균</div>
+                        <div class="num"><strong>65</strong><span>bpm</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="data-bx-wht">
+                <div class="headth-data-tit">
+                    <div class="headth-data-tit-l">
+                        <i class="ht-heart"></i>
+                        <div class="ht-info">
+                            <span class="hty5">심박수</span>
+                            <span class="txts">오늘</span>
+                        </div>
+                    </div>
+                    <div class="headth-data-tit-r">
+                        <div class="txts">18시간 전</div>
+                        <div class="num"><strong>65</strong><span>bpm</span></div>
+                    </div>
+                </div>
+                <div class="headth-data-graph">
+                    <img src="../../assets/images/graph2.png" alt="그래프영역" />
+                </div>
+            </div>
+
+            <div class="title-type">
+                <h3 class="hty3">헬스 스테이션 </h3>
+            </div>
+            <div class="health-station-wrap">
+                <div class="data-bx-wht">
+                    <div class="station-tit"><span class="txts">2025.05.19</span><i class="ico-arr"></i></div>
+                    <div class="station-con">
+                        <div class="info">
+                            <div class="txts">몸무게</div>
+                            <div class="num"><strong>72.5</strong><span>kg</span></div>
+                        </div>
+                        <div class="info">
+                            <div class="txts">골격근량</div>
+                            <div class="num"><strong>34.8</strong><span>kg</span></div>
+                        </div>
+                        <div class="info">
+                            <div class="txts">체지방율</div>
+                            <div class="num"><strong>18.8</strong><span>%</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="data-bx-wht">
+                    <div class="station-tit"><span class="txts">2025.05.19</span><i class="ico-arr"></i></div>
+                    <div class="station-con">
+                        <div class="info">
+                            <div class="txts">스트레스 점수</div>
+                            <div class="num"><strong>33</strong><span>점</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="data-bx-wht">
+                    <div class="station-tit"><span class="txts">2025.05.19</span><i class="ico-arr"></i></div>
+                    <div class="station-con">
+                        <div class="info">
+                            <div class="txts">혈압</div>
+                            <div class="num"><strong>120/88</strong></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-full-wrap">
+                <button type="button" class="btn-bor">
+                    <i class="ico-refresh"></i>
+                    <span>헬스 스테이션 측정 데이터 가져오기</span>
+                </button>
+            </div>
+        </div>
+      </div>
+      <div data-include-path="../components/_inc/bottom-nav.html"></div>
+    </div>
+
+    <script>
+      window.addEventListener("load", function () {
+        var allElements = document.getElementsByTagName("*");
+        Array.prototype.forEach.call(allElements, function (el) {
+          var includePath = el.dataset.includePath;
+          if (includePath) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+              if (this.readyState == 4 && this.status == 200) {
+                el.outerHTML = this.responseText;
+              }
+            };
+            xhttp.open("GET", includePath, true);
+            xhttp.send();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

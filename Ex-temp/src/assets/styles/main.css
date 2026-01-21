@@ -137,13 +137,13 @@
 }
 .main-seaction2 .swiper-slide {
   padding-bottom: 1rem;
-  width: 14rem;
+  width: 15.2rem;
 }
 .product-package {
   display: block;
-  width: 14rem;
-  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.03) inset,
-    0 1px 5px 1px rgba(0, 0, 0, 0.04);
+  width: 15.2rem;
+  /* box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.03) inset,
+    0 1px 5px 1px rgba(0, 0, 0, 0.04); */
 }
 .product-package .thumb {
   border-radius: 5px 5px 0 0;

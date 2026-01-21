@@ -1,6 +1,7 @@
 :root {    
     --safe-bottom: env(safe-area-inset-bottom, 0px);
     --primary-color:#39b695;
+    --Surface-Negative:#EE5D5D;
     --Text-Base:#282828;
     --Text-Neutral:#767C88;
     --Text-Neutral-Soft:#A2A9B4;
@@ -10,5 +11,7 @@
     --Yellow700:#FFC31C;
     --Orange400:#f99075;
     --Border-Neutral:#E2E6ED;
+    --Border-Neutral-Soft: #F2F3F5;
+    --Bg-Base:#F2F4F9;
 } 
 

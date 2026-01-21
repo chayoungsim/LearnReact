@@ -16,7 +16,7 @@
 }
 .my-health-today {
     background: #fff;
-    padding: 2.4rem 2rem 3rem;
+    padding: 2.4rem 1rem 3rem;
     margin: 2rem 1.4rem 4rem;
     border-radius: 2rem;
     display: flex;
@@ -31,6 +31,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    padding: 0 1rem;
 }
 .my-health-today-title .hc1 {
     font-weight: 700;
@@ -51,9 +52,10 @@
     font-size: 1.3rem;
     line-height: 1.4;
     font-weight: 600;
+    color:var(--Text-Neutral)
 }
 .today-info .num {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 700;
     margin-top: 0.4rem;
     color:var( --Text-Base);
@@ -95,7 +97,7 @@
 .rut-swiper .swiper-slide {
     width: 13.5rem;
     flex-shrink: 0;
-    border: 1px solid lime;
+   
 }
 .my-health2-wrap {
     position: relative;
@@ -104,12 +106,21 @@
 .my-health2-wrap .title-type {
     padding: 0 1.5rem 1.6rem;
 }
-.my-health2-wrap .swiper-pagination {
-    bottom: inherit;
-    left: inherit;
-    right: 1.5rem;
+.my-health2-wrap .pagination {
+    display: inline-block;   
     width: auto;
+    position: absolute;
+    top: 0.5rem;
+    right: 1.5rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color:var(--Text-Neutral-Soft)
 }
+.my-health2-wrap .current-page{
+    color: var(--Text-Base)
+}
+
+
 .my-health3-wrap {
     padding: 4rem 1.5rem 0;
 }
@@ -117,9 +128,7 @@
 .my-health3-wrap .title-type {
     margin-bottom: 1.6rem;
 }
-.pill-history-wrap {
-    
-}
+
 .pill-history {
     margin-bottom: 3rem;
 }
@@ -241,7 +250,255 @@
     display: block;
 }
 
+.quick-talk {
+    position: fixed;
+    width: 17.7rem;
+    z-index: 101;
+    bottom: 15rem;
+    right: 2.4rem;
+    padding-bottom: 0.4rem;
+}
+.quick-talk.close {
+    display: none;
+}
+.quick-talk em {
+    color: var(--primary-color);
+    font-style: normal;
+}
 
+.quick-talk::after {
+    content: '';
+    display: block;
+    width: 0.9rem;
+    height: 0.4rem;
+    background: url(../images/Polygon.svg) no-repeat 50% 50%;
+    position: absolute;
+    bottom: 0;
+    right: 1.2rem;
+}
+.quick-talk span {
+    display: block;
+    width: 100%;
+    height: 4.8rem;
+    background:var(--Text-Base);
+    padding: 6px 12px;
+    border-radius: 1rem;
+    font-size: 1.3rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: #fff;
+}
+.quick-talk .btn-x {
+    position: absolute;
+    top: 0.6rem;
+    right: 1.2rem;
+    width: 1.4rem;
+    height: 1.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.quick-talk .btn-x i{
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}
+.headth-data-wrap {
+    padding: 2rem 1.6rem;
+}
+.headth-data-wrap .title-type {
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+}
+.data-bx-wht {
+    background: #fff;
+    border-radius: 1.2rem;
+    padding: 2rem 1.6rem;
+}
 
+.data-bx-wht + .data-bx-wht {
+    margin-top: 1.4rem;
+}
 
+.headth-data-tit {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.headth-data-tit-l {
+    display: flex;
+    gap: 0.8rem;
+}
+.headth-data-tit-l  .ht-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.2rem;
+}
+.headth-data-tit-r {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    height: 4.9rem;
+}
+.headth-data-tit-r .num {
+    display: flex;
+    align-items: center;
+}
+.headth-data-tit-r .num span{
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.4;
+    vertical-align: middle;
+    margin-left: 0.2rem;
+    margin-top: 0.4rem;
+ 
+}
+.headth-data-tit-r .num strong {
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1.4;
+    vertical-align: baseline; 
+}
+.headth-data-graph {
+    margin-top: 2.8rem;
+}
+.headth-data-info {
+    margin-top: 1.4rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 0.8rem;
+}
+.headth-data-info .gbox {
+    display: flex;
+    flex-direction: column;
+    padding: 1.7rem 1rem;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+    flex:1 0 0;
+}
+.headth-data-info .num strong {
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1.4;
+    vertical-align: baseline; 
+}
+.headth-data-info .num span{
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.4;
+    vertical-align: middle;
+    margin-left: 0.2rem;
+    margin-top: 0.4rem;
+}
 
+.gbox {
+    background: #F6F7F9;
+    border-radius: 1rem;
+}
+.headth-data-date {
+    margin-top: 2.8rem;
+}
+.data-days {
+    display: flex;
+    gap:0.2rem;
+}
+.data-days span {
+    display:block;
+    height: 0.9rem;
+    flex:1 0 0;
+    background: #E2E6ED;
+    border-radius: 0.1rem;
+}
+.data-days .chk {
+    background: var(--primary-color);
+}
+.dty2 .chk {
+    background: #77BEF8;
+}
+.data-record {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 1.2rem;
+}
+.data-record i {
+    margin-right: 0.4rem;
+}
+.data-record span {
+    font-size: 1.3rem;
+    color:var(--Text-Neutral);
+    font-weight: 500;
+}
+.headth-data-ment {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:0.8rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 1px solid #FEE;
+    background: #FFF6ED;
+    margin-top: 1.6rem;
+}
+.headth-data-ment .txts {
+    display: block;
+    color: #F6965A;
+    line-height: 1;
+}
+
+.health-station-wrap {
+    display: grid;
+    grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+    grid-template-areas:
+        "top top"
+        "left right";
+    gap: 1rem;
+}
+.health-station-wrap .data-bx-wht {
+    padding: 0 1.6rem;
+    margin-top: 0;
+}
+
+.health-station-wrap .data-bx-wht:nth-child(1) {
+    grid-area: top;
+}
+.health-station-wrap .data-bx-wht:nth-child(2) {
+    grid-area: left;
+}
+.health-station-wrap .data-bx-wht:nth-child(3) {
+    grid-area: right;
+}
+
+.station-tit {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.4rem 0 0.8rem;
+    border-bottom: 1px solid var(--Border-Neutral-Soft);
+}
+.station-tit .ico-arr {
+    background-color: var(--Text-Neutral-Soft);
+}
+.station-con {
+    display: flex;
+    justify-content: center;
+    padding:2.8rem 0;
+}
+.station-con .info {
+    flex:1;
+    text-align: center;
+}
+.station-con .info .num {
+    color:var(--Text-Base);
+    line-height: 1.4;
+}
+.station-con .info .num strong {
+    font-size: 2.2rem;
+}
+.station-con .info .num span {
+    font-size: 1.2rem;
+    margin-left: 0.1rem;
+}

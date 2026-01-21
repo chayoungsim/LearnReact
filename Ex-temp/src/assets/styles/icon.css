@@ -473,8 +473,6 @@
     background-size: cover;
 }
 
-
-
 .ico-chk {
     display: inline-flex;
     justify-content: center;
@@ -657,4 +655,28 @@
     -webkit-mask: url(../images/ico-q-weight.svg) no-repeat 50% 50%;
     -webkit-mask-size: contain;
     vertical-align: middle;
+}
+.ico-tropy {
+    display: inline-block;
+    width: 1.7rem;
+    height: 1.7rem;
+    background: url(../images/tropy.svg) no-repeat 50% 50%;   
+    vertical-align: middle;
+    background-size: cover;
+}
+.ico-asset {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    background: url(../images/asset.svg) no-repeat 50% 50%;   
+    vertical-align: middle;
+    background-size: contain;
+}
+.bar {
+    display: inline-block;
+    width: 1px;
+    height: 0.9rem;
+    background: #DADEE4;
+    vertical-align: middle;
+    margin:0 0.5rem;
 }

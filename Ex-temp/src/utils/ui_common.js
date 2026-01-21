@@ -143,20 +143,29 @@ export const fixTabOnScroll = ({headerSelector = 'header',tabSelector = '.tab-wr
 }
 
 
-export const quickToggle = ({buttonSelector = '.btn-quick',overlaySelector = '.quick-overlay', activeClass = 'open'} = {}) => {
+export const quickToggle = ({buttonSelector = '.btn-quick',overlaySelector = '.quick-overlay',talkSelector='.quick-talk',activeClass = 'open'} = {}) => {
   const quickBtn = document.querySelector(buttonSelector);
   const quickOverlay = document.querySelector(overlaySelector);
+  const quickTalk = document.querySelector(talkSelector)
+ 
   if (!quickBtn || !quickOverlay) return;
   const onToggle = () => {
     quickBtn.classList.toggle(activeClass);
     quickOverlay.classList.toggle(activeClass);
+    
   };
   const onClose = () => {
     quickBtn.classList.remove(activeClass);
     quickOverlay.classList.remove(activeClass);
+    quickTalk.classList.add(activeClass);
   };
   quickBtn.addEventListener('click', onToggle);
   quickOverlay.addEventListener('click', onClose);
+
+   const btnX = document.querySelector('.quick-talk .btn-x')
+      btnX.addEventListener('click',() => {
+      quickTalk.classList.add('close')
+   })
 
   return () => {
     quickBtn.removeEventListener('click', onToggle);

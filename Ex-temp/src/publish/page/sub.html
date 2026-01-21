@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>서브레이아웃</title>
+        
+        <link rel="stylesheet" href="../../assets/styles/style.css"> 
+        
+        <script type="module" src="../../../utils/ui_common.js"></script>
+        <script type="module">
+          import { rutSwiper } from '../../../utils/ui_swiper.js';         
+           window.addEventListener('load', rutSwiper);
+          
+        </script>
+
+        <style>
+.trans-x-wrap { position: relative; z-index: 1; overflow: hidden; display: inline-block;}
+.trans-x-wrap .trans-x-box { position: relative; overflow: hidden; transition: all 0.5s;}
+.trans-x-wrap .trans-x-box > span { display: block; position: relative; transition: .3s ease-in-out; font-size: 3.2rem;font-weight: 600;}
+.trans-x-wrap .trans-x-box > span::after { content: attr(data-trans); position: absolute; top: 100%; left: 0; color: var(--key-color); color:#000 }
+.trans-x-wrap .trans-x-box > span span { display: block; color:#ddd}
+.trans-x-wrap.active .trans-x-box > span,
+.trans-x-wrap:hover .trans-x-box > span,
+.trans-x-wrap:focus .trans-x-box > span { transform: translateY(-100%); }
+
+.trans-x-wrap:hover .trans-x-box{background: lime;}
+        </style>
+    </head>
+    <body>
+        <div class="common-wrap">
+            <header>
+                <div class="top-header-nav">
+                    <button type="button" class="btn-back">
+                        <i class="ico-back"></i><span class="sr-only">이전</span>
+                    </button>
+                    <h2>복약</h2>
+                </div>
+            </header>
+            <div class="sub-wrap has-header">
+                <div class="tab-wrap">
+                    <ul class="tab">
+                        <li class="active"><button type="button">건강 데이터</button></li>
+                        <li><button type="button">AI 건강 분석</button></li>
+                    </ul>
+                </div>
+                <div class="container" style="position: relative;overflow: hidden;">
+                    <br>
+                    <div class="rut-swiper">
+                      <div class="pagination">
+                          <span class="current-page"></span>
+                            / 
+                          <span class="total-page"></span>
+                      </div>
+                      <div class="swiper-wrapper">
+                          <div class="swiper-slide">
+                              <div class="rut-item selected">
+                                  <!-- <img src="../../../assets/images/meal.svg" alt="">
+                                  <span class="txt">아침에 단백질 챙겨먹기</span> -->
+                              </div>
+                          </div>
+                          <div class="swiper-slide">
+                              <div class="rut-item">
+                                  <!-- <img src="../../../assets/images/meal.svg" alt="">
+                                  <span class="txt">아침에 단백질 챙겨먹기</span> -->
+                              </div>
+                          </div>
+                          <div class="swiper-slide">
+                              <div class="rut-item">
+                                  <!-- <img src="../../../assets/images/meal.svg" alt="">
+                                  <span class="txt">아침에 단백질 챙겨먹기</span> -->
+                              </div>
+                          </div>
+                          <div class="swiper-slide">
+                              <div class="rut-item">
+                                  <!-- <img src="../../../assets/images/meal.svg" alt="">
+                                  <span class="txt">아침에 단백질 챙겨먹기</span> -->
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+
+                    <div class="btn-group">
+                      <button type="button" class="btn-bor">button</button>
+                      <button type="button" class="btn-fill bghc1"><strong>button</strong></button>
+                    </div>
+                </div>
+                <div style="height: 100rem">
+                    <div>dfdfdfds</div>
+
+                    
+                    <a href="/usecase/01.php" class="trans-x-wrap">
+                      <div class="trans-x-box">
+                        <span data-trans="도입사례"><span>도입사례</span></span>
+                      </div>
+                    </a>
+
+                </div>
+            </div>
+            <div data-include-path="../components/_inc/bottom-nav.html"></div>
+        </div>
+
+        <script>
+            window.addEventListener("load", function () {
+                var allElements = document.getElementsByTagName("*");
+                Array.prototype.forEach.call(allElements, function (el) {
+                    var includePath = el.dataset.includePath;
+                    if (includePath) {
+                        var xhttp = new XMLHttpRequest();
+                        xhttp.onreadystatechange = function () {
+                            if (this.readyState == 4 && this.status == 200) {
+                                el.outerHTML = this.responseText;
+                            }
+                        };
+                        xhttp.open("GET", includePath, true);
+                        xhttp.send();
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
