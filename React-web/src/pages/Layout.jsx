@@ -10,6 +10,7 @@ const Layout = () => {
   const getHeaderProps = (pathname) => {
     if (pathname === "/medicine") return { variant: "sub", title: "복약 관리" };
     if (pathname === "/setting") return { variant: "sub", title: "설정" };
+    if (pathname === "/health") return { variant: "sub", title: "내건강" };
     return { variant: "main", title: "" };
   };
 

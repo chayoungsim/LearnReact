@@ -594,3 +594,7 @@
   background:#fff url(../images/img-habit.jpg) no-repeat 50% 0;
   padding-top: 15.8rem;
 }
+
+.main {
+    height: 100rem;
+}

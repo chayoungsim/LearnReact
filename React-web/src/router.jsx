@@ -6,6 +6,9 @@ import Layout from './pages/Layout';
 import Home from './pages/Home';
 import Medicine from './pages/Medicine';
 import Setting from './pages/Setting';
+import Health from './pages/Health';
+
+// 라우터를 생성합니다.
 
 const router = createBrowserRouter([
   {
@@ -25,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: 'setting',
         element: <Setting />,
+      },
+      {
+        path: 'health',
+        element: <Health />,
       },
     ],
   },
