@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            html {
+                font-size: 10px;
+            }
+            body {
+                padding: 2vw;
+            }
+            .markupGuide {
+                display: flex;
+                flex-direction: column;
+             
+            }
+            .markupGuide li {
+                border-bottom: 1px solid #ddd;
+                display: grid;
+                grid-template-columns: 1.5fr 50% 1fr;
+            }
+            .markupGuide > li > div {
+                border-right: 1px solid #ddd;
+                padding: 1rem;
+                font-size: 1.4rem;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                word-break: break-all;
+            }
+            .markupGuide > li > div:first-child {                
+                border-left: 1px solid #ddd;
+            }
+            .markupGuide .head > div {
+                background: #f4f4f4;
+                justify-content: center;
+                border-top: 1px solid #ddd;
+            }
+       
+            
+        </style>
+    </head>
+    <body>
+        <div>
+            <ul class="markupGuide">
+                <li class="head">
+                    <div>ID</div>
+                    <div>Link</div>
+                    <div>비고</div>
+                </li>
+                <li>
+                    
+                </li>
+                <li>
+                    <div>메인</div>
+                    <div><a href="publish/page/main.html">src/publis/page/main.html</a></div>
+                    <div></div>
+                </li>
+                <li>
+                    <div>내건강 &gt; 오늘</div>
+                    <div><a href="publish/page/main.html">src/publis/page/main.html</a></div>
+                    <div></div>
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>
