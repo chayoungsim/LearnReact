@@ -49,6 +49,11 @@
         border: 1px solid #ddd;  
         padding: 1.6rem;
       }
+      .tag-a-wrap,
+      .pill-icon-wrap {
+        display: flex;
+        gap: 1rem;
+      }
       
     </style>
   </head>
@@ -85,13 +90,7 @@
       <i class="ico-sh-clock"></i>
       <i class="ico-sh-search"></i>
       <i class="ico-arr2"></i>
-      <i class="ico-chk"></i>
-
-      <i class="pill-prohibited"></i>
-      <i class="pill-forgot"></i>
-      <i class="pill-taken"></i>
-      <i class="pill-ignored"></i>
-      <i class="pill-empty"></i>
+      <i class="ico-chk"></i>      
       <i class="ico-sliver"></i>
       <i class="ico-scale"></i>
       <i class="ico-ht-down"></i>
@@ -107,8 +106,55 @@
       <i class="ht-hs2"></i>
       <i class="ico-tropy"></i>
       <i class="ico-asset"></i>
+      <i class="ico-info"></i>
     </div>    
+    <div class="pill-icon-wrap">
+      <div class="pill-icon">
+        <i class="pill-forgot"></i>
+        <span class="tx tc3">깜박했어요</span>
+      </div>
+      <div class="pill-icon">
+        <i class="pill-ignored"></i>
+        <span class="tx tc2">다음에 먹을게요</span>
+      </div>
+      <div class="pill-icon">
+        <i class="pill-rest"></i>
+        <span class="tx tc0">대기 중</span>
+      </div>
+      <div class="pill-icon">
+        <i class="pill-taken"></i>
+        <span class="tx tc1">먹었어요</span>
+      </div>
+      <div class="pill-icon">
+        <i class="pill-sad"></i>
+        <span class="tx tc5">못 먹은 날</span>
+      </div>
+      <div class="pill-icon">
+        <i class="pill-prohibited"></i>
+        <span class="tx tc0">안 먹는 날</span>
+      </div>
+      <div class="pill-icon">
+        <i class="pill-empty"></i>
+        <span class="tx tc0">???</span>
+      </div>
+      
+      
+      
+      
+      
+      
+      
 
+      <div></div>
+
+    </div>
+    <div class="tag-a-wrap">
+      <span class="tag-a">tag-a</span>
+      <span class="tag-b">tag-b</span>
+      <span class="tag-c">tag-c</span>
+      <span class="tag-d">tag-d</span>
+      <span class="tag-e">tag-e</span>
+    </div>
     <div class="btn-full">
       <button type="button" class="btn-bor">
         <i class="ico-refresh"></i>

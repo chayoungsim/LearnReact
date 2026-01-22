@@ -37,10 +37,10 @@
 }
 
 .hc1 {
-  color: #39b695;
+  color: var(--primary-color);
 }
 .hc1 i {
-  background: #39b695;
+  background: var(--primary-color);
 }
 
 .bghc1 {
@@ -48,7 +48,7 @@
   color:#fff
 }
 .bghc2 {
-  background-color: var(--Surface-Negative);
+  background-color: var(--negative-color);
   color:#fff
 }
 
@@ -87,12 +87,12 @@
 }
 
 .btn-trash {
-  color: #ee5d5d;
+  color: var(--negative-color);
   display: inline-flex;
   align-items: center;
 }
 .btn-trash i {
-  background-color: #ee5d5d;
+  background-color: var(--negative-color);
 }
 .btn-trash span {
   font-size: 1.4rem;
@@ -227,4 +227,18 @@
   font-size: 1.6rem;
   font-weight: 700;
   line-height: 1.4;
+}
+
+.btn-full-wrap {
+  margin-top: 2rem;
+}
+.btn-help {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.btn-help span {
+  font-size: 1.4rem;
+  color: #A2A9B4;
+  font-weight: 500;
 }

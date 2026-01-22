@@ -1,0 +1,103 @@
+:root {
+  /* Font Family */
+  --font-base: 'Pretendard', -apple-system, BlinkMacSystemFont,
+               'Segoe UI', Roboto, 'Apple SD Gothic Neo',
+               'Noto Sans KR', Arial, sans-serif;
+
+  /* Font Weight */
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+
+  /* Letter Spacing */
+  --ls-tight: -0.05em; /* -0.5px 기준 */
+  --ls-normal: 0;
+
+  /* =========================
+     Header
+  ========================= */
+  --h-large-32: 3.2rem; /* 32px */
+  --h-large-30: 3.0rem; /* 30px */
+  --h-large-26: 2.6rem; /* 26px */
+  --h-medium-24: 2.4rem; /* 24px */
+  --h-medium-22: 2.2rem; /* 22px */
+  --h-small-20: 2.0rem; /* 20px */
+  --h-small-18: 1.8rem; /* 18px */
+
+  --lh-heading: 1.4;
+
+  /* =========================
+     Body
+  ========================= */
+  --b-large-16: 1.6rem; /* 16px */
+  --b-medium-15: 1.5rem; /* 15px */
+  --b-small-14: 1.4rem; /* 14px */
+
+  --lh-body: 1.4;
+
+  /* =========================
+     Semantic Typography
+  ========================= */
+  --text-h1: var(--h-large-32);
+  --text-h2: var(--h-large-30);
+  --text-h3: var(--h-large-26);
+  --text-h4: var(--h-medium-24);
+  --text-h5: var(--h-medium-22);
+  --text-h6: var(--h-small-20);
+
+  --text-body-lg: var(--b-large-16);
+  --text-body-md: var(--b-medium-15);
+  --text-body-sm: var(--b-small-14);
+
+  --text-caption-lg: var(--c-large-13);
+  --text-caption-md: var(--c-medium-12);
+  --text-caption-sm: var(--c-small-11);
+}
+
+.text-c-sm {
+    font-size: var(--c-small-11)
+}
+
+.hty1 {
+    font-size: var(--h-medium-24);
+    font-weight: 700;
+    line-height: 1.4;    
+}
+.hty2 {
+    font-size: var(--h-medium-22);
+    font-weight: 700;
+    line-height: 1.4;    
+}
+.hty3 {
+    font-size: var(--h-medium-20);
+    font-weight: 700;
+    line-height: 1.4;    
+}
+
+.hty4 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1.4;    
+}
+
+.hty5 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1.4;    
+}
+
+.txt {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--Text-Base); 
+}
+
+.txts {
+    font-size: 1.3rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: #A2A9B4
+}

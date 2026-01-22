@@ -2,7 +2,7 @@ html {
   font-size: 10px;
 }
 body {
-  font-family: "Pretendard";
+  font-family: var(--font-base);
   font-size: 1.5rem;
   letter-spacing: -0.5px;
   overflow-x: hidden;
@@ -297,47 +297,6 @@ footer {
     justify-content: space-between;
     align-items: center;
 }
-.hty1 {
-    font-size: 2.4rem;
-    font-weight: 700;
-    line-height: 1.4;    
-}
-.hty2 {
-    font-size: 2.2rem;
-    font-weight: 700;
-    line-height: 1.4;    
-}
-.hty3 {
-    font-size: 2rem;
-    font-weight: 700;
-    line-height: 1.4;    
-}
-
-.hty4 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    line-height: 1.4;    
-}
-
-.hty5 {
-    font-size: 1.6rem;
-    font-weight: 600;
-    line-height: 1.4;    
-}
-
-.txt {
-    font-size: 1.5rem;
-    font-weight: 500;
-    line-height: 1.4;
-    color: var(--Text-Base); 
-}
-
-.txts {
-    font-size: 1.3rem;
-    font-weight: 500;
-    line-height: 1.4;
-    color: #A2A9B4
-}
 
 .tag {
     display: inline-flex;
@@ -530,7 +489,8 @@ footer {
 .tag-a,
 .tag-b,
 .tag-c,
-.tag-d {
+.tag-d,
+.tag-e {
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -555,4 +515,76 @@ footer {
 .tag-d {
     background: #E5EDFF;
     color: #447CF5;
+}
+.tag-e {
+    background: #FFF1E5;
+    color: #EA8015;
+}
+
+.tag-t {
+    display: inline-flex;
+    height: 1.9rem;
+    padding: 0 0.8rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.4rem;
+    background: #64C389;    
+    font-size: 1.2rem;
+    font-weight: 500;
+    color:#fff;
+
+}
+
+.tc0 {
+    color: var(--Text-Disabled);
+}
+.tc1 {
+    color: #24AA7B;
+}
+.tc2 {
+    color: #568FF9;
+}
+.tc3 {  
+    color: #FF4545;
+}
+.tc4 {
+    color: #8A48C3;
+}
+.tc5 {
+    color: #6277E2;
+}
+
+.pill-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+}
+.pill-icon .tx{
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.age-ranks {
+    display: flex;
+    justify-content: center;
+    gap: 0.3rem;
+}
+.age-ranks .my {
+    color:var(--Text-Base);
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+.age-ranks .total {
+    color: #A5D8B0;
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+.age-ranks .total em {
+    font-style: normal;
+    font-size: 2.6rem;
 }
