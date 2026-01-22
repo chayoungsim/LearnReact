@@ -37,7 +37,9 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 
 # 프로젝트 생성
+```bash
 npx create-next-app@latest next-study
 cd next-study
 npm run dev
+```
 
