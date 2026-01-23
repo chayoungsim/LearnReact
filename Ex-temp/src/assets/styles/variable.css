@@ -1,7 +1,5 @@
 :root {
-  /* =========================
-     Blue
-  ========================= */
+  /* Blue */
   --blue-0:   #F8FBFF;
   --blue-100: #E8F1FC;
   --blue-200: #D0DDF8;
@@ -13,9 +11,7 @@
   --blue-800: #001E46;
   --blue-900: #000B28;
 
-  /* =========================
-     Gray
-  ========================= */
+  /* Gray */
   --gray-0:   #FFFFFF;
   --gray-100: #F6F7F9;
   --gray-125: #F2F4F9;
@@ -29,9 +25,7 @@
   --gray-800: #42474F;
   --gray-900: #282828;
 
-  /* =========================
-     Green
-  ========================= */
+  /* Green */
   --green-0:   #F8FFFC;
   --green-100: #E7FCF6;
   --green-200: #C2F0E8;
@@ -43,9 +37,7 @@
   --green-800: #007151;
   --green-900: #003D2C;
 
-  /* =========================
-     Orange
-  ========================= */
+  /* Orange */
   --orange-0:   #FFF8F5;
   --orange-100: #FCEDE6;
   --orange-200: #F8D0C0;
@@ -57,9 +49,7 @@
   --orange-800: #601E00;
   --orange-900: #250800;
 
-  /* =========================
-     Yellow
-  ========================= */
+  /* Yellow */
   --yellow-0:   #FFF9E9;
   --yellow-100: #FFF7E0;
   --yellow-200: #FFF0C7;
@@ -71,9 +61,7 @@
   --yellow-800: #FFAE00;
   --yellow-900: #E08000;
 
-  /* =========================
-     Purple
-  ========================= */
+  /* Purple */
   --purple-0:   #FCF8FF;
   --purple-100: #F7E6FC;
   --purple-200: #E0BDF8;
@@ -85,9 +73,7 @@
   --purple-800: #480060;
   --purple-900: #1D0026;
 
-  /* =========================
-     Red
-  ========================= */
+  /*  Red */
   --red-0:   #FFF5F5;
   --red-100: #FCE6E6;
   --red-200: #F8D0D0;
@@ -99,87 +85,62 @@
   --red-800: #600000;
   --red-900: #290000;
 
-  /* =========================
-     Opacity
-  ========================= */
+  /* Opacity */
   --opacity-dim-15: rgba(0, 0, 0, 0.15);
   --opacity-dim-50: rgba(0, 0, 0, 0.5);
 
-  /* ==================================================
-     Background
-  ================================================== */
+ /* Background */
   --bg-base: var(--gray-125);
+  --bg-base-soft: var(--gray-100);
 
-  /* ==================================================
-     Border
-  ================================================== */
+
+  /* Border */
   --border-primary: var(--green-600);
   --border-primary-soft: var(--green-200);
-
   --border-neutral: var(--gray-300);
   --border-neutral-soft: var(--gray-150);
-
   --border-positive: var(--blue-500);
-
   --border-negative-soft: var(--orange-400);
   --border-negative: var(--red-500);
 
-  /* ==================================================
-     Text
-  ================================================== */
+  /* Text */
   --text-primary: var(--green-600);
   --text-base: var(--gray-900);
-
   --text-negative-soft: var(--orange-400);
   --text-negative: var(--red-500);
-
   --text-positive: var(--blue-500);
-
   --text-inverse: var(--gray-0);
-
   --text-neutral: var(--gray-700);
   --text-neutral-soft: var(--gray-600);
-
   --text-disabled: var(--gray-500);
 
-  /* ==================================================
-     Icon
-  ================================================== */
+  /* Icon */
   --icon-primary: var(--green-600);
   --icon-base: var(--gray-900);
-
   --icon-disabled-soft: var(--gray-400);
   --icon-disabled: var(--gray-500);
-
   --icon-neutral: var(--gray-600);
   --icon-negative: var(--red-500);
-
   --icon-inverse: var(--gray-0);
-
   --icon-warning: var(--yellow-700);
   --icon-positive: var(--blue-500);
 
-  /* ==================================================
-     Surface
-  ================================================== */
+  /* Surface */
   --surface-primary: var(--green-600);
   --surface-primary-soft: var(--green-100);
-
   --surface-neutral-soft: var(--gray-100);
   --surface-neutral: var(--gray-150);
-
   --surface-base: var(--gray-0);
   --surface-secondary: var(--gray-900);
-
   --surface-negative: var(--red-500);
   --surface-negative-soft: var(--orange-400);
-
   --surface-warning: var(--yellow-700);
-  --surface-positive: var(--blue-500);
+  --surface-positive: var(--blue-500);  
+   
   
-    --safe-bottom: env(safe-area-inset-bottom, 0px);
+ 
 
-    --primary-color:var(--green-600);
+    /* --primary-color:var(--green-600);
     --negative-color:var(--red-500);
     --Text-Base:#282828;
     --Text-Neutral:#767C88;
@@ -191,6 +152,7 @@
     --Orange400:#f99075;
     --Border-Neutral:#E2E6ED;
     --Border-Neutral-Soft: #F2F3F5;
-    --Bg-Base:#F2F4F9;
+    --Bg-Base:#F2F4F9; */
 } 
+
 

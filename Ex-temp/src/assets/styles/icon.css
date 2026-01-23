@@ -98,7 +98,7 @@
     width: 2.4rem;
     height: 2.4rem;
     vertical-align: middle; 
-    background-color:#cacaca; 
+    background-color: var(--icon-disabled); 
     mask: url(../images/ico-bottom-cart.svg) no-repeat 50% 50%;
     mask-size: contain;
     -webkit-mask: url(../images/ico-bottom-cart.svg) no-repeat 50% 50%;
@@ -110,7 +110,7 @@
     width: 2.4rem;
     height: 2.4rem;
     vertical-align: middle; 
-    background-color:#cacaca; 
+    background-color: var(--icon-disabled);  
     mask: url(../images/ico-bottom-hbot.svg) no-repeat 50% 50%;
     mask-size: contain;
     -webkit-mask: url(../images/ico-bottom-hbot.svg) no-repeat 50% 50%;
@@ -122,7 +122,7 @@
     width: 2.4rem;
     height: 2.4rem;
     vertical-align: middle; 
-    background-color:#cacaca; 
+    background-color: var(--icon-disabled);  
     mask: url(../images/ico-bottom-myh.svg) no-repeat 50% 50%;
     mask-size: contain;
     -webkit-mask: url(../images/ico-bottom-myh.svg) no-repeat 50% 50%;
@@ -134,7 +134,7 @@
     width: 2.4rem;
     height: 2.4rem;
     vertical-align: middle; 
-    background-color:#cacaca; 
+    background-color: var(--icon-disabled);  
     mask: url(../images/ico-bottom-more.svg) no-repeat 50% 50%;
     mask-size: auto 1.8rem;
     -webkit-mask: url(../images/ico-bottom-more.svg) no-repeat 50% 50%;
@@ -147,7 +147,7 @@
     width: 2.4rem;
     height: 2.4rem;
     vertical-align: middle; 
-    background-color:#39B695;
+    background-color: var(--icon-primary);
     mask: url(../images/ico-refresh.svg) no-repeat 50% 50%;
     mask-size: contain;
     -webkit-mask: url(../images/ico-refresh.svg) no-repeat 50% 50%;
@@ -170,7 +170,7 @@
     width: 1.7rem;
     height: 1.7rem;
     vertical-align: middle; 
-    background-color:#A2A9B4;
+    background-color:var(--icon-neutral);
     mask: url(../images/ico-trash.svg) no-repeat 50% 50%;
     mask-size: contain;
     -webkit-mask: url(../images/ico-trash.svg) no-repeat 50% 50%;
@@ -193,7 +193,7 @@
     width: 2.8rem;
     height: 2.8rem;
     vertical-align: middle; 
-    background-color:#39B695;
+    background-color: var(--icon-primary);
     mask: url(../images/ico-camera.svg) no-repeat 50% 50%;
     mask-size:contain;
     -webkit-mask: url(../images/ico-camera.svg) no-repeat 50% 50%;
@@ -224,7 +224,7 @@
     width: 2.2rem;
     height: 2.2rem;
     vertical-align: middle; 
-    background-color:#A2A9B4;
+    background-color:var(--icon-neutral);
     mask: url(../images/ico-clock.svg) no-repeat 50% 50%;
     mask-size:contain;
     -webkit-mask: url(../images/ico-clock.svg) no-repeat 50% 50%;
@@ -235,7 +235,7 @@
     width: 2.2rem;
     height: 2.2rem;
     vertical-align: middle; 
-    background-color:#A2A9B4;
+    background-color:var(--icon-neutral);
     mask: url(../images/ico-wht.svg) no-repeat 50% 50%;
     mask-size:contain;
     -webkit-mask: url(../images/ico-wht.svg) no-repeat 50% 50%;
@@ -269,7 +269,7 @@
     width:2.4rem;
     height:2.4rem;
     vertical-align: middle; 
-    background: #282828;
+    background: var(--icon-base);
     mask: url(../images/ico-arr2.svg) no-repeat 50% 50%;
     mask-size:contain;
     -webkit-mask: url(../images/ico-arr2.svg) no-repeat 50% 50%;
@@ -311,7 +311,7 @@
     width:2rem;
     height:2rem;
     vertical-align: middle; 
-    background: #A2A9B4;
+    background: var(--icon-neutral);
     mask: url(../images/ico-sh-clock.svg) no-repeat 50% 50%;
     mask-size:contain;
     -webkit-mask: url(../images/ico-sh-clock.svg) no-repeat 50% 50%;
@@ -321,7 +321,7 @@
     display: inline-block;
     width:2rem;
     height:2rem;
-    background: #A2A9B4;
+    background: var(--icon-neutral);
     vertical-align: middle; 
     mask: url(../images/ico-sh-search.svg) no-repeat 50% 50%;
     mask-size:contain;
@@ -367,10 +367,8 @@
     width: 4.2rem;
     height: 4.2rem;  
     vertical-align: middle; 
-    background: url(../images/pill-prohibited.svg) no-repeat 50% 50%;
-    /* filter: grayscale(100%); */
+    background: url(../images/pill-prohibited.svg) no-repeat 50% 50%;   
     filter: grayscale(100%) brightness(1.3) contrast(0.8);
-    /* filter: grayscale(100%) brightness(1.2); */
 }
 .pill-forgot {
     display: inline-block;
@@ -553,7 +551,7 @@
     display: inline-block;
     width: 2.4rem;
     height: 2.4rem;
-    background-color: #82A2E7;
+    background-color: var(--blue-400);
     mask: url(../images/ico-pic-0.svg) no-repeat 50% 50%;
     mask-size: contain;
     -webkit-mask: url(../images/ico-pie-0.svg) no-repeat 50% 50%;
@@ -565,7 +563,7 @@
     display: inline-block;
     width: 2.4rem;
     height: 2.4rem;
-    background-color: #82A2E7;
+    background-color: var(--blue-400);
     mask: url(../images/ico-pic-25.svg) no-repeat 50% 50%;
     mask-size: contain;
     -webkit-mask: url(../images/ico-pie-25.svg) no-repeat 50% 50%;
@@ -577,7 +575,7 @@
     display: inline-block;
     width: 2.4rem;
     height: 2.4rem;
-    background-color: #82A2E7;
+    background-color: var(--blue-400);
     mask: url(../images/ico-pic-50.svg) no-repeat 50% 50%;
     mask-size: contain;
     -webkit-mask: url(../images/ico-pie-50.svg) no-repeat 50% 50%;
@@ -589,7 +587,7 @@
     display: inline-block;
     width: 2.4rem;
     height: 2.4rem;
-    background-color: #82A2E7;
+    background-color: var(--blue-400);
     mask: url(../images/ico-pic-75.svg) no-repeat 50% 50%;
     mask-size: contain;
     -webkit-mask: url(../images/ico-pie-75.svg) no-repeat 50% 50%;
@@ -601,7 +599,7 @@
     display: inline-block;
     width: 2.4rem;
     height: 2.4rem;
-    background-color: #82A2E7;
+    background-color: var(--blue-400);
     mask: url(../images/ico-pic-100.svg) no-repeat 50% 50%;
     mask-size: contain;
     -webkit-mask: url(../images/ico-pie-100.svg) no-repeat 50% 50%;
@@ -614,7 +612,7 @@
     display: inline-block;
     width: 2.4rem;
     height: 2.4rem;
-    background-color: var(--Text-Base);
+    background-color: var(--icon-base);
     mask: url(../images/ico-q-repeat.svg) no-repeat 50% 50%;
     mask-size: contain;
     -webkit-mask: url(../images/ico-q-repeat.svg) no-repeat 50% 50%;
@@ -625,7 +623,7 @@
     display: inline-block;
     width: 2.4rem;
     height: 2.4rem;
-    background-color: var(--Text-Base);
+    background-color: var(--icon-base);
     mask: url(../images/ico-q-pill.svg) no-repeat 50% 50%;
     mask-size: contain;
     -webkit-mask: url(../images/ico-q-pill.svg) no-repeat 50% 50%;
@@ -636,7 +634,7 @@
     display: inline-block;
     width: 2.4rem;
     height: 2.4rem;
-    background-color: var(--Text-Base);
+    background-color: var(--icon-base);
     mask: url(../images/ico-q-work.svg) no-repeat 50% 50%;
     mask-size: 1.9rem auto;
     -webkit-mask: url(../images/ico-q-work.svg) no-repeat 50% 50%;
@@ -647,15 +645,14 @@
     display: inline-block;
     width: 2.4rem;
     height: 2.4rem;
-    background: url(../images/ico-q-blood.svg) no-repeat 50% 50%;
-   
+    background: url(../images/ico-q-blood.svg) no-repeat 50% 50%;   
     vertical-align: middle;
 }
 .ico-q-icn {
     display: inline-block;
     width: 2.4rem;
     height: 2.4rem;
-    background-color: var(--Text-Base);
+    background-color: var(--icon-base);
     mask: url(../images/ico-q-icn.svg) no-repeat 50% 50%;
     mask-size: contain;
     -webkit-mask: url(../images/ico-q-icn.svg) no-repeat 50% 50%;
@@ -666,7 +663,7 @@
     display: inline-block;
     width: 2.4rem;
     height: 2.4rem;
-    background-color: var(--Text-Base);
+    background-color: var(--icon-base);
     mask: url(../images/ico-q-weight.svg) no-repeat 50% 50%;
     mask-size: contain;
     -webkit-mask: url(../images/ico-q-weight.svg) no-repeat 50% 50%;

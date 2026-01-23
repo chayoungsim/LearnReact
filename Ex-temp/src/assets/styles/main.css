@@ -1,12 +1,11 @@
 .main-wrap {
-    background-color: var(--Surface-Neutral);
+    background-color: var(--surface-neutral);
     padding-bottom: 2rem;
 }
 .main-section1 {
-  background: var(--primary-color) url(../images/visual.jpg) no-repeat 50% 0;  
+  background: var(--surface-primary) url(../images/visual.jpg) no-repeat 50% 0;  
   padding-top: 6.6rem;
-  background-size: cover;
-  
+  background-size: cover;  
 }
 .main-section1 .visual {
   height: 35rem;
@@ -20,7 +19,7 @@
   font-size: 2.6rem;
   font-weight: 500;
   line-height: 1.4;
-  color: #fff;
+  color: var(--surface-base);
 }
 .main-section1 .visual h2 strong {
   font-weight: 700;
@@ -56,7 +55,7 @@
   font-weight: 700;
   line-height: 1.4;
   letter-spacing: -0.32px;
-  color: var(--primary-color);
+  color: var(--surface-primary);
 }
 .cs-box {
   padding-top: 5.6rem;
@@ -80,7 +79,7 @@
   align-items: center;
 }
 .cs-box-toggle button i {
-  background-color: #fff;
+  background-color: var(--surface-base);
 }
 .cs-box-desc {
   height: 0;
@@ -88,7 +87,7 @@
   font-size: 1.3rem;
   font-weight: 600;
   line-height: 1.4;
-  color: var(--Text-Base);
+  color: var(--text-base);
 }
 .cs-box-desc p + p {
   margin-top: 2rem;
@@ -97,11 +96,11 @@
   border-radius: 20px;
   border: 2px solid #c2e0d8;
   opacity: 0.8;
-  background: #e7fcf6;
+  background: var(--green-100);
 }
 .open .cs-box-toggle .ico-arr-down {
   transform: rotate(180deg);
-  background-color: var(--primary-color);
+  background-color: var(--surface-primary);
 }
 .open .cs-box-desc {
   height: auto;
@@ -119,7 +118,7 @@
   display: block;
   width: 100%;
   height: 18.3rem;
-  background-color: var(--primary-color);
+  background-color: var(--surface-primary);
   position: absolute;
   top: 0;
   left: 0;
@@ -129,7 +128,7 @@
   padding: 0 1.6rem 1.2rem;
 }
 .main-seaction2 .title-type .hty2 {
-  color: #fff;
+  color: var(--surface-base);
 }
 
 .swiper {
@@ -153,11 +152,11 @@
 .product-package .desc {
   padding: 1.2rem;
   border-radius: 0 0 4px 4px;
-  background: #fff;
+  background: var(--surface-base);
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
-  background: #fff url(../images/ico-arr2.svg) no-repeat 96% 1.2rem;
+  background: var(--surface-base) url(../images/ico-arr2.svg) no-repeat 96% 1.2rem;
 }
 .product-package .desc .tit {
   font-size: 1.8rem;
@@ -169,11 +168,10 @@
   font-size: 1.4rem;
   font-weight: 500;
   line-height: 1.4;
-  color: #a2a9b4;
+  color: var(--text-neutral-soft);
 }
 
-.main-seaction3 {
-   
+.main-seaction3 {   
   padding: 0 1.6rem 8rem;
 }
 .main-seaction3-top {
@@ -195,7 +193,7 @@
   font-size: 2.4rem;
 }
 .routine {
-  background: #fff;
+  background: var(--surface-base);
   display: flex;
   padding: 20px 12px 16px 12px;
   flex-direction: column;
@@ -222,16 +220,16 @@
   font-weight: 500;
 }
 .check-board .chk {
-  background: #82A2E7;
-  color: #fff;
+  background: var(--blue-400);
+  color: var(--text-inverse);
 }
 .check-board .lose {
   background: #dadee4;
   color: #a2a9b4;
 }
 .check-board .cur {
-  border: 2px solid #82A2E7;
-  color:#82A2E7
+  border: 2px solid var(--blue-400);
+  color:var(--blue-400)
 }
 
 .routine .title {
@@ -245,16 +243,16 @@
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    background: #82A2E7;
+    background: var(--blue-400);
     border-radius: 3rem;
     font-size: 15px;
     font-weight: 700;
-    color:#fff;
+    color: var(--surface-bas);
 }
 .routine .title h4 {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #282828
+    color: var(--text-base);
 }
 .routine .result {
     display: flex;
@@ -277,69 +275,69 @@
 }
 
 .ty2 .title .cate {
-    background: var(--Yellow700);
+    background: var(--yellow-700);
 }
 .ty2 .check-board .chk {
-    background: var(--Yellow700);
+    background: var(--yellow-700);
 }
 .ty2 .check-board .cur {
-   border: 2px solid var(--Yellow700);
-   color:var(--Yellow700)
+   border: 2px solid var(--yellow-700);
+   color:var(--yellow-700)
 }
 .ty2 .ico-chk {
-    background: var(--Yellow700);
+    background: var(--yellow-700);
 }
 .ty2 .board .result {
     width: auto;
 }
 
 .ty2 .ico-pie {
-  background:var(--Yellow700);
+  background: var(--yellow-700);
 }
 .ty2 .ico-pie-25 {
-  background:var(--Yellow700);
+  background: var(--yellow-700);
 }
 .ty2 .ico-pie-50 {
-  background:var(--Yellow700);
+  background: var(--yellow-700);
 }
 .ty2 .ico-pie-75 {
-  background:var(--Yellow700);
+  background: var(--yellow-700);
 }
 .ty2 .ico-pie-100 {
-  background:var(--Yellow700);
+  background: var(--yellow-700);
 }
 
 .ty3 .title .cate {
-    background: var(--Orange400);
+    background: var(--orange-400);
 }
 .ty3 .check-board .chk {
-    background: var(--Orange400);
+    background: var(--orange-400);
 }
 .ty3 .check-board .cur {
-   border: 2px solid  var(--Orange400);
-   color: var(--Orange400)
+   border: 2px solid  var(--orange-400);
+   color: var(--orange-400)
 }
 .ty3 .ico-chk {
-    background: var(--Orange400);
+    background: var(--orange-400);
 }
 .ty3 .board .result {
     width: auto;
 }
 
 .ty3 .ico-pie {
-  background: var(--Orange400);
+  background: var(--orange-400);
 }
 .ty3 .ico-pie-25 {
-  background: var(--Orange400);
+  background: var(--orange-400);
 }
 .ty3 .ico-pie-50 {
-  background: var(--Orange400);
+  background: var(--orange-400);
 }
 .ty3 .ico-pie-75 {
-  background: var(--Orange400);
+  background: var(--orange-400);
 }
 .ty3 .ico-pie-100 {
-  background: var(--Orange400);
+  background: var(--orange-400);
 }
 
 .routine-lists .routine {
@@ -356,8 +354,7 @@
 }
 
 .main-section4 {
-    padding: 0 1.6rem 8rem;
-     
+    padding: 0 1.6rem 8rem;     
 }
 
 .main-section4 .ment {    
@@ -381,7 +378,7 @@
     width: 10rem;
     height: 10rem;
     border-radius: 0.5rem;
-    background: #fff;
+    background: var(--surface-base);
     overflow: hidden;
 }
 .product-hot .desc {
@@ -394,7 +391,7 @@
     font-size: 1.4rem;
     font-weight: 600;
     line-height: 1.4;
-    color: var(--Text-Base);
+    color: var(--text-base);
 }
 .product-hot .desc .info {
     display: flex;
@@ -404,7 +401,7 @@
 .product-hot .info .sale {
     font-size: 2.2rem;
     font-weight: 700;
-    color: var(--primary-color);
+    color: var(--surface-primary);
 }
 .product-hot .info .price {
     display: flex;
@@ -459,7 +456,7 @@
     width: 10rem;
     height: 10rem;
     border-radius: 0.5rem;
-    background: #fff;
+    background: var(--surface-base);
     overflow: hidden;
 }
 .review-item .desc {
@@ -512,8 +509,7 @@
 }
 
 .main-seaction7 {
-    padding-bottom: 8rem;
-    
+    padding-bottom: 8rem;    
 }
 .main-seaction7 .swiper-slide{
     width: 14rem;
@@ -542,7 +538,7 @@
     font-size: 1.4rem;
     font-weight: 700;
     line-height: 1.4;
-    color: #fff;    
+    color: var(--surface-base);    
     border-radius: 0.4rem;
 }
 .main-seaction8 {
@@ -556,20 +552,20 @@
 }
 .main-seaction8 .sment {
     padding: 2.4rem 2.4rem 3rem;
-    background: var(--primary-color);
+    background: var(--surface-primary);
     font-size: 1.3rem;
     font-weight: 700;
     line-height: 1.4;
     letter-spacing: -0.26px;
     text-align: center;
-    color:#fff;
+    color:var(--surface-base);
 }
 
 .habit-board {
     width: 72vw;
     max-width: 27rem;
     border-radius: 2rem;
-    background: #fff;
+    background: var(--surface-base);
     box-shadow: 0 1px 8px 1px rgba(0, 0, 0, 0.10);
     margin:0 auto;
     padding: 2rem 2rem 2.8rem;
@@ -591,6 +587,6 @@
     line-height: 1.4;
 }
 .habit-board {
-  background:#fff url(../images/img-habit.jpg) no-repeat 50% 0;
+  background: var(--surface-base) url(../images/img-habit.jpg) no-repeat 50% 0;
   padding-top: 15.8rem;
 }

@@ -15,7 +15,7 @@
     background: linear-gradient(180deg, #EBF9F3 0%, #F6F7F9 95%, #FFF 100%);
 }
 .my-health-today {
-    background: #fff;
+    background: var(--surface-base);
     padding: 2.4rem 1rem 3rem;
     margin: 2rem 1.4rem 4rem;
     border-radius: 2rem;
@@ -23,7 +23,7 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 1.5rem;
-    border: 1px solid #F2F3F5;
+    border: 1px solid var(--border-neutral-soft);
     box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.03);
 }
 .my-health-today-title {
@@ -52,20 +52,20 @@
     font-size: 1.3rem;
     line-height: 1.4;
     font-weight: 600;
-    color:var(--Text-Neutral)
+    color:var(--text-neutral)
 }
 .today-info .num {
     font-size: 1.6rem;
     font-weight: 700;
     margin-top: 0.4rem;
-    color:var( --Text-Base);
+    color:var( --text-base);
 }
 
 .rut-item {
     width: 13.5rem;
     padding: 3rem 1.6rem 2rem;
     border-radius: 2rem;
-    border:1px solid #E2E6ED;
+    border:1px solid var(--border-neutral);
     background: #fff url(../images/Checkbox-g.svg) no-repeat right 1.2rem top 1.2rem;
     display: flex;
     flex-direction: column;
@@ -73,7 +73,7 @@
     align-items: flex-start;
 }
 .rut-item.selected {
-    border:1px solid var(--primary-color);
+    border:1px solid var(--surface-primary);
     background: #fff url(../images/Checkbox.svg) no-repeat right 1.2rem top 1.2rem;
 }
 .rut-swiper {
@@ -100,10 +100,10 @@
     right: 1.5rem;
     font-size: 1.4rem;
     font-weight: 500;
-    color:var(--Text-Neutral-Soft)
+    color:var(--text-neutral-soft)
 }
 .my-health2-wrap .current-page{
-    color: var(--Text-Base)
+    color: var(--text-base)
 }
 
 
@@ -122,7 +122,7 @@
     font-size: 13px;
     font-weight: 500;
     line-height: 1.4;
-    color:var(--Text-Neutral);
+    color:var(--text-neutral);
 }
 .pill-history-cont {
     display: flex;
@@ -139,7 +139,7 @@
     position: absolute;
     left: 0;
     top: 0;
-    background: var(--Border-Neutral);
+    background: var(--border-neutral);
     border-radius: 0.4rem;
 }
 .pill-history-item {
@@ -147,8 +147,7 @@
     gap: 0.4rem;
     
 }
-.pill-history-item .pill-icon {
-    
+.pill-history-item .pill-icon {    
     width: 9rem;
 }
 
@@ -177,7 +176,7 @@
 .pill-history-item .ctrl .ico-arr {
     width: 1.2rem;
     height: 1.2rem;
-    background: #a2a9b4;
+    background: var(--text-neutral-soft);
 }
 
 .circle {
@@ -194,7 +193,7 @@
     position: absolute;
     bottom:16rem;
     right: 1rem;
-    background: #fff;
+    background: var(--surface-base);
     width:16.9rem;
     border-radius: 1.8rem;
     padding:0.4rem 2rem;
@@ -203,7 +202,7 @@
     font-size: 1.4rem;
     font-weight: 500;
     line-height: 1.4;
-    color:var(--Text-Base);
+    color:var(--text-base);
 }
 .quick-wrap a {
     display: flex;
@@ -240,7 +239,7 @@
     display: none;
 }
 .quick-talk em {
-    color: var(--primary-color);
+    color: var(--surface-primary);
     font-style: normal;
 }
 
@@ -258,13 +257,13 @@
     display: block;
     width: 100%;
     height: 4.8rem;
-    background:var(--Text-Base);
+    background:var(--text-base);
     padding: 6px 12px;
     border-radius: 1rem;
     font-size: 1.3rem;
     font-weight: 500;
     line-height: 1.4;
-    color: #fff;
+    color: var(--surface-base);
 }
 .quick-talk .btn-x {
     position: absolute;
@@ -279,7 +278,7 @@
 .quick-talk .btn-x i{
     width: 100%;
     height: 100%;
-    background: #fff;
+    background: var(--surface-base);
 }
 .headth-data-wrap {
     padding: 2rem 1.6rem;
@@ -289,7 +288,7 @@
     margin-bottom: 2rem;
 }
 .data-bx-wht {
-    background: #fff;
+    background: var(--surface-base);
     border-radius: 1.2rem;
     padding: 2rem 1.6rem;
 }
@@ -373,7 +372,7 @@
 }
 
 .gbox {
-    background: #F6F7F9;
+    background: var(--bg-base-soft);
     border-radius: 1rem;
 }
 .headth-data-date {
@@ -387,11 +386,11 @@
     display:block;
     height: 0.9rem;
     flex:1 0 0;
-    background: #E2E6ED;
+    background: var(--border-neutral);
     border-radius: 0.1rem;
 }
 .data-days .chk {
-    background: var(--primary-color);
+    background: var(--surface-primary);
 }
 .dty2 .chk {
     background: #77BEF8;
@@ -470,7 +469,7 @@
     text-align: center;
 }
 .station-con .info .num {
-    color:var(--Text-Base);
+    color:var(--text-base);
     line-height: 1.4;
 }
 .station-con .info .num strong {
@@ -482,7 +481,7 @@
 }
 .health-gauge {
     padding:3rem 1.6rem 2rem;
-    background: linear-gradient(180deg, #EFFFD9 37.83%, #D9FFE1 69.83%), var(--Surface-Base, #FFF);
+    background: linear-gradient(180deg, #EFFFD9 37.83%, #D9FFE1 69.83%), var(--surface-base);
 }
 .health-gauge-top {
     display: flex;
@@ -509,7 +508,7 @@
 .health-gauge-tit h3 {
     font-size: 2.6rem;
     font-weight: 700;
-    color:var(--Text-Base);
+    color:var(--text-base);
     line-height: 1.4;
 }
 .health-gauge-tit .ico-info {
@@ -523,7 +522,7 @@
     color: #FF9A26;
 }
 .health-gauge-tit .g3 {
-    color: var(--primary-color);
+    color: var(--surface-primary);
 }
 .gauge {
     display: flex;
@@ -561,7 +560,7 @@
     margin-top: 2rem;
     padding:2rem 0;
     border-radius: 2rem;
-    background: #fff;
+    background: var(--surface-base);
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.03); 
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -572,7 +571,7 @@
     display: block;
     width: 1px;
     height:80%;
-    background: var(--Border-Neutral-Soft);
+    background: var(--border-neutral-soft);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -588,7 +587,7 @@
 }
 .health-ai-area {
     padding: 4rem 1.6rem;
-    background: #fff;
+    background: var(--surface-base);
 }
 .health-ai-area .title-type {
     align-items: flex-end;
@@ -610,20 +609,20 @@
     top: 50%;
     right: 0;
     transform: translateY(-50%);
-    background: #A2A9B4;
+    background: var(--text-neutral-soft);
 }
 .health-ai-area-lists {
     margin-top: 1rem;
-    border-bottom: 1px solid var(--Border-Neutral-Soft);
+    border-bottom: 1px solid var(--border-neutral-soft);
 }
 
 .health-ai-area3 {
-    background: #fff;
+    background: var(--surface-base);
     padding: 4rem 1.6rem;
     margin-top:0.8rem;
 }
 .health-ai-area3 .txt {
-    color:var(--Text-Neutral-Soft)
+    color:var(--text-neutral-soft)
 }
 .health-ai-area3 .title-type {
     margin-top: 0.6rem;
@@ -644,7 +643,7 @@
     font-weight: 600;
     line-height: 1.4;
     text-align: center;
-    color: var(--Text-Base);
+    color: var(--text-base);
 }
 .d-rank-wrap .txts {
     font-size: 1.4rem;   
@@ -670,7 +669,7 @@
     justify-content: center;
     align-items: flex-end;
     padding-bottom: 0.6rem;
-    color: #fff;
+    color: var(--surface-base);
     font-size: 1.6rem;
     font-weight: 700;
     line-height: 1.4;
@@ -680,11 +679,11 @@
      grid-area: a;
 }
 .d-rank123 .d-rank1 .tit {
-    color: var(--primary-color);
+    color: var(--surface-primary);
 }
 .d-rank123 .d-rank1 .gbar {
     height: 12.8rem;
-    background-color: var(--primary-color);
+    background-color: var(--surface-primary);
 }
 .d-rank123 .d-rank2 {
     grid-area: b;
@@ -704,5 +703,5 @@
 }
 .d-rank4 {
     margin-top: 1rem;
-    border-bottom: 1px solid var(--Border-Neutral-Soft);
+    border-bottom: 1px solid var(--border-neutral-soft);
 }
