@@ -1,6 +1,5 @@
-// 사이트 공통 레이아웃
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
+// 서브 공통 레이아웃
+
 
 
 export default function SiteLayout({children}:Readonly<{
@@ -8,11 +7,7 @@ export default function SiteLayout({children}:Readonly<{
 }>) {
     return (
         <>
-            <Header />
-            <div id="container">
-                <div className="contents">{children}</div>
-            </div>
-            <Footer />
+            <div className="subContainer">{children}</div>
         </>
     )
 }

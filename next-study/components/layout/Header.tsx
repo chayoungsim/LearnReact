@@ -17,7 +17,7 @@ export default function Header() {
             setIsFixed(currentScrollY > 50);
 
             // 스크롤 방향에 따른 헤더 숨김/표시 로직
-            if (currentScrollY > window.innerHeight * 0.4) {
+            if (currentScrollY > window.innerHeight * 0.2) {
                 if (currentScrollY > lastScrollY.current) {
                     // 스크롤 다운
                     setIsHeaderHidden(true);

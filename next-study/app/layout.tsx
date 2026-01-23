@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 
 import "./globals.css";
 
@@ -17,7 +19,13 @@ export default function RootLayout({
     <html lang="en">
       <body>        
         <p id="accessibility"><a href="#container">본문바로가기</a></p>
-        <div id="wrap">{children}</div>
+        <div id="wrap">
+            <Header />
+            <div id="container">
+                {children}
+            </div>
+            <Footer />
+        </div>
       </body>
     </html>
   );

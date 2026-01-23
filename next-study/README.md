@@ -43,3 +43,28 @@ cd next-study
 npm run dev
 ```
 
+## GSAP 사용
+```bash
+npm install gsap    // 별도 플러그인(ScrollTrigger 등)도 gsap 패키지 안에 포함되어 있습니다.
+```
+Next.js는 SSR(Server Side Rendering) 구조이므로
+GSAP은 반드시 클라이언트에서만 실행되어야 합니다.
+
+### 반드시 지켜야 할 것
+1. use client 선언
+2. useEffect 또는 useLayoutEffect 안에서만 실행
+3. DOM 접근은 ref 사용
+
+```javasccript
+useLayoutEffect(() => {
+  // ① DOM 준비 체크
+  // ② gsap.context로 스코프 제한
+  // ③ fromTo 애니메이션 2개 실행
+  // ④ cleanup 처리
+}, []);
+```
+
+- useLayoutEffect → DOM 그려진 직후 실행
+- gsap.context → 해당 컴포넌트 범위로 애니메이션 제한
+- ScrollTrigger → 스크롤 위치에 따라 제어
+- ctx.revert() → 페이지 이동 시 정리

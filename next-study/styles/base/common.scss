@@ -1,19 +1,19 @@
 html {
-    font-size: 10px;
+    font-size: 62.5%;
 }
 body {
     font-size: 1.6rem;
 }
 
-
+#wrap {
+    max-width: 2560px;
+    margin:0 auto;
+    min-height: 100%;
+}
 #container {
     height: 100%;
 }
 
-.contents {
-    
-    min-height:200vh;
-}
 
 .not-scroll {  
     overflow: hidden;
@@ -23,4 +23,25 @@ body {
         position: fixed;
         width: 100%;
     } 
+}
+
+.mainContainer {
+    height: 200vh;
+}
+
+.subContainer {
+    margin-top: 10rem;
+    padding: 4.69vw 11.72vw 9.38vw;
+    height: 250vh;
+}
+.fullSection {
+    width: calc(100% + 23.44vw);
+    margin-left: -11.72vw;
+    transition: all 0.3s ease;
+}
+
+h3 {
+    font-size: 3.91vw;
+    font-weight: 700;
+    margin-bottom: 3.43vw;
 }
