@@ -16,9 +16,7 @@
   padding-bottom: 3.5rem;
 }
 .main-section1 .visual h2 {
-  font-size: 2.6rem;
-  font-weight: 500;
-  line-height: 1.4;
+  font-weight: 500; 
   color: var(--surface-base);
 }
 .main-section1 .visual h2 strong {
@@ -127,7 +125,7 @@
   position: relative;
   padding: 0 1.6rem 1.2rem;
 }
-.main-seaction2 .title-type .hty2 {
+.main-seaction2 .title-type .text-h5 {
   color: var(--surface-base);
 }
 
@@ -136,11 +134,11 @@
 }
 .main-seaction2 .swiper-slide {
   padding-bottom: 1rem;
-  width: 15.2rem;
+  width: 14rem;
 }
 .product-package {
   display: block;
-  width: 15.2rem;
+  width: 14rem;
   /* box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.03) inset,
     0 1px 5px 1px rgba(0, 0, 0, 0.04); */
 }
@@ -176,6 +174,8 @@
 }
 .main-seaction3-top {
   padding-bottom: 8rem;
+  display: flex;
+  justify-content: center;
 }
 .main-seaction3-top .hty3 span {
   display: block;
@@ -239,30 +239,25 @@
 }
 .routine .title .cate {
     display: inline-flex;
-    padding: 0.4rem 1.6rem;
+    padding: 0.3rem 1.6rem;
     justify-content: center;
     align-items: center;
     gap: 1rem;
     background: var(--blue-400);
     border-radius: 3rem;
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--surface-bas);
+    font-size: var(--body-medium-15);
+    color: var(--surface-base);
 }
-.routine .title h4 {
-    font-size: 1.5rem;
-    font-weight: 700;
+.routine .text-b-md{
     color: var(--text-base);
 }
 .routine .result {
     display: flex;
-    gap: 1rem;
-    font-size: 1.3rem;
-    font-weight: 600;
-    line-height: 1.4;
-    width: 100%;
     justify-content: flex-end;
+    gap: 1rem;
+    width: 100%;
 }
+
 .routine .result-1 {
     display: flex;
     align-items: center;
@@ -407,7 +402,7 @@
     display: flex;
     align-items: center;
     gap: 0.4rem;
-    color: var(--Text-Base);
+    color: var(--text-base);
     margin-left: 1.2rem;
 }
 .product-hot .info .price strong {    
@@ -422,7 +417,7 @@
 .product-hot .info .del {
     font-size: 1.1rem;
     font-weight: 500;
-    color:var(--Text-Neutral-Soft);
+    color:var(--text-neutral-soft);
     margin-left: 0.4rem;
     text-decoration: line-through;
 }
@@ -431,7 +426,7 @@
     padding:0 1.6rem 8rem;
               
 }
-.main-section5 .ment {    
+.main-section5 .text-b-sm-r {    
     margin-top: 0.4rem;
 }
 .review-lists {
@@ -479,42 +474,51 @@
     line-height: 1.4;
     margin-top: 0.4rem;
 }
-.main-seaction6 {
+.main-section6 {
     padding-bottom: 8rem;
      
 }
-.main-seaction6 .title-type {
-    padding: 0 1.6rem 1.2rem;
+.main-section6 .title-type {
+    padding: 0 1.6rem 0.2rem;
 }
-.main-seaction6 .swiper-slide{
+.main-section6 .swiper-slide{
     width: 10rem;
 }
+.main-section6 .text-b-sm-r {
+  padding:0 1.6rem 1.2rem;
+}
 .product-zzim {
-    display: block;    
-    
+    display: block;        
 }
 .product-zzim .thumb {
     width: 10rem;
     height: 10rem;
     border-radius: 0.4rem;
     overflow: hidden;
+    position: relative;
 }
+.product-zzim .ico-like {
+    position: absolute;
+    top: 0.4rem;
+    right: 0.4rem;
+}
+
 .product-zzim .info {   
     padding:0.8rem 0.8rem 0 0;
     font-size: 1.1rem;
     font-weight: 600;
     line-height: 1.4;
-    color:var(--Text-Base);
+    color:var(--text-base);
     transition: all 0.5s;    
 }
 
-.main-seaction7 {
+.main-section7 {
     padding-bottom: 8rem;    
 }
-.main-seaction7 .swiper-slide{
+.main-section7 .swiper-slide{
     width: 14rem;
 }
-.main-seaction7 .title-type {
+.main-section7 .title-type {
     padding: 0 1.6rem 1.2rem;
 }
 .product-tip {
@@ -541,16 +545,18 @@
     color: var(--surface-base);    
     border-radius: 0.4rem;
 }
-.main-seaction8 {
+.main-section8 {
     background: #ECF9E8;
     padding-bottom: 2rem;
+    display: flex;
+    justify-content: center;
 }
-.main-seaction8 h3 {
+.main-section8 h3 {
     padding: 4rem 2.4rem 3.3rem;
     font-weight: 500;
     text-align: center;
 }
-.main-seaction8 .sment {
+.main-section8 .sment {
     padding: 2.4rem 2.4rem 3rem;
     background: var(--surface-primary);
     font-size: 1.3rem;

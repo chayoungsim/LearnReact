@@ -652,11 +652,7 @@
     display: inline-block;
     width: 2.4rem;
     height: 2.4rem;
-    background-color: var(--icon-base);
-    mask: url(../images/ico-q-icn.svg) no-repeat 50% 50%;
-    mask-size: contain;
-    -webkit-mask: url(../images/ico-q-icn.svg) no-repeat 50% 50%;
-    -webkit-mask-size: contain;
+    background: url(../images/ico-q-icn.svg) no-repeat 50% 50%;
     vertical-align: middle;
 }
 .ico-q-weight {
@@ -717,6 +713,91 @@
     width: 3.6rem;
     height: 3.6rem;
     background: url(../images/rt-2.svg) no-repeat 50% 50%;   
+    vertical-align: middle;
+    background-size: contain;
+}
+
+.ico-like {
+    display: inline-block;
+    width: 2.4rem;
+    height: 2.4rem;
+    background: url(../images/like-button.svg) no-repeat 50% 50%;   
+    vertical-align: middle;
+    background-size: contain;
+}
+.ico-like.on{
+    background: url(../images/like-button-on.svg) no-repeat 50% 50%;  
+    background-size: contain;
+}
+.ico-edit {
+    display: inline-block;
+    width: 2.4rem;
+    height: 2.4rem;
+    background-color: var(--icon-neutral);
+    mask: url(../images/ico-edit.svg) no-repeat 50% 50%;
+    mask-size: contain;
+    -webkit-mask: url(../images/ico-edit.svg) no-repeat 50% 50%;
+    -webkit-mask-size: contain;
+    vertical-align: middle;
+}
+
+.ico-goal {
+    display: inline-block;
+    width: 2.4rem;
+    height: 2.4rem;
+    background: url(../images/goal.svg) no-repeat 50% 0;   
+    vertical-align: middle;
+    background-size: contain;
+}
+.ico-repeat {
+    display: inline-block;
+    width: 1.8rem;
+    height: 1.8rem;
+    background-color: var(--icon-primary);
+    mask: url(../images/ico-repeat.svg) no-repeat 50% 50%;
+    mask-size: contain;
+    -webkit-mask: url(../images/ico-repeat.svg) no-repeat 50% 50%;
+    -webkit-mask-size: contain;
+    vertical-align: middle;
+}
+
+.ico-risk1 {
+    display: inline-block;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: url(../images/ico-risk1.svg) no-repeat 50% 0;   
+    vertical-align: middle;
+    background-size: contain;
+}
+.ico-risk2 {
+    display: inline-block;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: url(../images/ico-risk2.svg) no-repeat 50% 0;   
+    vertical-align: middle;
+    background-size: contain;
+}
+.ico-risk3 {
+    display: inline-block;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: url(../images/ico-risk3.svg) no-repeat 50% 0;   
+    vertical-align: middle;
+    background-size: contain;
+}
+.ico-risk4 {
+    display: inline-block;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: url(../images/ico-risk4.svg) no-repeat 50% 0;   
+    vertical-align: middle;
+    background-size: contain;
+}
+.ico-risk5 {
+    display: inline-block;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: url(../images/ico-risk5.svg) no-repeat 50% 0;   
     vertical-align: middle;
     background-size: contain;
 }

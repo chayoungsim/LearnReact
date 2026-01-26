@@ -1,0 +1,30 @@
+#root {
+  width: 100%;  
+  min-height: 100vh;
+  background: #000;
+}
+html, body {
+  width: 100%;
+  min-height: 100%;
+}
+.logo {
+  width: 120px;
+}
+
+.container {
+  padding-bottom: 10vw;
+}
+
+h2{
+  color:#fff;
+}
+
+.contents{
+  padding:2vw;
+}
+
+.paging{
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}

@@ -3,7 +3,7 @@ import Swiper from "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs
 export const initSwiper = () => {
     return new Swiper(".swiper", {
         slidesPerView: "auto",
-        spaceBetween: 9,
+        spaceBetween: 16,
     });
 };
 
@@ -18,9 +18,9 @@ export const rutSwiper = () => {
         // progress가 1에 가까우면 마지막 페이지로 설정
         const isAtEnd = swiper.progress >= 0.99;
         const current = isAtEnd
-            ? String(swiper.slides.length).padStart(2, "0")
-            : String(swiper.activeIndex + 1).padStart(2, "0");
-        const total = String(swiper.slides.length).padStart(2, "0");
+            ? String(swiper.slides.length)
+            : String(swiper.activeIndex + 1);
+        const total = String(swiper.slides.length);
 
         currentPage.textContent = current;
         totalPage.textContent = total;
@@ -36,5 +36,12 @@ export const rutSwiper = () => {
             slideChange: updatePagination,
             progress: updatePagination, // 스크롤 진행도 감지
         },
+    });
+};
+
+export const cardSwiper = () => {
+    return new Swiper(".card-swiper", {
+        slidesPerView: "auto",
+        spaceBetween: 10,
     });
 };

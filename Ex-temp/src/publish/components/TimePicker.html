@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../assets/styles/style.css" />
+  </head>
+  <body>
+    <div class="time-picker-container">
+      <p class="text-b-sm-m">날짜 선택</p>
+      <div class="time-picker">
+        <div class="time-picker-top">
+          <button class="hour">07</button>
+          <span class="dot">:</span>
+          <button class="minute">00</button>
+          <div class="am-pm">
+            <button class="am active">오전</button>
+            <button class="pm">오후</button>
+          </div>
+        </div>
+        <div class="time-picker-clock">
+          <svg class="w-full h-full" viewBox="-150 -150 300 300">
+            <line
+              x1="0"
+              y1="0"
+              x2="-49.99999999999998"
+              y2="86.60254037844388"
+              stroke="#14b8a6"
+              stroke-width="2"
+            ></line>
+            <circle
+              cx="-49.99999999999998"
+              cy="86.60254037844388"
+              r="4"
+              fill="#14b8a6"></circle>
+            <circle cx="0" cy="0" r="4" fill="#14b8a6"></circle>
+            
+            <g>
+              <circle
+                cx="7.34788079488412e-15"
+                cy="-120"
+                r="20"
+                fill="transparent"
+                class="cursor-pointer hover:fill-teal-100 transition-colors"></circle>
+              <text
+                x="7.34788079488412e-15"
+                y="-114"
+                text-anchor="middle"
+                fill="#374151"
+                font-size="16"
+                class="cursor-pointer pointer-events-none select-none"
+              >
+                12
+              </text>
+            </g>
+            <g>
+              <circle
+                cx="60.000000000000014"
+                cy="-103.92304845413263"
+                r="20"
+                fill="transparent"
+                class="cursor-pointer hover:fill-teal-100 transition-colors"
+              ></circle>
+              <text
+                x="60.000000000000014"
+                y="-97.92304845413263"
+                text-anchor="middle"
+                fill="#374151"
+                font-size="16"
+                class="cursor-pointer pointer-events-none select-none"
+              >
+                1
+              </text>
+            </g>
+            <g>
+              <circle
+                cx="103.92304845413264"
+                cy="-59.99999999999999"
+                r="20"
+                fill="transparent"
+                class="cursor-pointer hover:fill-teal-100 transition-colors"
+              ></circle>
+              <text
+                x="103.92304845413264"
+                y="-53.99999999999999"
+                text-anchor="middle"
+                fill="#374151"
+                font-size="16"
+                class="cursor-pointer pointer-events-none select-none"
+              >
+                2
+              </text>
+            </g>
+            <g>
+              <circle
+                cx="120"
+                cy="0"
+                r="20"
+                fill="transparent"
+                class="cursor-pointer hover:fill-teal-100 transition-colors"
+              ></circle>
+              <text
+                x="120"
+                y="6"
+                text-anchor="middle"
+                fill="#374151"
+                font-size="16"
+                class="cursor-pointer pointer-events-none select-none"
+              >
+                3
+              </text>
+            </g>
+            <g>
+              <circle
+                cx="103.92304845413264"
+                cy="59.99999999999999"
+                r="20"
+                fill="transparent"
+                class="cursor-pointer hover:fill-teal-100 transition-colors"
+              ></circle>
+              <text
+                x="103.92304845413264"
+                y="66"
+                text-anchor="middle"
+                fill="#374151"
+                font-size="16"
+                class="cursor-pointer pointer-events-none select-none"
+              >
+                4
+              </text>
+            </g>
+            <g>
+              <circle
+                cx="60.000000000000014"
+                cy="103.92304845413263"
+                r="20"
+                fill="transparent"
+                class="cursor-pointer hover:fill-teal-100 transition-colors"
+              ></circle>
+              <text
+                x="60.000000000000014"
+                y="109.92304845413263"
+                text-anchor="middle"
+                fill="#374151"
+                font-size="16"
+                class="cursor-pointer pointer-events-none select-none"
+              >
+                5
+              </text>
+            </g>
+            <g>
+              <circle
+                cx="7.34788079488412e-15"
+                cy="120"
+                r="20"
+                fill="transparent"
+                class="cursor-pointer hover:fill-teal-100 transition-colors"
+              ></circle>
+              <text
+                x="7.34788079488412e-15"
+                y="126"
+                text-anchor="middle"
+                fill="#374151"
+                font-size="16"
+                class="cursor-pointer pointer-events-none select-none"
+              >
+                6
+              </text>
+            </g>
+            <g>
+              <circle
+                cx="-59.99999999999997"
+                cy="103.92304845413264"
+                r="20"
+                fill="#14b8a6"
+                class="cursor-pointer hover:fill-teal-100 transition-colors"
+              ></circle>
+              <text
+                x="-59.99999999999997"
+                y="109.92304845413264"
+                text-anchor="middle"
+                fill="white"
+                font-size="16"
+                class="cursor-pointer pointer-events-none select-none"
+              >
+                7
+              </text>
+            </g>
+            <g>
+              <circle
+                cx="-103.92304845413264"
+                cy="59.99999999999999"
+                r="20"
+                fill="transparent"
+                class="cursor-pointer hover:fill-teal-100 transition-colors"
+              ></circle>
+              <text
+                x="-103.92304845413264"
+                y="66"
+                text-anchor="middle"
+                fill="#374151"
+                font-size="16"
+                class="cursor-pointer pointer-events-none select-none"
+              >
+                8
+              </text>
+            </g>
+            <g>
+              <circle
+                cx="-120"
+                cy="1.469576158976824e-14"
+                r="20"
+                fill="transparent"
+                class="cursor-pointer hover:fill-teal-100 transition-colors"
+              ></circle>
+              <text
+                x="-120"
+                y="6.000000000000015"
+                text-anchor="middle"
+                fill="#374151"
+                font-size="16"
+                class="cursor-pointer pointer-events-none select-none"
+              >
+                9
+              </text>
+            </g>
+            <g>
+              <circle
+                cx="-103.92304845413263"
+                cy="-60.000000000000014"
+                r="20"
+                fill="transparent"
+                class="cursor-pointer hover:fill-teal-100 transition-colors"
+              ></circle>
+              <text
+                x="-103.92304845413263"
+                y="-54.000000000000014"
+                text-anchor="middle"
+                fill="#374151"
+                font-size="16"
+                class="cursor-pointer pointer-events-none select-none"
+              >
+                10
+              </text>
+            </g>
+            <g>
+              <circle
+                cx="-60.00000000000006"
+                cy="-103.92304845413261"
+                r="20"
+                fill="transparent"
+                class="cursor-pointer hover:fill-teal-100 transition-colors"
+              ></circle>
+              <text
+                x="-60.00000000000006"
+                y="-97.92304845413261"
+                text-anchor="middle"
+                fill="#374151"
+                font-size="16"
+                class="cursor-pointer pointer-events-none select-none"
+              >
+                11
+              </text>
+            </g>
+          </svg>
+        </div>
+        <div class="time-picker-bottom">
+          <button type="button">
+            <i class="ico-keyboard"></i>
+          </button>
+          <div>
+            <button type="button" class="btn">취소</button>
+            <button type="button" class="btn">확인</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

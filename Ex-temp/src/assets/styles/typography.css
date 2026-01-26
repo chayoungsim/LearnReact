@@ -7,7 +7,6 @@
  --font-family-primary: 'Pretendard', -apple-system, sans-serif;              
  --font-size-base: 1.6rem;
 
-
   /* Letter Spacing */
   --ls-tight: -0.05em; /* -0.5px 기준 */
   --ls-normal: 0;
@@ -43,7 +42,6 @@
 
 --lh-body: 1.4;
 
-
 }
 
 
@@ -76,50 +74,3 @@
 
 
 
-/*.text-h4*/
-.hty1 {
-    font-size: var(--h-medium-24);
-    font-weight: 700;
-    line-height: 1.4;    
-}
-/*.text-h5*/
-.hty2 {
-    font-size: var(--h-medium-22);
-    font-weight: 700;
-    line-height: 1.4;    
-}
-/*text-h6*/
-.hty3 {
-    font-size: var(--h-medium-20);
-    font-weight: 700;
-    line-height: 1.4;    
-}
-
-/*text-h7*/
-.hty4 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    line-height: 1.4;    
-}
-
-/*text-b-lg-sb*/
-.hty5 {
-    font-size: 1.6rem;
-    font-weight: 600;
-    line-height: 1.4;    
-}
-
-/*text-b-md-m*/
-.txt {
-    font-size: 1.5rem;
-    font-weight: 500;
-    line-height: 1.4;
-    color: var(--Text-Base); 
-}
-
-.txts {
-    font-size: 1.3rem;
-    font-weight: 500;
-    line-height: 1.4;
-    color: #A2A9B4
-}

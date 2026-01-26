@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Range Input 디자인 커스터마이징</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            color: rgba(255,255,255,0.8);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .design-box {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .design-box h2 {
+            color: #1e3c72;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            border-left: 5px solid #1e3c72;
+            padding-left: 15px;
+        }
+
+        .demo-area {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .code-box {
+            background: #2d3748;
+            color: #68d391;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .value-display {
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: #1e3c72;
+            margin-top: 15px;
+        }
+
+        /* ===== 1. 기본 스타일 리셋 ===== */
+        .range-basic {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 8px;
+            background: #ddd;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .range-basic::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #4CAF50;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .range-basic::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: #4CAF50;
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+        }
+
+        /* ===== 2. 그라디언트 디자인 ===== */
+        .range-gradient {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(to right, #ff6b6b, #feca57, #48dbfb, #1dd1a1);
+            border-radius: 10px;
+            outline: none;
+        }
+
+        .range-gradient::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 25px;
+            height: 25px;
+            background: white;
+            border: 3px solid #1e3c72;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .range-gradient::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            background: white;
+            border: 3px solid #1e3c72;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        /* ===== 3. 두꺼운 트랙 디자인 ===== */
+        .range-thick {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 20px;
+            background: #e0e0e0;
+            border-radius: 15px;
+            outline: none;
+        }
+
+        .range-thick::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+        }
+
+        .range-thick::-moz-range-thumb {
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+        }
+
+        /* ===== 4. 사각형 썸 디자인 ===== */
+        .range-square {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 6px;
+            background: #ddd;
+            border-radius: 3px;
+            outline: none;
+        }
+
+        .range-square::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 30px;
+            background: #ff6b6b;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .range-square::-moz-range-thumb {
+            width: 18px;
+            height: 30px;
+            background: #ff6b6b;
+            border-radius: 4px;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        /* ===== 5. 호버 효과 ===== */
+        .range-hover {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 8px;
+            background: #ddd;
+            border-radius: 5px;
+            outline: none;
+            transition: background 0.3s;
+        }
+
+        .range-hover:hover {
+            background: #bbb;
+        }
+
+        .range-hover::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #3498db;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .range-hover::-webkit-slider-thumb:hover {
+            transform: scale(1.3);
+            box-shadow: 0 0 15px rgba(52, 152, 219, 0.5);
+        }
+
+        .range-hover::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: #3498db;
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .range-hover::-moz-range-thumb:hover {
+            transform: scale(1.3);
+            box-shadow: 0 0 15px rgba(52, 152, 219, 0.5);
+        }
+
+        /* ===== 6. 네온 효과 ===== */
+        .range-neon {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 10px;
+            background: #222;
+            border-radius: 10px;
+            outline: none;
+        }
+
+        .range-neon::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 24px;
+            height: 24px;
+            background: #00ff88;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88, 0 0 30px #00ff88;
+        }
+
+        .range-neon::-moz-range-thumb {
+            width: 24px;
+            height: 24px;
+            background: #00ff88;
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88, 0 0 30px #00ff88;
+        }
+
+        /* ===== 7. 진행률 표시 디자인 ===== */
+        .range-progress {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 12px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            outline: none;
+        }
+
+        .range-progress::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 0;
+            height: 0;
+        }
+
+        .range-progress::-moz-range-thumb {
+            width: 0;
+            height: 0;
+            border: none;
+        }
+
+        /* 진행률 표시를 위한 컨테이너 */
+        .progress-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .progress-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 12px;
+            background: linear-gradient(to right, #11998e, #38ef7d);
+            border-radius: 10px;
+            pointer-events: none;
+            transition: width 0.1s;
+        }
+
+        .progress-thumb {
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            background: white;
+            border: 3px solid #11998e;
+            border-radius: 50%;
+            pointer-events: none;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: left 0.1s;
+        }
+
+        /* ===== 8. 글래스모피즘 디자인 ===== */
+        .glass-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .range-glass {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            outline: none;
+        }
+
+        .range-glass::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 25px;
+            height: 25px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(5px);
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .range-glass::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(5px);
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .note {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #1565c0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Range Input 디자인 커스터마이징</h1>
+        <p class="subtitle">다양한 스타일 적용 방법을 알아봅시다</p>
+
+        <!-- 1. 기본 스타일 리셋 -->
+        <div class="design-box">
+            <h2>1. 기본 스타일 리셋 (필수!)</h2>
+            <div class="demo-area">
+                <input type="range" class="range-basic" id="basic" value="50">
+                <div class="value-display" id="basicValue">50</div>
+            </div>
+            <div class="code-box">/* 트랙(레일) 스타일 */
+input[type="range"] {
+  -webkit-appearance: none;  /* 기본 스타일 제거 (필수!) */
+  width: 100%;
+  height: 8px;
+  background: #ddd;
+  border-radius: 5px;
+  outline: none;
+}
+
+/* 썸(손잡이) 스타일 - Chrome, Safari, Edge */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #4CAF50;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* 썸(손잡이) 스타일 - Firefox */
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #4CAF50;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+}</div>
+            <div class="note">
+                <strong>중요!</strong> -webkit-appearance: none; 을 반드시 추가해야 커스텀 스타일이 적용됩니다.
+            </div>
+        </div>
+
+        <!-- 2. 그라디언트 디자인 -->
+        <div class="design-box">
+            <h2>2. 그라디언트 디자인</h2>
+            <div class="demo-area">
+                <input type="range" class="range-gradient" id="gradient" value="50">
+                <div class="value-display" id="gradientValue">50</div>
+            </div>
+            <div class="code-box">.range-gradient {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 10px;
+  background: linear-gradient(to right, #ff6b6b, #feca57, #48dbfb, #1dd1a1);
+  border-radius: 10px;
+  outline: none;
+}
+
+.range-gradient::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 25px;
+  height: 25px;
+  background: white;
+  border: 3px solid #1e3c72;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}</div>
+        </div>
+
+        <!-- 3. 두꺼운 트랙 -->
+        <div class="design-box">
+            <h2>3. 두꺼운 트랙 디자인</h2>
+            <div class="demo-area">
+                <input type="range" class="range-thick" id="thick" value="50">
+                <div class="value-display" id="thickValue">50</div>
+            </div>
+            <div class="code-box">.range-thick {
+  height: 20px;  /* 트랙을 두껍게 */
+  background: #e0e0e0;
+  border-radius: 15px;
+}
+
+.range-thick::-webkit-slider-thumb {
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+}</div>
+        </div>
+
+        <!-- 4. 사각형 썸 -->
+        <div class="design-box">
+            <h2>4. 사각형 썸 디자인</h2>
+            <div class="demo-area">
+                <input type="range" class="range-square" id="square" value="50">
+                <div class="value-display" id="squareValue">50</div>
+            </div>
+            <div class="code-box">.range-square::-webkit-slider-thumb {
+  width: 18px;
+  height: 30px;  /* 세로로 긴 사각형 */
+  background: #ff6b6b;
+  border-radius: 4px;  /* 둥근 모서리 */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}</div>
+        </div>
+
+        <!-- 5. 호버 효과 -->
+        <div class="design-box">
+            <h2>5. 호버 효과 (마우스 올리면 반응)</h2>
+            <div class="demo-area">
+                <input type="range" class="range-hover" id="hover" value="50">
+                <div class="value-display" id="hoverValue">50</div>
+            </div>
+            <div class="code-box">.range-hover {
+  transition: background 0.3s;
+}
+
+.range-hover:hover {
+  background: #bbb;  /* 호버 시 배경색 변경 */
+}
+
+.range-hover::-webkit-slider-thumb {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.range-hover::-webkit-slider-thumb:hover {
+  transform: scale(1.3);  /* 호버 시 크기 증가 */
+  box-shadow: 0 0 15px rgba(52, 152, 219, 0.5);  /* 그림자 효과 */
+}</div>
+            <div class="note">
+                마우스를 슬라이더 위에 올려보세요!
+            </div>
+        </div>
+
+        <!-- 6. 네온 효과 -->
+        <div class="design-box">
+            <h2>6. 네온 글로우 효과</h2>
+            <div class="demo-area" style="background: #1a1a1a;">
+                <input type="range" class="range-neon" id="neon" value="50">
+                <div class="value-display" id="neonValue" style="color: #00ff88;">50</div>
+            </div>
+            <div class="code-box">.range-neon {
+  background: #222;  /* 어두운 배경 */
+}
+
+.range-neon::-webkit-slider-thumb {
+  background: #00ff88;
+  box-shadow: 
+    0 0 10px #00ff88,   /* 내부 글로우 */
+    0 0 20px #00ff88,   /* 중간 글로우 */
+    0 0 30px #00ff88;   /* 외부 글로우 */
+}</div>
+        </div>
+
+        <!-- 7. 진행률 표시 -->
+        <div class="design-box">
+            <h2>7. 진행률 표시 디자인</h2>
+            <div class="demo-area">
+                <div class="progress-container">
+                    <div class="progress-fill" id="progressFill" style="width: 50%;"></div>
+                    <div class="progress-thumb" id="progressThumb" style="left: 50%;"></div>
+                    <input type="range" class="range-progress" id="progress" value="50">
+                </div>
+                <div class="value-display" id="progressValue">50%</div>
+            </div>
+            <div class="code-box">/* HTML */
+&lt;div class="progress-container"&gt;
+  &lt;div class="progress-fill"&gt;&lt;/div&gt;
+  &lt;div class="progress-thumb"&gt;&lt;/div&gt;
+  &lt;input type="range" class="range-progress"&gt;
+&lt;/div&gt;
+
+/* CSS */
+.progress-container {
+  position: relative;
+}
+
+.progress-fill {
+  position: absolute;
+  height: 12px;
+  background: linear-gradient(to right, #11998e, #38ef7d);
+  border-radius: 10px;
+  pointer-events: none;
+}
+
+/* JavaScript로 width와 left 값을 동적으로 업데이트 */</div>
+        </div>
+
+        <!-- 8. 글래스모피즘 -->
+        <div class="design-box">
+            <h2>8. 글래스모피즘 (Glass Morphism)</h2>
+            <div class="demo-area glass-container">
+                <input type="range" class="range-glass" id="glass" value="50">
+                <div class="value-display" id="glassValue" style="color: white;">50</div>
+            </div>
+            <div class="code-box">.glass-container {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);  /* 블러 효과 */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.range-glass {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.range-glass::-webkit-slider-thumb {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}</div>
+        </div>
+
+    </div>
+
+    <script>
+        // 모든 range input의 값 업데이트
+        const ranges = [
+            { input: 'basic', display: 'basicValue' },
+            { input: 'gradient', display: 'gradientValue' },
+            { input: 'thick', display: 'thickValue' },
+            { input: 'square', display: 'squareValue' },
+            { input: 'hover', display: 'hoverValue' },
+            { input: 'neon', display: 'neonValue' },
+            { input: 'glass', display: 'glassValue' }
+        ];
+
+        ranges.forEach(range => {
+            const input = document.getElementById(range.input);
+            const display = document.getElementById(range.display);
+            
+            input.addEventListener('input', function() {
+                display.textContent = this.value;
+            });
+        });
+
+        // 진행률 표시 슬라이더
+        const progress = document.getElementById('progress');
+        const progressFill = document.getElementById('progressFill');
+        const progressThumb = document.getElementById('progressThumb');
+        const progressValue = document.getElementById('progressValue');
+
+        progress.addEventListener('input', function() {
+            const val = this.value;
+            progressFill.style.width = val + '%';
+            progressThumb.style.left = val + '%';
+            progressValue.textContent = val + '%';
+        });
+    </script>
+</body>
+</html>

@@ -16,7 +16,6 @@
     align-items: center;
     justify-content: center;
     gap: 0.8rem;
-    font-family: var(--font-family-primary);
     font-weight: 600;
     text-align: center;
     text-decoration: none;
@@ -33,6 +32,7 @@
     overflow: hidden;
     width: 100%;
     height: 5rem;
+    font-size: 1.4rem;
 }
 
 .btn-bor {
@@ -49,9 +49,10 @@
     width: auto;
     height: 3.4rem;
     padding: 0.6rem 1rem;
-    font-size: var(--caption-large-sb-13);
+    font: var(--caption-large-sb-13);
     line-height: 1;    
     border-radius: 0.6rem;    
+    gap: 0.4rem;
 }
 
 .btn-sm {
@@ -59,13 +60,16 @@
     width: auto;
     height: 2.6rem;
     padding: 0.4rem 0.7rem;
-    font-size: var(--caption-large-m-13);
+    font: var(--caption-large-m-13);
     line-height: 1;    
     border-radius: 0.4rem;    
+    
 }
+
 .btn-sm i {
     background: var(--text-neutral-soft);
 }
+
 
 
 .btn-bor strong,
@@ -82,46 +86,12 @@
     color: var(--surface-base);
 }
 
-.hc1 {
-    color: var(--surface-primary);
-}
-.hc1 i {
-    background: var(--surface-primary);
+.bor-no {
+    border: 0;
+    padding: 0;
 }
 
-/* .bghc1 {
-    background-color: var(--surface-primary);
-    color: var(--surface-base);
-}
-.bghc2 {
-    background-color: var(--surface-negative);
-    color: var(--surface-base);
-} */
 
-.small {
-    display: inline-flex;
-    padding: 0.4rem 0.7rem;
-    font-size: 13px;
-    font-weight: 500;
-    line-height: 1;
-    height: 2.6rem;
-    border-radius: 0.4rem;
-    width: auto;
-}
-.small i {
-    background: var(--text-neutral-soft);
-}
-
-.medium {
-    display: inline-flex;
-    padding: 0.6rem 1rem;
-    font-size: 13px;
-    font-weight: 600;
-    line-height: 1;
-    height: 3.4rem;
-    border-radius: 0.6rem;
-    width: auto;
-}
 
 .btn-bor .ico-refresh {
     margin-right: -0.4rem;
@@ -133,12 +103,12 @@
 }
 
 .btn-trash {
-    color: var(--negative-color);
+    color: var( --surface-negative);
     display: inline-flex;
     align-items: center;
 }
 .btn-trash i {
-    background-color: var(--negative-color);
+    background-color: var( --surface-negative);
 }
 .btn-trash span {
     font-size: 1.4rem;
@@ -207,6 +177,13 @@
 .btn-detail i {
     background-color: var(--text-neutral);
 }
+.btn-detail.hc1 span {
+    color: var(--surface-primary)
+}
+.btn-detail.hc1 i {
+    background-color: var(--surface-primary);
+}
+
 .btn-more-wrap {
     display: flex;
     justify-content: center;
@@ -252,11 +229,15 @@
     transform: rotate(45deg);
 }
 
-
-
 .btn-full-wrap {
     margin-top: 2rem;
 }
+
+.btn-full-wrap .btn-bor {
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
 .btn-help {
     display: inline-flex;
     align-items: center;
@@ -273,4 +254,48 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
+}
+
+.btn-edit {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.4rem 2rem 0.4rem 1.4rem;
+    border-radius: 1.6rem;  
+    border: 1px solid var(--border-neutral);
+    background: var(--surface-base);
+    font: var(--caption-large-m-13);
+    color: var(--text-neutral);
+}
+.pen-edit i{
+    background: var(--surface-primary);
+}
+.btn-goal-wrap {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1.6rem;
+}
+.btn-goal {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--text-neutral-soft);
+}
+
+.btn {
+    padding: 1rem 1.6rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.btn-toggle {
+    padding: 1rem 1.4rem;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 0.6rem;
+}
+.btn-toggle .ico-arr-down {
+    background: var(--icon-neutral);
+    margin-left: auto;
 }

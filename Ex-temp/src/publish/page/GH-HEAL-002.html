@@ -4,63 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>내건강 > 건강통계 > 건강 데이터</title>
-
     <link rel="stylesheet" href="../../assets/styles/style.css" />
-
     <script type="module" src="../../utils/ui_common.js"></script>
-    <script type="module">
-      import { rutSwiper } from "../../utils/ui_swiper.js";
-      window.addEventListener("load", rutSwiper);
-    </script>
-
-    <style>
-      .trans-x-wrap {
-        position: relative;
-        z-index: 1;
-        overflow: hidden;
-        display: inline-block;
-      }
-      .trans-x-wrap .trans-x-box {
-        position: relative;
-        overflow: hidden;
-        transition: all 0.5s;
-      }
-      .trans-x-wrap .trans-x-box > span {
-        display: block;
-        position: relative;
-        transition: 0.3s ease-in-out;
-        font-size: 3.2rem;
-        font-weight: 600;
-      }
-      .trans-x-wrap .trans-x-box > span::after {
-        content: attr(data-trans);
-        position: absolute;
-        top: 100%;
-        left: 0;
-        color: var(--key-color);
-        color: #000;
-      }
-      .trans-x-wrap .trans-x-box > span span {
-        display: block;
-        color: #ddd;
-      }
-      .trans-x-wrap.active .trans-x-box > span,
-      .trans-x-wrap:hover .trans-x-box > span,
-      .trans-x-wrap:focus .trans-x-box > span {
-        transform: translateY(-100%);
-      }
-
-      .trans-x-wrap:hover .trans-x-box {
-        background: lime;
-      }
-    </style>
   </head>
   <body>
     <div class="common-wrap">
       <header>
         <div class="top-header-nav">
           <button type="button" class="btn-back">
-            <i class="ico-back"></i><span class="sr-only">이전</span>
+            <i class="ico-back"></i>
+            <span class="sr-only">이전</span>
           </button>
           <h2>건강 통계</h2>
         </div>
@@ -73,17 +26,17 @@
           </ul>
         </div>
         <div class="headth-data-wrap">
-            <div class="data-bx-wht">
+            <div class="card-data-list">
                 <div class="headth-data-tit">
                     <div class="headth-data-ht">
                         <i class="ht-running"></i>
                         <div class="ht-info">
-                            <span class="hty5">걸음수</span>
-                            <span class="txts">지난 4주</span>
+                            <span class="text-b-lg-sb">걸음수</span>
+                            <span class="text-c-lg-m">지난 4주</span>
                         </div>
                     </div>
                     <div class="headth-data-tit-r">
-                        <div class="txts">하루 평균</div>
+                        <div class="text-c-lg-m">하루 평균</div>
                         <div class="num"><strong>99,999</strong><span>걸음</span></div>
                     </div>
                 </div>
@@ -118,7 +71,7 @@
                         <span class="chk"></span>
                         <span class="chk"></span>
                     </div>
-                    <div class="data-record">
+                    <div class="data-record hc3">
                         <i class="ico-tropy"></i>
                         <span>최장 연속 기록</span>
                         <span class="bar"></span>
@@ -127,20 +80,20 @@
                 </div>
                 <div class="headth-data-ment">
                     <i class="ico-asset "></i>
-                    <span class="txts">축하드려요! 현재 3일 연속 성공!</span>
+                    <span class="text-c-lg-m">축하드려요! 현재 3일 연속 성공!</span>
                 </div>
             </div>
-            <div class="data-bx-wht">
+            <div class="card-data-list">
                 <div class="headth-data-tit">
                     <div class="headth-data-ht">
                         <i class="ht-weigth"></i>
                         <div class="ht-info">
-                            <span class="hty5">몸무게</span>
-                            <span class="txts">지난 4주</span>
+                            <span class="text-b-lg-sb">몸무게</span>
+                            <span class="text-c-lg-m">지난 4주</span>
                         </div>
                     </div>
                     <div class="headth-data-tit-r">
-                        <div class="txts">18시간 전</div>
+                        <div class="text-c-lg-m">18시간 전</div>
                         <div class="num"><strong>65</strong><span>kg</span></div>
                     </div>
                 </div>
@@ -148,17 +101,17 @@
                     <img src="../../assets/images/graph1.png" alt="그래프영역" />
                 </div>
             </div>
-            <div class="data-bx-wht">
+            <div class="card-data-list">
                 <div class="headth-data-tit">
                     <div class="headth-data-ht">
                         <i class="ht-work"></i>
                         <div class="ht-info">
-                            <span class="hty5">운동</span>
-                            <span class="txts">지난 4주</span>
+                            <span class="text-b-lg-sb">운동</span>
+                            <span class="text-c-lg-m">지난 4주</span>
                         </div>
                     </div>
                     <div class="headth-data-tit-r">
-                        <div class="txts">하루 평균</div>
+                        <div class="text-c-lg-m">하루 평균</div>
                         <div class="num"><strong>38</strong><span>분</span></div>
                     </div>
                 </div>
@@ -202,16 +155,16 @@
                 </div>
                 <div class="headth-data-ment">
                     <i class="ico-asset "></i>
-                    <span class="txts">축하드려요! 현재 3일 연속 성공!</span>
+                    <span class="text-c-lg-m">축하드려요! 현재 3일 연속 성공!</span>
                 </div>
             </div>
-            <div class="data-bx-wht">
+            <div class="card-data-list">
                 <div class="headth-data-tit">
                     <div class="headth-data-ht">
                         <i class="ht-blood"></i>
                         <div class="ht-info">
-                            <span class="hty5">혈압</span>
-                            <span class="txts">오늘</span>
+                            <span class="text-b-lg-sb">혈압</span>
+                            <span class="text-c-lg-m">오늘</span>
                         </div>
                     </div>
                     <div class="headth-data-tit-r">
@@ -220,22 +173,22 @@
                 </div>
                 <div class="headth-data-info">
                     <div class="gbox">         
-                        <div class="txts">수축기</div>
+                        <div class="text-c-lg-m">수축기</div>
                         <div class="num"><strong>120</strong><span>mmHg</span></div>
                     </div>
                     <div class="gbox">      
-                        <div class="txts">수축기</div>
+                        <div class="text-c-lg-m">수축기</div>
                         <div class="num"><strong>80</strong><span>mmHg</span></div>
                     </div>
                 </div>
             </div>
-            <div class="data-bx-wht">
+            <div class="card-data-list">
                 <div class="headth-data-tit">
                     <div class="headth-data-ht">
                         <i class="ht-icn"></i>
                         <div class="ht-info">
-                            <span class="hty5">혈당</span>
-                            <span class="txts">지난 4주</span>
+                            <span class="text-b-lg-sb">혈당</span>
+                            <span class="text-c-lg-m">지난 4주</span>
                         </div>
                     </div>
                     <div class="headth-data-tit-r">
@@ -244,26 +197,26 @@
                 </div>
                 <div class="headth-data-info">
                     <div class="gbox">         
-                        <div class="txts">공복 혈당 평균</div>
+                        <div class="text-c-lg-m">공복 혈당 평균</div>
                         <div class="num"><strong>70</strong><span>mg/dL</span></div>
                     </div>
                     <div class="gbox">      
-                        <div class="txts">식후(2시간이후) 평균</div>
+                        <div class="text-c-lg-m">식후(2시간이후) 평균</div>
                         <div class="num"><strong>65</strong><span>bpm</span></div>
                     </div>
                 </div>
             </div>
-            <div class="data-bx-wht">
+            <div class="card-data-list">
                 <div class="headth-data-tit">
                     <div class="headth-data-ht">
                         <i class="ht-heart"></i>
                         <div class="ht-info">
-                            <span class="hty5">심박수</span>
-                            <span class="txts">오늘</span>
+                            <span class="text-b-lg-sb">심박수</span>
+                            <span class="text-c-lg-m">오늘</span>
                         </div>
                     </div>
                     <div class="headth-data-tit-r">
-                        <div class="txts">18시간 전</div>
+                        <div class="text-c-lg-m">18시간 전</div>
                         <div class="num"><strong>65</strong><span>bpm</span></div>
                     </div>
                 </div>
@@ -273,40 +226,40 @@
             </div>
 
             <div class="title-type">
-                <h3 class="hty3">헬스 스테이션 </h3>
+                <h3 class="text-h6">헬스 스테이션 </h3>
             </div>
             <div class="health-station-wrap">
-                <div class="data-bx-wht">
-                    <div class="station-tit"><span class="txts">2025.05.19</span><i class="ico-arr"></i></div>
+                <div class="card-data-list">
+                    <div class="station-tit"><span class="text-c-lg-m">2025.05.19</span><i class="ico-arr"></i></div>
                     <div class="station-con">
                         <div class="info">
-                            <div class="txts">몸무게</div>
+                            <div class="text-c-lg-m">몸무게</div>
                             <div class="num"><strong>72.5</strong><span>kg</span></div>
                         </div>
                         <div class="info">
-                            <div class="txts">골격근량</div>
+                            <div class="text-c-lg-m">골격근량</div>
                             <div class="num"><strong>34.8</strong><span>kg</span></div>
                         </div>
                         <div class="info">
-                            <div class="txts">체지방율</div>
+                            <div class="text-c-lg-m">체지방율</div>
                             <div class="num"><strong>18.8</strong><span>%</span></div>
                         </div>
                     </div>
                 </div>
-                <div class="data-bx-wht">
-                    <div class="station-tit"><span class="txts">2025.05.19</span><i class="ico-arr"></i></div>
+                <div class="card-data-list">
+                    <div class="station-tit"><span class="text-c-lg-m">2025.05.19</span><i class="ico-arr"></i></div>
                     <div class="station-con">
                         <div class="info">
-                            <div class="txts">스트레스 점수</div>
+                            <div class="text-c-lg-m">스트레스 점수</div>
                             <div class="num"><strong>33</strong><span>점</span></div>
                         </div>
                     </div>
                 </div>
-                <div class="data-bx-wht">
-                    <div class="station-tit"><span class="txts">2025.05.19</span><i class="ico-arr"></i></div>
+                <div class="card-data-list">
+                    <div class="station-tit"><span class="text-c-lg-m">2025.05.19</span><i class="ico-arr"></i></div>
                     <div class="station-con">
                         <div class="info">
-                            <div class="txts">혈압</div>
+                            <div class="text-c-lg-m">혈압</div>
                             <div class="num"><strong>120/88</strong></div>
                         </div>
                     </div>
