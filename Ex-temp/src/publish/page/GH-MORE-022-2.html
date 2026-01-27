@@ -40,21 +40,21 @@
             </div>
             <div class="add-med-times">
                 <div class="add-med-time">
-                    <span class="text-b-md-m">오전 8:00</span>
+                    <input type="time" value="08:00" />
                     <button type="button">
                         <i class="ico-trash"></i>
                         <span class="sr-only">삭제</span>
                     </button>
                 </div>
                 <div class="add-med-time">
-                    <span class="text-b-md-m">오후 1:00</span>
+                    <input type="time" value="13:00" />
                     <button type="button">
                         <i class="ico-trash"></i>
                         <span class="sr-only">삭제</span>
                     </button>
                 </div>
                 <div class="add-med-time">
-                    <span class="text-b-md-m">오후 7:00</span>
+                    <input type="time" value="19:00" />
                     <button type="button">
                         <i class="ico-trash"></i>
                         <span class="sr-only">삭제</span>
@@ -65,18 +65,21 @@
 
             <ul class="link-arr-lists">
                 <li>
-                    <a href="" class="link-arr">
+                    <div class="link-arr">
                         <span class="text-b-lg-sb">시작일</span>
                         <span class="text-b-lg-sb hc1">7월 23일 수요일 (오늘)</span>
                         <i class="ico-arr"></i>
-                    </a>
+                    </div>
                 </li>
                 <li>
-                    <a href="" class="link-arr">
+                    <div class="link-arr">
                         <span class="text-b-lg-sb">복용 기간</span>
-                        <span class="text-b-lg-sb hc1">기간 제한 없음</span>
+                        <select class="select">
+                            <option value="">기간 제한 없음</option>
+                            <option value="">직접입력</option>
+                        </select>
                         <i class="ico-arr"></i>
-                    </a>
+                    </div>
                 </li>
             </ul>
 

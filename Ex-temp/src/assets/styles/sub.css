@@ -652,6 +652,15 @@
     gap: 0.8rem;
 }
 
+.link-arr .select {
+    border:0;
+    padding:1rem 0;
+    outline: none;
+    text-align: right;
+    color: var(--surface-primary);
+    font: var(--body-large-sb-16);
+}
+
 .link-arr-lists {
     margin: 3rem 0;
 }
@@ -842,7 +851,7 @@
 .add-med-time {
     display: flex;
     height: 6rem;
-    padding: 0 2rem;
+    padding: 0 1rem 0 2rem;
     justify-content: space-between;
     align-items: center;
     border-radius: 1rem;
@@ -853,6 +862,11 @@
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
     margin-bottom: 1.4rem;
+}
+
+.add-med-time button {
+    width: 2.4rem;
+    height: 2.4rem;
 }
 
 .card-no-data {

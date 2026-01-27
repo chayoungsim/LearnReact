@@ -801,3 +801,28 @@
     vertical-align: middle;
     background-size: contain;
 }
+
+.ico-wht2 {
+    display: inline-block;
+    width: 2.2rem;
+    height: 2.2rem;
+    background: url(../images/ico-weight2.svg) no-repeat 50% 0;   
+    vertical-align: middle;
+    background-size: contain;
+}
+.ico-date2 {
+    display: inline-block;
+    width: 2.2rem;
+    height: 2.2rem;
+    background: url(../images/ico-date2.svg) no-repeat 50% 0;   
+    vertical-align: middle;
+    background-size: contain;
+}
+.ico-clock2 {
+    display: inline-block;
+    width: 2.2rem;
+    height: 2.2rem;
+    background: url(../images/ico-clock2.svg) no-repeat 50% 0;   
+    vertical-align: middle;
+    background-size: contain;
+}

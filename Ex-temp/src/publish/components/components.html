@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="../../assets/styles/font.css" />
     <link rel="stylesheet" href="../../assets/styles/style.css" />
     <script type="module" src="../../utils/ui_common.js"></script>
+    <script type="module" src="../../utils/dropdown.js"></script>
+    
 
     <style>
       .components-wrap {
@@ -370,6 +372,71 @@
       <br />
 
       <div style="width: 100%">
+        <div class="input-cell">
+            <div class="label">label</div>
+            <div class="input-group">
+              <input type="text" class="input" placeholder="키를 입력해주세요" />
+              <span class="unit">cm</span>
+            </div>
+        </div>
+        <br>
+        <div class="input-cell">
+            <div class="label">label</div>
+            <div class="input-group selected">
+              <input type="text" class="input" placeholder="키를 입력해주세요" />
+              <span class="unit">cm</span>
+            </div>
+        </div>
+        <br>
+        <div class="input-cell">
+            <div class="label">label</div>
+            <div class="input-group hc">
+              <input type="text" class="input" placeholder="키를 입력해주세요" />
+              <span class="unit">cm</span>
+            </div>
+        </div>
+        <br>
+        <div class="input-cell">
+            <div class="label">label</div>
+            <div class="input-group error">
+              <input type="text" class="input" placeholder="키를 입력해주세요" />
+              <span class="unit">cm</span>
+            </div>
+            <p class="error-txt">error text</p>
+        </div>
+        <br />
+        <br />
+        <div class="custom-select">
+            <select>
+                <option value="">선택해주세요</option>
+                <option value="1">옵션 1</option>
+                <option value="2">옵션 2</option>
+                <option value="3">옵션 3</option>
+                <option value="4">옵션 4</option>
+                <option value="5">옵션 5</option>
+            </select>
+        </div>
+        <br />
+        <br />
+        <div class="dropdown-menu">
+            <button class="dropdown-button">
+                선택해주세요
+            </button>
+            <div class="dropdown-list">
+                <div class="dropdown-item" data-value="선택해주세요">선택해주세요</div>
+                <div class="dropdown-item" data-value="menu1">menu1</div>
+                <div class="dropdown-item" data-value="menu2">menu2</div>
+                <div class="dropdown-item" data-value="menu3">menu3</div>
+                <div class="dropdown-item" data-value="menu4">menu4</div>
+            </div>
+        </div>
+        
+      </div>
+
+      <br />
+      <br />
+
+      <div style="width: 100%">
           <div class="weekly-header">
                 <button type="button" class="nav-btn">
                     <i class="ico-prev"></i><span class="sr-only">이전</span>
@@ -392,6 +459,8 @@
               <div class="weekly-cycle-name on">토</div>
           </div>
       </div>
+
+      
       
     </div>  
 
@@ -402,22 +471,46 @@
 </div>
 
 <script>
+//sliderbar  
 const range = document.getElementById('progress');
 const fill = document.getElementById('progressFill');
 const thumb = document.getElementById('progressThumb');
-
 const updateProgress = (value) => {
   fill.style.width = `${value}%`;
   thumb.style.left = `${value}%`;
 };
 
-// 초기 상태 반영
 updateProgress(range.value);
 
-// 드래그 시 동기화
 range.addEventListener('input', (e) => {
   updateProgress(e.target.value);
 });
+
+//dropdown
+document.addEventListener('click', (e) => {
+  const dropdown = e.target.closest('.dropdown-menu');
+  if (e.target.classList.contains('dropdown-button')) {
+    const current = e.target.closest('.dropdown-menu');
+    document.querySelectorAll('.dropdown-menu.is-open').forEach(menu => {
+      if (menu !== current) menu.classList.remove('is-open');
+    });
+    current.classList.toggle('is-open');
+    return;
+  }
+  if (e.target.classList.contains('dropdown-item')) {
+    const item = e.target;
+    const menu = item.closest('.dropdown-menu');
+    const button = menu.querySelector('.dropdown-button');
+    button.textContent = item.textContent;
+    button.dataset.value = item.dataset.value;
+    menu.classList.remove('is-open');
+    return;
+  }
+  document.querySelectorAll('.dropdown-menu.is-open').forEach(menu => {
+    menu.classList.remove('is-open');
+  });
+});
+
 
 </script>
 
