@@ -19,7 +19,7 @@ export default function Visual() {
             /* PC */
             mm.add('(min-width: 1024px)', () => {
                 gsap.fromTo(
-                    videoRef.current,
+                    sectionRef.current,
                     { scale: 1 }, 
                     {
                         scale: 0.7,
