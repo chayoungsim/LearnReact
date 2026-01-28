@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-   
-    <link rel="stylesheet" href="../../assets/styles/style.css" />
+    <title>calendar-monthly</title>   
+    <link rel="stylesheet" href="../../assets/styles/style.css" /> 
 </head>
 <body>
     
-<!-- Calendar2 -->
+<!-- Range Calendar -->
 <div class="range-calendar-container">  
     <div class="range-header">
-        <button class="range-nav-btn"> 
+        <button class="range-nav-btn" id="rangePrevBtn"> 
            <i class="ico-prev"></i><span class="sr-only">이전</span>
         </button>
-        <div class="range-title">2026. 01</div>
-        <button class="range-nav-btn">
+        <div class="range-title" id="rangeTitle">2026. 01</div>
+        <button class="range-nav-btn" id="rangeNextBtn">
            <i class="ico-next"></i><span class="sr-only">다음</span>
         </button>
     </div>
@@ -29,128 +28,21 @@
         <div class="weekday-cell ">금</div>
         <div class="weekday-cell sat">토</div>
     </div>
-    <div class="range-days-grid">
-        <div class="range-day-cell not-current holiday-sun">
-            <span class="day-text">28</span>
-        </div>
-        <div class="range-day-cell not-current">
-            <span class="day-text">29</span>
-        </div>
-        <div class="range-day-cell not-current">
-            <span class="day-text">30</span>
-        </div>
-        <div class="range-day-cell not-current">
-            <span class="day-text">31</span>
-        </div>
-        <div class="range-day-cell">
-            <span class="day-text">1</span>
-        </div>
-        <div class="range-day-cell">
-            <span class="day-text">2</span>
-        </div>
-        <div class="range-day-cell holiday-sat">
-            <span class="day-text">3</span>
-        </div>
-        <div class="range-day-cell holiday-sun">
-            <span class="day-text">4</span>
-        </div>
-        <div class="range-day-cell">
-            <span class="day-text">5</span>
-        </div>
-        <div class="range-day-cell">
-            <span class="day-text">6</span>
-        </div>
-        <div class="range-day-cell">
-            <span class="day-text">7</span>
-        </div>
-        <div class="range-day-cell">
-            <span class="day-text">8</span>
-        </div>
-        <div class="range-day-cell today">
-            <span class="day-text">9</span>            
-            <span class="day-text2">오늘</span>
-        </div>
-        <div class="range-day-cell holiday-sat">
-            <span class="day-text">10</span>
-        </div>
-        <div class="range-day-cell holiday-sun">
-            <span class="day-text">11</span>
-        </div>
-        <div class="range-day-cell">
-            <span class="day-text">12</span>
-        </div>
-        <div class="range-day-cell">
-            <span class="day-text">13</span>
-        </div>
-        <div class="range-day-cell">
-            <span class="day-text">14</span>
-        </div>
-        <div class="range-day-cell end">
-            <span class="day-text">15</span>
-            <span class="day-text2">종료일</span>
-        </div>
-        <div class="range-day-cell">
-            <span class="day-text">16</span>
-        </div>
-        <div class="range-day-cell holiday-sat">
-            <span class="day-text">17</span>
-        </div>
-        <div class="range-day-cell holiday-sun">
-            <span class="day-text">18</span>
-        </div>
-        <div class="range-day-cell selected">
-            <span class="day-text">19</span>
-        </div>
-        <div class="range-day-cell">
-            <span class="day-text">20</span>
-        </div>
-        <div class="range-day-cell">
-            <span class="day-text">21</span>
-        </div>        
-        <div class="range-day-cell">
-            <span class="day-text">22</span>
-        </div>
-        <div class="range-day-cell">
-            <span class="day-text">23</span>
-        </div>
-        <div class="range-day-cell holiday-sat">
-            <span class="day-text">24</span>
-        </div>
-        <div class="range-day-cell holiday-sun">
-            <span class="day-text">25</span>
-        </div>
-        <div class="range-day-cell">
-            <span class="day-text">26</span>
-        </div>
-        <div class="range-day-cell">
-            <span class="day-text">27</span>
-        </div>
-        <div class="range-day-cell">
-            <span class="day-text">28</span>
-        </div>
-        <div class="range-day-cell">
-            <span class="day-text">29</span>
-        </div>
-        <div class="range-day-cell">
-            <span class="day-text">30</span>
-        </div>
-        <div class="range-day-cell holiday-sat">
-            <span class="day-text">31</span>
-        </div>
+    <div class="range-days-grid" id="rangeDaysGrid">
     </div>
 </div>
 
-<!-- Calendar3 -->
+ <!-- Regular Calendar -->
 <div class="calendar-container">
     <div class="calendar-header">        
-        <button type="button" class="nav-btn prev">
+        <button type="button" class="nav-btn prev" id="regularPrevBtn">
             <i class="ico-arr"></i><span class="sr-only">이전</span>
         </button>
-        <h2 class="header-title">
+        <h2 class="header-title" id="regularTitle">
             2026. 01
             <span class="picker-arrow ">▼</span>
         </h2>        
-        <button type="button" class="nav-btn next">
+        <button type="button" class="nav-btn next" id="regularNextBtn">
             <i class="ico-arr"></i><span class="sr-only">다음</span>
         </button>
     </div>
@@ -163,120 +55,15 @@
         <div class="weekday">금</div>
         <div class="weekday">토</div>
     </div>
-    <div class="days-grid">
-        <div class="day-cell not-current">
-            <span class="day-number"></span>
-        </div>
-        <div class="day-cell not-current">
-            <span class="day-number"></span>
-        </div>
-        <div class="day-cell">
-            <span class="day-number">1</span>
-        </div>
-        <div class="day-cell">
-            <span class="day-number">2</span>
-        </div>
-        <div class="day-cell">
-            <span class="day-number">3</span>
-        </div>
-        <div class="day-cell">
-            <span class="day-number">4</span>
-        </div>
-        <div class="day-cell">
-            <span class="day-number">5</span>
-        </div>
-        <div class="day-cell">
-            <span class="day-number">6</span>
-        </div>
-        <div class="day-cell">
-            <span class="day-number">7</span>
-        </div>
-        <div class="day-cell">
-            <span class="day-number">8</span>
-        </div>
-        <div class="day-cell">
-            <span class="day-number">9</span>
-        </div>
-        <div class="day-cell">
-            <span class="day-number">10</span>
-        </div>
-        <div class="day-cell">
-            <span class="day-number">11</span>
-        </div>
-        <div class="day-cell">
-            <span class="day-number">12</span>
-        </div>
-        <div class="day-cell">
-            <span class="day-number">13</span>
-        </div>
-        <div class="day-cell">
-            <span class="day-number">14</span>
-        </div>
-        <div class="day-cell">
-            <span class="day-number">15</span>
-        </div>
-        <div class="day-cell">
-            <span class="day-number">16</span>
-        </div>
-        <div class="day-cell selected">
-            <span class="day-number">17</span>
-        </div>
-        <div class="day-cell">
-            <span class="day-number">18</span>
-        </div>
-        <div class="day-cell end">
-            <span class="day-number">19</span>
-             <div class="donut-chart-wrap">
-                <svg width="40" height="40" class="donut-chart">
-                    <circle class="donut-progress" stroke="#39B695" stroke-width="1" fill="transparent" r="20.5" cx="21" cy="21"></circle>
-                </svg>
-            </div>
-        </div>
-        <div class="day-cell not-current">
-            <span class="day-number">20</span>
-        </div>
-        <div class="day-cell not-current">
-            <span class="day-number">21</span>
-        </div>
-        <div class="day-cell not-current">
-            <span class="day-number">22</span>
-        </div>
-        <div class="day-cell not-current">
-            <span class="day-number">23</span>
-        </div>
-        <div class="day-cell not-current">
-            <span class="day-number">24</span>
-        </div>
-        <div class="day-cell not-current">
-            <span class="day-number">25</span>
-        </div>
-        <div class="day-cell not-current">
-            <span class="day-number">26</span>
-        </div>
-        <div class="day-cell not-current">
-            <span class="day-number">27</span>
-        </div>
-        <div class="day-cell not-current">
-            <span class="day-number">28</span>
-        </div>
-        <div class="day-cell not-current">
-            <span class="day-number">29</span>
-        </div>
-        <div class="day-cell not-current">
-            <span class="day-number">30</span>
-        </div>
-        <div class="day-cell not-current">
-            <span class="day-number">31</span>
-        </div>
-        <div class="day-cell not-current">
-            <span class="day-number"></span>
-        </div>
-        <div class="day-cell not-current">
-            <span class="day-number"></span>
-        </div>
+    <div class="days-grid" id="regularDaysGrid">        
     </div>
 </div>
 
+
+<script src="../../utils/plugin/dayjs.min.js"></script>
+<script src="../../utils/plugin/weekday.js"></script>
+<script src="../../utils/plugin/isoWeek.js"></script>
+<script src="../../utils/calendar.js"></script>
 
 </body>
 </html>

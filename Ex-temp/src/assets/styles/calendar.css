@@ -316,10 +316,8 @@
 }
 
 /* 상태별 스타일 */
-
 .range-day-cell.holiday-sun { color: #FF6B6B; }
 .range-day-cell.holiday-sat { color: #4A90E2; }
-
 .range-day-cell.not-current {
     opacity: 0.3;
 }
@@ -506,11 +504,11 @@
 }
 
 .selected .weekly-date-num{
-    background: var(--text-base); 
+    background: var(--surface-primary); 
     color:#fff;    
 } 
-.end .weekly-date-num{
-    background: var(--surface-primary); 
+.today .weekly-date-num{
+    background: var(--text-base); 
     color:#fff;    
 } 
 

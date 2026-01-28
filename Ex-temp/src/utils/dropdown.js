@@ -1,5 +1,3 @@
-// dropdown.js - 재사용 가능한 드롭다운 모듈
-
 class Dropdown {
     constructor(element, options = {}) {
         this.container = element;

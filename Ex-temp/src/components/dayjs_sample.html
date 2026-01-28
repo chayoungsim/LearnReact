@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day.js 달력 예제</title>
-    <style>
+    <link rel="stylesheet" href="../../assets/styles/style.css" />
+    <!-- <style>
         * {
             margin: 0;
             padding: 0;
@@ -302,7 +303,7 @@
             font-size: 18px;
             font-weight: bold;
         }
-    </style>
+    </style> -->
 </head>
 <body>
     <div class="container">
@@ -345,30 +346,12 @@
             <div class="week-calendar" id="weekCalendar"></div>
         </div>
         
-        <div class="info-section">
-            <div class="info-item">
-                <div class="info-label">이번 달 총 일수</div>
-                <div class="info-value" id="daysInMonth"></div>
-            </div>
-            <div class="info-item">
-                <div class="info-label">올해의 몇 번째 날</div>
-                <div class="info-value" id="dayOfYear"></div>
-            </div>
-            <div class="info-item">
-                <div class="info-label">올해 남은 날</div>
-                <div class="info-value" id="daysLeft"></div>
-            </div>
-            <div class="info-item">
-                <div class="info-label">이번 주</div>
-                <div class="info-value" id="weekOfYear"></div>
-            </div>
-        </div>
+        
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/dayOfYear.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/weekOfYear.js"></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/weekOfYear.js"></script>    
     <script>
         dayjs.extend(window.dayjs_plugin_dayOfYear);
         dayjs.extend(window.dayjs_plugin_weekOfYear);

@@ -677,7 +677,8 @@ footer {
     width: 3.4rem;
     height: 3.4rem;
     border: 1px solid var(--border-neutral);
-    background: var(--surface-base);
+    background: var(--surface-base) url(../images/arrow-tway.svg) no-repeat 50% 150%;
+    background-size: 4rem auto;
     border-radius: 50%;
     transform: translate(-50%, -50%);
     pointer-events: none; /* 실제 조작은 range가 담당 */

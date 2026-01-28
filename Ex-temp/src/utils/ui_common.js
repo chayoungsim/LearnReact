@@ -142,7 +142,6 @@ export const fixTabOnScroll = ({headerSelector = 'header',tabSelector = '.tab-wr
     };
 }
 
-
 export const quickToggle = ({
   buttonSelector = '.btn-quick',
   overlaySelector = '.quick-overlay',
@@ -206,8 +205,6 @@ export const quickToggle = ({
     btnX?.removeEventListener('click', onCloseTalk);
   };
 };
-
-
 
 document.addEventListener('DOMContentLoaded', () => {
   initViewportHeight();

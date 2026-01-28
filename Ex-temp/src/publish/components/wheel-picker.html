@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>휠 피커 - 몸무게 선택</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #f5f5f5;
+        }
+
+        .demo-button {
+            padding: 15px 30px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .demo-button:hover {
+            background: #45a049;
+        }
+
+        .picker-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .picker-modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .picker-modal-container {
+            background: white;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 400px;
+            padding: 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            transform: translateY(50px);
+            transition: transform 0.3s ease;
+        }
+
+        .picker-modal-overlay.active .picker-modal-container {
+            transform: translateY(0);
+        }
+
+        .picker-header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .picker-header h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .wheel-picker-wrapper {
+            position: relative;
+            height: 280px;
+            margin-bottom: 24px;
+            overflow: hidden;
+        }
+
+        .highlight-bar {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 56px;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .highlight-bar div {
+            height: 2px;
+            background: #e0e0e0;
+        }
+
+        .picker-columns {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            gap: 8px;
+            position: relative;
+        }
+
+        .wheel-column {
+            height: 100%;
+            overflow-y: auto;
+            scroll-snap-type: y mandatory;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            position: relative;
+        }
+
+        .wheel-column::-webkit-scrollbar {
+            display: none;
+        }
+
+        .wheel-item {
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #999;
+            scroll-snap-align: center;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+
+        .wheel-item.active {
+            color: #333;
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        .padding-dummy {
+            height: 112px;
+            flex-shrink: 0;
+        }
+
+        #integer {
+            width: 80px;
+        }
+
+        #decimals {
+            width: 60px;
+        }
+
+        .dot {
+            font-size: 28px;
+            font-weight: 600;
+            color: #333;
+            margin: 0 4px;
+        }
+
+        .unit-label {
+            font-size: 20px;
+            color: #666;
+            margin-left: 8px;
+            font-weight: 500;
+        }
+
+        .picker-footer {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .picker-footer button {
+            flex: 1;
+            padding: 14px 24px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+        }
+
+        .btn-bor {
+            background: white;
+            border: 2px solid #e0e0e0 !important;
+            color: #666;
+        }
+
+        .btn-bor:hover {
+            background: #f5f5f5;
+            border-color: #ccc !important;
+        }
+
+        .btn-fill {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #45a049;
+        }
+
+        .result-display {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e8f5e9;
+            border-radius: 8px;
+            text-align: center;
+            display: none;
+        }
+
+        .result-display.show {
+            display: block;
+        }
+
+        .result-display p {
+            font-size: 18px;
+            color: #2e7d32;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <button class="demo-button" id="openPickerBtn">몸무게 선택하기</button>
+
+    <div class="picker-modal-overlay" id="pickerModal">
+        <div class="picker-modal-container">
+            <div class="picker-header">
+                <h3>몸무게 선택</h3>
+            </div>              
+            <div class="wheel-picker-wrapper">
+                <div class="highlight-bar">
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="picker-columns">                        
+                    <div class="wheel-column" id="integer"></div>
+                    <div class="dot">.</div>
+                    <div class="wheel-column" id="decimals"></div>
+                    <div class="unit-label">kg</div>                       
+                </div>
+            </div>
+            <div class="picker-footer">
+                <button class="btn-bor" id="cancelBtn">취소</button>
+                <button class="btn-fill btn-primary" id="addBtn">추가</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="result-display" id="resultDisplay">
+        <p id="resultText"></p>
+    </div>
+
+    <script type="module">
+        export class WheelPicker {
+            constructor(options = {}) {
+                this.integerColumn = document.getElementById('integer');
+                this.decimalColumn = document.getElementById('decimals');
+                this.modal = document.getElementById('pickerModal');
+                this.cancelBtn = document.getElementById('cancelBtn');
+                this.addBtn = document.getElementById('addBtn');
+                
+                // Options
+                this.minValue = options.minValue || 20;
+                this.maxValue = options.maxValue || 200;
+                this.defaultInteger = options.defaultInteger || 70;
+                this.defaultDecimal = options.defaultDecimal || 0;
+                this.onConfirm = options.onConfirm || null;
+                this.onCancel = options.onCancel || null;
+                
+                // Current values
+                this.currentInteger = this.defaultInteger;
+                this.currentDecimal = this.defaultDecimal;
+                
+                // Scroll state
+                this.isScrolling = false;
+                this.scrollTimer = null;
+                
+                this.init();
+            }
+            
+            init() {
+                this.renderWheels();
+                this.attachEventListeners();
+                this.scrollToDefault();
+            }
+            
+            renderWheels() {
+                // Render integer column
+                this.integerColumn.innerHTML = '<div class="padding-dummy"></div>';
+                for (let i = this.minValue; i <= this.maxValue; i++) {
+                    const item = document.createElement('div');
+                    item.className = 'wheel-item';
+                    item.textContent = i;
+                    item.dataset.value = i;
+                    this.integerColumn.appendChild(item);
+                }
+                this.integerColumn.innerHTML += '<div class="padding-dummy"></div>';
+                
+                // Render decimal column
+                this.decimalColumn.innerHTML = '<div class="padding-dummy"></div>';
+                for (let i = 0; i <= 9; i++) {
+                    const item = document.createElement('div');
+                    item.className = 'wheel-item decimal';
+                    item.textContent = i;
+                    item.dataset.value = i;
+                    this.decimalColumn.appendChild(item);
+                }
+                this.decimalColumn.innerHTML += '<div class="padding-dummy"></div>';
+            }
+            
+            attachEventListeners() {
+                // Scroll listeners
+                this.integerColumn.addEventListener('scroll', () => this.handleScroll(this.integerColumn, 'integer'));
+                this.decimalColumn.addEventListener('scroll', () => this.handleScroll(this.decimalColumn, 'decimal'));
+                
+                // Button listeners
+                this.cancelBtn.addEventListener('click', () => this.close());
+                this.addBtn.addEventListener('click', () => this.confirm());
+                
+                // Close on overlay click
+                this.modal.addEventListener('click', (e) => {
+                    if (e.target === this.modal) {
+                        this.close();
+                    }
+                });
+            }
+            
+            handleScroll(column, type) {
+                clearTimeout(this.scrollTimer);
+                
+                this.scrollTimer = setTimeout(() => {
+                    this.snapToNearest(column, type);
+                }, 50);
+            }
+            
+            snapToNearest(column, type) {
+                const items = Array.from(column.querySelectorAll('.wheel-item'));
+                const columnRect = column.getBoundingClientRect();
+                const centerY = columnRect.top + columnRect.height / 2;
+                
+                let closestItem = null;
+                let minDistance = Infinity;
+                
+                items.forEach(item => {
+                    const itemRect = item.getBoundingClientRect();
+                    const itemCenterY = itemRect.top + itemRect.height / 2;
+                    const distance = Math.abs(centerY - itemCenterY);
+                    
+                    if (distance < minDistance) {
+                        minDistance = distance;
+                        closestItem = item;
+                    }
+                });
+                
+                if (closestItem) {
+                    // Smooth scroll to center
+                    const itemOffsetTop = closestItem.offsetTop;
+                    const scrollTo = itemOffsetTop - 112; // 112px is padding
+                    
+                    column.scrollTo({
+                        top: scrollTo,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update active state
+                    items.forEach(item => item.classList.remove('active'));
+                    closestItem.classList.add('active');
+                    
+                    // Update current value
+                    if (type === 'integer') {
+                        this.currentInteger = parseInt(closestItem.dataset.value);
+                    } else {
+                        this.currentDecimal = parseInt(closestItem.dataset.value);
+                    }
+                }
+            }
+            
+            scrollToDefault() {
+                // Scroll integer column to default
+                const integerItems = this.integerColumn.querySelectorAll('.wheel-item');
+                const targetIntegerItem = Array.from(integerItems).find(
+                    item => parseInt(item.dataset.value) === this.defaultInteger
+                );
+                
+                if (targetIntegerItem) {
+                    const scrollTo = targetIntegerItem.offsetTop - 112;
+                    this.integerColumn.scrollTop = scrollTo;
+                    targetIntegerItem.classList.add('active');
+                }
+                
+                // Scroll decimal column to default
+                const decimalItems = this.decimalColumn.querySelectorAll('.wheel-item');
+                const targetDecimalItem = Array.from(decimalItems).find(
+                    item => parseInt(item.dataset.value) === this.defaultDecimal
+                );
+                
+                if (targetDecimalItem) {
+                    const scrollTo = targetDecimalItem.offsetTop - 112;
+                    this.decimalColumn.scrollTop = scrollTo;
+                    targetDecimalItem.classList.add('active');
+                }
+            }
+            
+            open() {
+                this.modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+            
+            close() {
+                this.modal.classList.remove('active');
+                document.body.style.overflow = '';
+                
+                if (this.onCancel) {
+                    this.onCancel();
+                }
+            }
+            
+            confirm() {
+                const value = `${this.currentInteger}.${this.currentDecimal}`;
+                const floatValue = parseFloat(value);
+                
+                if (this.onConfirm) {
+                    this.onConfirm({
+                        integer: this.currentInteger,
+                        decimal: this.currentDecimal,
+                        value: floatValue,
+                        formatted: `${value} kg`
+                    });
+                }
+                
+                this.close();
+            }
+            
+            setValue(integer, decimal) {
+                this.currentInteger = integer;
+                this.currentDecimal = decimal;
+                this.defaultInteger = integer;
+                this.defaultDecimal = decimal;
+                this.scrollToDefault();
+            }
+            
+            getValue() {
+                return {
+                    integer: this.currentInteger,
+                    decimal: this.currentDecimal,
+                    value: parseFloat(`${this.currentInteger}.${this.currentDecimal}`),
+                    formatted: `${this.currentInteger}.${this.currentDecimal} kg`
+                };
+            }
+        }
+        
+        // Demo usage
+        const resultDisplay = document.getElementById('resultDisplay');
+        const resultText = document.getElementById('resultText');
+        const openPickerBtn = document.getElementById('openPickerBtn');
+        
+        const picker = new WheelPicker({
+            minValue: 30,
+            maxValue: 150,
+            defaultInteger: 70,
+            defaultDecimal: 5,
+            onConfirm: (data) => {
+                console.log('선택된 몸무게:', data);
+                resultText.textContent = `선택된 몸무게: ${data.formatted}`;
+                resultDisplay.classList.add('show');
+                
+                setTimeout(() => {
+                    resultDisplay.classList.remove('show');
+                }, 3000);
+            },
+            onCancel: () => {
+                console.log('취소되었습니다.');
+            }
+        });
+        
+        openPickerBtn.addEventListener('click', () => {
+            picker.open();
+        });
+        
+        // Export to window for external use
+        window.WheelPicker = WheelPicker;
+    </script>
+</body>
+</html>

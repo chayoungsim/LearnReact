@@ -20,8 +20,8 @@
         </header>
 
         <div class="sub-wrap has-header">
-            <div class="weight-sect1">
-                <div class="weight-sect1-top">
+            <div class="health-sect1">
+                <div class="health-sect1-top">
                     <div class="switch-bmi">
                         <div class="switch">
                             <input type="checkbox" id="switchTg">
@@ -30,20 +30,33 @@
                             </label>
                         </div>
                         <span class="text-b-md-m ">BMI로 보기</span>
+                        <i class="ico-i"></i>
                     </div>
-                    <button class="btn-help"> 
-                        <i class="ico-info"></i>
-                        <span>BMI란</span>
+                    <button class="btn-trashb"> 
+                        <i class="ico-trash"></i>
+                        <span>목표삭제</span>
                     </button>
                 </div>
-                <div class="weight-sect1-info">
-                    <div class="weight-infobx">
+                <!-- 데이터 없을시 -->
+                <div class="health-sect1-info">
+                    <div class="card-no-data">
+                        <p class="text-b-sm-m">아직 목표 몸무게가 없어요<br>아래 버튼을 눌러 목표 몸무게를 등록해 보세요</p>
+                        <button class="btn-edit">
+                            <i class="ico-edit"></i>
+                            <span>등록하기</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 1 -->
+                <div class="health-sect1-info">
+                    <div class="health-infobx">
                         <span class="d-day">D-13</span>
                         <h3>
                             <i class="ico-goal"></i>
                             <span class="text-b-md-sb">목표 몸무게</span>
                         </h3>
-                        <div class="weight-wrap">
+                        <div class="health-data-wrap">
                             <div class="weight">
                                 <span class="text-h1">60.2</span>
                                 <span class="text-h6">kg</span>
@@ -53,7 +66,25 @@
                                 <span class="sr-only">몸무게입력</span>
                             </button>
                         </div>
-                        <div>목표까지 <strong class="hc1">22.2kg</strong> 남았어요.</div>
+                        <div class="text-b-sm-m">목표까지 <strong class="hc1">22.2kg</strong> 남았어요.</div>
+                    </div>
+                </div>
+
+                <!-- 목표달성 -->
+                <div class="health-sect1-info">
+                    <div class="health-infobx health-infobx-success">
+                        <span class="d-day">D-13</span>
+                        <h3>
+                            <i class="ico-goal"></i>
+                            <span class="text-b-md-sb">목표 몸무게</span>
+                        </h3>
+                        <div class="health-data-wrap">
+                            <div class="weight">
+                                <span class="text-h1">60.2</span>
+                                <span class="text-h6">kg</span>
+                            </div>
+                        </div>
+                        <div class="text-b-sm-m">드디어 목표 달성!</div>
                     </div>
                 </div>
             </div>
@@ -261,13 +292,15 @@
                         </div>
                     </div>
                 </div>
-                <button type="button" class="btn-fill">
+                <button type="button" class="btn-bor">
                     <span>더보기</span>
                     <i class="ico-arr-down"></i>
                 </button>
             </div>
         </div>
-
+        <div class="bottom-button-fixed">
+            <button type="button" class="btn-fill btn-primary"><strong>몸무게 입력하기</strong></button>
+        </div>
         <div data-include-path="../components/_inc/bottom-nav.html"></div>
     </div>
 

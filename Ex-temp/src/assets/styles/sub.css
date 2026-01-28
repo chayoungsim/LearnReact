@@ -193,7 +193,7 @@
     bottom:16rem;
     right: 1rem;
     background: var(--surface-base);
-    width:16.9rem;
+    width:16.3rem;
     border-radius: 1.8rem;
     padding:0.4rem 2rem;
 }
@@ -934,25 +934,25 @@
     color: var(--gray-800)
 }
 
-.weight-sect1 {
+.health-sect1 {
     padding:1rem 1.6rem 2rem;
     background: var(--surface-base);
 }
-.weight-sect1-top {
+.health-sect1-top {
     display: flex;
     justify-content: space-between;
 }
-.weight-sect1-info {
+.health-sect1-info {
     margin-top: 1.6rem;
 }
-.weight-infobx {
+.health-infobx {
     position: relative;
     border-radius: 1rem;
     background: var(--Primary-soft, linear-gradient(101deg, #D9FFE1 7.56%, #EFFFD9 89.41%));
     padding:2.4rem 2.5rem;
     overflow: hidden;
 }
-.weight-infobx::after {
+.health-infobx::after {
     content: '';
     position: absolute;
     right: 1rem;
@@ -962,9 +962,23 @@
     height: 8.9rem;
     background: url(../images/gemini.svg) no-repeat 50% 0;
     background-size: 100% auto;
-
 }
-.weight-infobx .d-day {
+.health-infobx-success::after {
+     background: url(../images/gemini-ok.svg) no-repeat 50% 0;
+     background-size: 100% auto;
+}
+.health-infobx-success::before {
+    content: '';
+    position: absolute;
+    right: -1rem;
+    bottom: -1.5rem;
+    display: block;
+    width: 22.5rem;
+    height: 14.8rem;
+    background: url(../images/gemini-bg.svg) no-repeat 50% 50%;
+}
+
+.health-infobx .d-day {
     display: inline-flex;
     align-items: center;
     border: 1px solid var(--border-neutral-soft);
@@ -978,18 +992,18 @@
     padding: 0.4rem 0.9rem;
     color: var(--surface-primary);  
 }
-.weight-infobx h3 {
+.health-infobx h3 {
     display: flex;
     align-items: center;
     gap: 0.4rem;
 }
-.weight-wrap {
+.health-data-wrap {
     display: flex;
     align-items: flex-end;
     margin: 0.3rem 0 0.2rem;
     
 }
-.weight-wrap .pen-edit {
+.health-data-wrap .pen-edit {
     margin-bottom: 0.3rem;
 }
 .weight-sect2 .calendar-header{

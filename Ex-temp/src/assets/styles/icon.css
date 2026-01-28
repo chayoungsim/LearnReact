@@ -612,58 +612,42 @@
     display: inline-block;
     width: 2.4rem;
     height: 2.4rem;
-    background-color: var(--icon-base);
-    mask: url(../images/ico-q-repeat.svg) no-repeat 50% 50%;
-    mask-size: contain;
-    -webkit-mask: url(../images/ico-q-repeat.svg) no-repeat 50% 50%;
-    -webkit-mask-size: contain;
+    background: url(../images/ico-c-repeat.svg) no-repeat 50% 50%;  
     vertical-align: middle;
 }
 .ico-q-pill {
     display: inline-block;
     width: 2.4rem;
     height: 2.4rem;
-    background-color: var(--icon-base);
-    mask: url(../images/ico-q-pill.svg) no-repeat 50% 50%;
-    mask-size: contain;
-    -webkit-mask: url(../images/ico-q-pill.svg) no-repeat 50% 50%;
-    -webkit-mask-size: contain;
+    background: url(../images/ico-c-pill.svg) no-repeat 50% 50%;    
     vertical-align: middle;
 }
 .ico-q-work {
     display: inline-block;
     width: 2.4rem;
     height: 2.4rem;
-    background-color: var(--icon-base);
-    mask: url(../images/ico-q-work.svg) no-repeat 50% 50%;
-    mask-size: 1.9rem auto;
-    -webkit-mask: url(../images/ico-q-work.svg) no-repeat 50% 50%;
-    -webkit-mask-size: 1.9rem auto;
+    background: url(../images/ico-c-work.svg) no-repeat 50% 50%;
     vertical-align: middle;
 }
 .ico-q-blood {
     display: inline-block;
     width: 2.4rem;
     height: 2.4rem;
-    background: url(../images/ico-q-blood.svg) no-repeat 50% 50%;   
+    background: url(../images/ico-c-blood.svg) no-repeat 50% 50%;   
     vertical-align: middle;
 }
 .ico-q-icn {
     display: inline-block;
     width: 2.4rem;
     height: 2.4rem;
-    background: url(../images/ico-q-icn.svg) no-repeat 50% 50%;
+    background: url(../images/ico-c-icn.svg) no-repeat 50% 50%;
     vertical-align: middle;
 }
 .ico-q-weight {
     display: inline-block;
     width: 2.4rem;
     height: 2.4rem;
-    background-color: var(--icon-base);
-    mask: url(../images/ico-q-weight.svg) no-repeat 50% 50%;
-    mask-size: contain;
-    -webkit-mask: url(../images/ico-q-weight.svg) no-repeat 50% 50%;
-    -webkit-mask-size: contain;
+    background: url(../images/ico-c-wht.svg) no-repeat 50% 50%;
     vertical-align: middle;
 }
 .ico-tropy {
@@ -823,6 +807,14 @@
     width: 2.2rem;
     height: 2.2rem;
     background: url(../images/ico-clock2.svg) no-repeat 50% 0;   
+    vertical-align: middle;
+    background-size: contain;
+}
+.ico-i {
+    display: inline-block;
+    width: 1.6rem;
+    height: 1.6rem;
+    background: url(../images/ico-i.svg) no-repeat 50% 0;   
     vertical-align: middle;
     background-size: contain;
 }

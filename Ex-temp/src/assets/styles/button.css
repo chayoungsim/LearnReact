@@ -244,10 +244,21 @@
     gap: 0.4rem;
 }
 .btn-help span {
-    font-size: 1.4rem;
+    font: var(--body-small-m-14);
     color: var(--text-neutral-soft);
-    font-weight: 500;
 }
+
+.btn-trashb {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+.btn-trashb span {
+    font: var(--body-small-m-14);
+    color: var(--text-neutral);
+    
+}
+
 
 .btn-group {
     width: 100%;
@@ -298,4 +309,14 @@
 .btn-toggle .ico-arr-down {
     background: var(--icon-neutral);
     margin-left: auto;
+}
+
+.bottom-button-fixed {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 0.8rem 1.6rem;
+    background: var(--surface-base);
+    z-index: 21;
 }
