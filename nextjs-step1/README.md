@@ -31,3 +31,4 @@ Server Component에서는 async / await 사용 가능
 - 클릭 / 상태 변화
 - 애니메이션
 - 브라우저 API 접근
+
