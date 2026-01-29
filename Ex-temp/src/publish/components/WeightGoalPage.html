@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>wheel-picke</title>
-
     <link rel="stylesheet" href="../../assets/styles/style.css" />
 
  
@@ -22,19 +21,13 @@
                 </div>
                 <div class="picker-columns">                        
                     <div class="wheel-column" id="integer">
-                        <div class="padding-dummy"></div>
-                        <div class="wheel-item">30</div>
-                        <div class="wheel-item active">31</div>
-                        <div class="wheel-item">32</div>
-                        <div class="padding-dummy"></div>
+                        <div class="wheel-items">
+                        </div>
                     </div>
                     <div class="dot">.</div>
                     <div class="wheel-column" id="decimals">
-                        <div class="padding-dummy"></div>
-                        <div class="wheel-item decimal">1</div>
-                        <div class="wheel-item decimal active">2</div>
-                        <div class="wheel-item decimal">3</div>
-                        <div class="padding-dummy"></div>
+                        <div class="wheel-items">
+                        </div>
                     </div> 
                     <div class="unit-label">kg</div>                       
                 </div>
@@ -45,180 +38,18 @@
             </div>
         </div>
     </div>
-<script type="module">
-export class WheelPicker {
-  constructor(options = {}) {
-    this.integerColumn = document.getElementById('integer');
-    this.decimalColumn = document.getElementById('decimals');
-    this.modal = document.getElementById('pickerModal');
-    this.cancelBtn = document.getElementById('cancelBtn');
-    this.addBtn = document.getElementById('addBtn');
 
-    /* options */
-    this.minValue = options.minValue ?? 20;
-    this.maxValue = options.maxValue ?? 200;
-    this.defaultInteger = options.defaultInteger ?? 70;
-    this.defaultDecimal = options.defaultDecimal ?? 0;
-    this.onConfirm = options.onConfirm ?? null;
-    this.onCancel = options.onCancel ?? null;
-
-    this.currentInteger = this.defaultInteger;
-    this.currentDecimal = this.defaultDecimal;
-
-    this.scrollTimer = null;
-
-    this.init();
-  }
-
-  init() {
-    this.renderWheels();
-    this.attachEventListeners();
-    this.scrollToDefault();
-  }
-
-  /* ---------- render ---------- */
-
-  renderWheels() {
-    this.integerColumn.innerHTML = '<div class="padding-dummy"></div>';
-    for (let i = this.minValue; i <= this.maxValue; i++) {
-      this.integerColumn.insertAdjacentHTML(
-        'beforeend',
-        `<div class="wheel-item" data-value="${i}">${i}</div>`
-      );
-    }
-    this.integerColumn.insertAdjacentHTML('beforeend', '<div class="padding-dummy"></div>');
-
-    this.decimalColumn.innerHTML = '<div class="padding-dummy"></div>';
-    for (let i = 0; i <= 9; i++) {
-      this.decimalColumn.insertAdjacentHTML(
-        'beforeend',
-        `<div class="wheel-item decimal" data-value="${i}">${i}</div>`
-      );
-    }
-    this.decimalColumn.insertAdjacentHTML('beforeend', '<div class="padding-dummy"></div>');
-  }
-
-  /* ---------- events ---------- */
-
-  attachEventListeners() {
-    this.integerColumn.addEventListener('scroll', () =>
-      this.handleScroll(this.integerColumn, 'integer')
-    );
-    this.decimalColumn.addEventListener('scroll', () =>
-      this.handleScroll(this.decimalColumn, 'decimal')
-    );
-
-    this.addDragScrolling(this.integerColumn);
-    this.addDragScrolling(this.decimalColumn);
-
-    this.cancelBtn?.addEventListener('click', () => this.close());
-    this.addBtn?.addEventListener('click', () => this.confirm());
-
-    this.modal?.addEventListener('click', (e) => {
-      if (e.target === this.modal) this.close();
+  <script type="module">
+    import { initWeightWheel, getSelectedWeight } from '../../utils/wheelpicker.js';
+    
+    // DOM이 로드된 후 초기화
+    document.addEventListener('DOMContentLoaded', () => {
+      initWeightWheel();
+      
+      // 선택된 값 확인 (선택사항)
+      console.log('Selected weight:', getSelectedWeight());
     });
-  }
-
-  handleScroll(column, type) {
-    clearTimeout(this.scrollTimer);
-    this.scrollTimer = setTimeout(() => {
-      this.snapToNearest(column, type);
-    }, 50);
-  }
-
-  snapToNearest(column, type) {
-    const items = [...column.querySelectorAll('.wheel-item')];
-    const centerY = column.getBoundingClientRect().top + column.offsetHeight / 2;
-
-    let closest = null;
-    let min = Infinity;
-
-    items.forEach(item => {
-      const y = item.getBoundingClientRect().top + item.offsetHeight / 2;
-      const dist = Math.abs(centerY - y);
-      if (dist < min) {
-        min = dist;
-        closest = item;
-      }
-    });
-
-    if (!closest) return;
-
-    column.scrollTo({
-      top: closest.offsetTop - 112,
-      behavior: 'smooth'
-    });
-
-    items.forEach(i => i.classList.remove('active'));
-    closest.classList.add('active');
-
-    const value = parseInt(closest.dataset.value, 10);
-    type === 'integer'
-      ? (this.currentInteger = value)
-      : (this.currentDecimal = value);
-  }
-
-  scrollToDefault() {
-    this.setColumnValue(this.integerColumn, this.defaultInteger);
-    this.setColumnValue(this.decimalColumn, this.defaultDecimal);
-  }
-
-  setColumnValue(column, value) {
-    const item = [...column.querySelectorAll('.wheel-item')]
-      .find(el => parseInt(el.dataset.value, 10) === value);
-
-    if (!item) return;
-
-    column.scrollTop = item.offsetTop - 112;
-    item.classList.add('active');
-  }
-
-  /* ---------- public API ---------- */
-
-  open() {
-    this.modal?.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-
-  close() {
-    this.modal?.classList.remove('active');
-    document.body.style.overflow = '';
-    this.onCancel?.();
-  }
-
-  confirm() {
-    const value = parseFloat(`${this.currentInteger}.${this.currentDecimal}`);
-    this.onConfirm?.({
-      integer: this.currentInteger,
-      decimal: this.currentDecimal,
-      value,
-      formatted: `${value} kg`
-    });
-    this.close();
-  }
-
-  setValue(integer, decimal) {
-    this.defaultInteger = integer;
-    this.defaultDecimal = decimal;
-    this.currentInteger = integer;
-    this.currentDecimal = decimal;
-    this.scrollToDefault();
-  }
-
-  getValue() {
-    return {
-      integer: this.currentInteger,
-      decimal: this.currentDecimal,
-      value: parseFloat(`${this.currentInteger}.${this.currentDecimal}`)
-    };
-  }
-
-  destroy() {
-    this.integerColumn?._dragCleanup?.();
-    this.decimalColumn?._dragCleanup?.();
-  }
-}
-</script>
+  </script>  
 
 </body>
 </html>

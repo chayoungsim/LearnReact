@@ -114,22 +114,28 @@
 }
 
 .wheel-column {
-    width: 9.8rem;
-    
+    width: 9.8rem;  
+    height: 17.4rem;  
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE */
     cursor: grab;
+    user-select: none;
+}
+
+.wheel-column:active {
+    cursor: grabbing;
 }
 
 .wheel-column::-webkit-scrollbar {
     display: none;
 }
 
-/* 상·하 여백 (중앙 정렬용) */
-.padding-dummy {
-    height: 80px;
+
+
+.wheel-items {
+    transition: transform 0.2s ease-out;
 }
 
 .wheel-item {
@@ -154,6 +160,8 @@
     font-weight: 600;
     font-size: 3.2rem;
 }
+
+
 
 .unit-label {
     font-size: 16px;
