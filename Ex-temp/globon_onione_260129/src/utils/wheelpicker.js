@@ -1,8 +1,5 @@
 const ITEM_HEIGHT = 60;
 
-/**
- * 공통 Wheel 생성 함수
- */
 export function createWheel({
   container,
   min,
