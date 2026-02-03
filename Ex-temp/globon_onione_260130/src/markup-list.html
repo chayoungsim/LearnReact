@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>작업내역</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            html {
+                font-size: 10px;
+            }
+            body {
+                padding: 2vw;
+            }
+            .markupGuide {
+                display: flex;
+                flex-direction: column;
+             
+            }
+            .markupGuide li {
+                border-bottom: 1px solid #ddd;
+                display: grid;
+                grid-template-columns: 1fr 1fr 50% 1fr;
+            }
+            .markupGuide > li > div {
+                border-right: 1px solid #ddd;
+                padding: 1rem;
+                font-size: 1.4rem;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                word-break: break-all;
+            }
+            .markupGuide > li > div:first-child {                
+                border-left: 1px solid #ddd;
+            }
+            .markupGuide .head > div {
+                background: #f4f4f4;
+                justify-content: center;
+                border-top: 1px solid #ddd;
+            }
+       
+            
+        </style>
+    </head>
+    <body>
+        <div>
+            <ul class="markupGuide">
+                <li class="head">
+                    <div>lv.1</div>
+                    <div>lv.2</div>
+                    <div>Link</div>
+                    <div>비고</div>
+                </li>
+                <li>
+                    <div>공통</div>
+                    <div>components</div>
+                    <div><a target="_blank" href="publish/components/components.html">components.html</a></div>
+                    <div></div>
+                </li>
+                <li>
+                    <div></div>
+                    <div>button</div>
+                    <div><a target="_blank" href="publish/components/button.html">button.html</a></div>
+                    <div></div>
+                </li>
+                <li>
+                    <div></div>
+                    <div>calendar-week</div>
+                    <div><a target="_blank" href="publish/components/calendar-week.html">calendar-week.html</a></div>
+                    <div></div>
+                </li>
+                <li>  
+                    <div></div>
+                    <div>calendar-monthly</div>
+                    <div><a target="_blank" href="publish/components/calendar.html">calendar.html</a></div>
+                    <div></div>
+                </li>
+                <li>
+                    <div></div>
+                    <div>wheel-picker</div>
+                    <div><a target="_blank" href="publish/components/WeightGoalPage.html">WeightGoalPage.html</a></div>
+                    <div></div>
+                </li>
+                <li>
+                    <div></div>
+                    <div>modal</div>
+                    <div><a target="_blank" href="publish/components/modal.html">modal.html</a></div>
+                    <div></div>
+                </li>
+                <li>
+                    <div>메인</div>
+                    <div></div>
+                    <div><a target="_blank" href="publish/page/GH-MAIN-001.html">GH-MAIN-001.html</a></div>
+                    <div></div>
+                </li>
+                <li>
+                    <div>내건강</div>
+                    <div></div>
+                    <div><a target="_blank" href="publish/page/GH-HEAL-001.html">GH-HEAL-001.html</a></div>
+                    <div></div>
+                </li>
+                <li>
+                    <div></div>
+                    <div>건강 데이터</div>
+                    <div><a target="_blank" href="publish/page/GH-HEAL-002.html">GH-HEAL-002.html</a></div>
+                    <div></div>
+                </li>
+                <li>
+                    <div></div>
+                    <div>AI 건강 분석</div>
+                    <div><a target="_blank" href="publish/page/GH-HEAL-002-T2.html">GH-HEAL-002-T2.html</a></div>
+                    <div></div>
+                </li>
+                <li>
+                    <div>복약관리</div>
+                    <div></div>
+                    <div><a target="_blank" href="publish/page/GH-MORE-022-1.html">GH-MORE-022-1.html</a></div>
+                    <div></div>
+                </li>
+                <li>
+                    <div></div>
+                    <div>약 추가</div>
+                    <div><a target="_blank" href="publish/page/GH-MORE-022-2.html">GH-MORE-022-2.html</a></div>
+                    <div></div>
+                </li>
+                <li>
+                    <div></div>
+                    <div>약검색(데이터 있음)</div>
+                    <div><a target="_blank" href="publish/page/GH-MORE-022-3.html">GH-MORE-022-3.html</a></div>
+                    <div></div>
+                </li>
+                <li>
+                    <div></div>
+                    <div>약검색(데이터 없음)</div>
+                    <div><a target="_blank" href="publish/page/GH-MORE-022-4.html">GH-MORE-022-4.html</a></div>
+                    <div></div>
+                </li>
+                <li>
+                    <div></div>
+                    <div>구매영양제</div>  
+                    <div><a target="_blank" href="publish/page/GH-MORE-022-5.html">GH-MORE-022-5.html</a></div>
+                    <div></div>
+                </li>
+                <li>
+                    <div>몸무게</div>
+                    <div>상세-1주</div>  
+                    <div><a target="_blank" href="publish/page/GH-MORE-021-1.html">GH-MORE-021-1.html</a></div>
+                    <div></div>
+                </li>
+                <li>
+                    <div></div>
+                    <div>상세-데이터없음</div>  
+                    <div><a target="_blank" href="publish/page/GH-MORE-021-1-nodata.html">GH-MORE-021-1-nodata.html</a></div>
+                    <div></div>
+                </li>
+                <!-- 삭제변경된 내용
+                <li>
+                    <div>몸무게 입력</div>  
+                    <div><a target="_blank" href="publish/page/GH-MORE-021-2.html">GH-MORE-021-2.html</a></div>
+                    <div></div>
+                </li>
+                <li>
+                    <div>몸무게 입력-모달</div>  
+                    <div><a target="_blank" href="publish/page/GH-MORE-021-3.html">GH-MORE-021-3.html</a></div>
+                    <div></div>
+                </li> -->
+                <li>
+                    <div></div>
+                    <div>몸무게 입력 (기본값 오늘)</div>  
+                    <div><a target="_blank" href="publish/page/GH-MORE-021-2-T.html">GH-MORE-021-2-T.html</a></div>
+                    <div></div>
+                </li>
+                <li>
+                    <div></div>                    
+                    <div>날짜입력</div>  
+                    <div><a target="_blank" href="publish/page/GH-MORE-021-4.html">GH-MORE-021-4.html</a></div>
+                    <div></div>
+                </li>
+                <li>
+                    <div></div>
+                    <div>시간입력</div>  
+                    <div><a target="_blank" href="publish/page/GH-MORE-021-5.html">GH-MORE-021-5.html</a></div>
+                    <div></div>
+                </li>
+                <li>
+                    <div></div>
+                    <div>목표설정</div>  
+                    <div><a target="_blank" href="publish/page/GH-MORE-021-6.html">GH-MORE-021-6.html</a></div>
+                    <div></div>
+                </li>                
+                <li>
+                    <div>걸음수</div>
+                    <div>상세-1주</div>  
+                    <div><a target="_blank" href="publish/page/GH-MORE-016-1.html">GH-MORE-016-1.html</a></div>
+                    <div></div>
+                </li>
+                <li>
+                    <div></div>
+                    <div>상세-데이터없음</div>  
+                    <div><a target="_blank" href="publish/page/GH-MORE-016-1-nodata.html">GH-MORE-016-1-nodata.html</a></div>
+                    <div></div>
+                </li>
+                <li>
+                    <div></div>
+                    <div>목표설정</div>  
+                    <div><a target="_blank" href="publish/page/GH-MORE-016-2.html">GH-MORE-016-2.html</a></div>
+                    <div></div>
+                </li>
+                <li>
+                    <div>운동</div>
+                    <div>상세-1주</div>  
+                    <div><a target="_blank" href="publish/page/GH-MORE-017-1.html">GH-MORE-017-1.html</a></div>
+                    <div></div>
+                </li>
+                <li>
+                    <div></div>
+                    <div>운동기록추가 직접입력</div>  
+                    <div>작성중</div>
+                    <div></div>
+                </li>
+                <li>
+                    <div></div>
+                    <div>운동기록추가 자주 입력</div>  
+                    <div>작성중</div>
+                    <div></div>
+                </li>
+                <li>
+                    <div>혈압</div>
+                    <div>상세-1주</div>  
+                    <div><a target="_blank" href="publish/page/GH-MORE-019-1.html">GH-MORE-019-1.html</a></div>
+                    <div></div>
+                </li>
+                <li>
+                    <div></div>
+                    <div>상세-3개월-전체 평균보기</div>  
+                    <div><a target="_blank" href="publish/page/GH-MORE-019-2.html">GH-MORE-019-2.html</a></div>
+                    <div></div>
+                </li>
+                <li>
+                    <div></div>
+                    <div>상세-3개월-혈압약복용</div>  
+                    <div><a target="_blank" href="publish/page/GH-MORE-019-3.html">GH-MORE-019-3.html</a></div>
+                    <div></div>
+                </li>
+                <li>
+                    <div></div>
+                    <div>상세-바텀시트(혈압약복용)</div>  
+                    <div>작업중</div>
+                    <!-- <div><a target="_blank" href="publish/page/GH-MORE-019-4.html">GH-MORE-019-4.html</a></div> -->
+                    <div></div>
+                </li>
+                <li>
+                    <div></div>
+                    <div>상세-혈압입력</div>  
+                    <div>작업중</div>
+                    <!-- <div><a target="_blank" href="publish/page/GH-MORE-019-5.html">GH-MORE-019-5.html</a></div> -->
+                    <div></div>
+                </li>
+                <li>
+                    <div>루틴</div>
+                    <div>메인</div>  
+                    <div><a href="publish/page/GH-MORE-008.html" target="_blank">GH-MORE-008.html</a></div>
+                    <div></div>
+                </li>
+                <li>
+                    <div></div>
+                    <div>루틴실천기록</div>  
+                    <div><a href="publish/page/GH-MORE-012.html" target="_blank">GH-MORE-012.html</a></div>
+                    <div></div>
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>
